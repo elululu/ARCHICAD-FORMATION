@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtelierLO — Formation ARCHICAD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="40" height="40" rx="8" fill="#00A6C8"/>
+                        <path d="M10 28L20 12L30 28H10Z" stroke="white" stroke-width="2.5" fill="none"/>
+                        <line x1="14" y1="24" x2="26" y2="24" stroke="white" stroke-width="2"/>
+                    </svg>
+                </div>
+                <span>AtelierLO</span>
+            </a>
+            <div class="nav-links">
+                <a href="#programme">Programme</a>
+                <a href="#methode">Méthode</a>
+                <a href="#outils">Outils</a>
+                <a href="app.html" class="btn-nav">Accéder à la plateforme</a>
+            </div>
+            <button class="nav-toggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="grid-pattern"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Formation personnalisée
+            </div>
+            <h1>Maîtrisez <span class="text-gradient">ARCHICAD</span> de A à Z</h1>
+            <p class="hero-subtitle">
+                Un parcours de formation complet et structuré, de la prise en main 
+                jusqu'aux rendus professionnels avec Enscape & 3ds Max.
+            </p>
+            <div class="hero-actions">
+                <a href="app.html" class="btn btn-primary">
+                    <span>Accéder à ma formation</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#programme" class="btn btn-secondary">Voir le programme</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">20</span>
+                    <span class="stat-label">Jours de formation</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Visio individuelle</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number">3D</span>
+                    <span class="stat-label">Enscape & 3ds Max</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="window-mockup">
+                <div class="window-header">
+                    <div class="window-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <span class="window-title">ARCHICAD — Projet Formation</span>
+                </div>
+                <div class="window-content">
+                    <div class="mockup-sidebar">
+                        <div class="mockup-item active"></div>
+                        <div class="mockup-item"></div>
+                        <div class="mockup-item"></div>
+                        <div class="mockup-item"></div>
+                        <div class="mockup-item"></div>
+                    </div>
+                    <div class="mockup-main">
+                        <div class="mockup-3d">
+                            <svg viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Simple house 3D wireframe -->
+                                <rect x="60" y="80" width="180" height="100" stroke="#00A6C8" stroke-width="1.5" fill="rgba(0,166,200,0.05)"/>
+                                <polygon points="60,80 150,30 240,80" stroke="#00A6C8" stroke-width="1.5" fill="rgba(0,166,200,0.08)"/>
+                                <rect x="90" y="110" width="40" height="40" stroke="#00A6C8" stroke-width="1" fill="rgba(0,166,200,0.1)"/>
+                                <rect x="170" y="120" width="30" height="60" stroke="#00A6C8" stroke-width="1" fill="rgba(0,166,200,0.1)"/>
+                                <line x1="60" y1="80" x2="30" y2="100" stroke="#00A6C8" stroke-width="1" opacity="0.5"/>
+                                <line x1="60" y1="180" x2="30" y2="200" stroke="#00A6C8" stroke-width="1" opacity="0.5"/>
+                                <line x1="30" y1="100" x2="30" y2="200" stroke="#00A6C8" stroke-width="1" opacity="0.5"/>
+                                <line x1="150" y1="30" x2="120" y2="50" stroke="#00A6C8" stroke-width="1" opacity="0.5"/>
+                                <line x1="120" y1="50" x2="30" y2="100" stroke="#00A6C8" stroke-width="1" opacity="0.5"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programme Section -->
+    <section class="programme" id="programme">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Programme</span>
+                <h2>4 semaines pour maîtriser ARCHICAD</h2>
+                <p>Un parcours progressif et adaptable à votre rythme, de l'initiation aux fonctionnalités avancées.</p>
+            </div>
+            <div class="weeks-grid">
+                <!-- Semaine 1 -->
+                <div class="week-card">
+                    <div class="week-number">
+                        <span>S1</span>
+                    </div>
+                    <div class="week-content">
+                        <h3>Fondamentaux</h3>
+                        <p>Interface, navigation 2D/3D, outils de dessin, murs, dalles, menuiseries</p>
+                        <ul class="week-topics">
+                            <li>Prise en main de l'interface</li>
+                            <li>Navigation et vues</li>
+                            <li>Dessin 2D</li>
+                            <li>Murs & structures</li>
+                            <li>Portes & fenêtres</li>
+                        </ul>
+                        <span class="week-days">Jours 1 → 5</span>
+                    </div>
+                </div>
+                <!-- Semaine 2 -->
+                <div class="week-card">
+                    <div class="week-number">
+                        <span>S2</span>
+                    </div>
+                    <div class="week-content">
+                        <h3>Modélisation complète</h3>
+                        <p>Escaliers, toitures, étages, zones et projet fil rouge</p>
+                        <ul class="week-topics">
+                            <li>Escaliers & garde-corps</li>
+                            <li>Toitures complexes</li>
+                            <li>Gestion des étages</li>
+                            <li>Zones & surfaces</li>
+                            <li>Projet maison complète</li>
+                        </ul>
+                        <span class="week-days">Jours 6 → 10</span>
+                    </div>
+                </div>
+                <!-- Semaine 3 -->
+                <div class="week-card">
+                    <div class="week-number">
+                        <span>S3</span>
+                    </div>
+                    <div class="week-content">
+                        <h3>Documentation & Plans</h3>
+                        <p>Coupes, élévations, cotations, nomenclatures et mise en page</p>
+                        <ul class="week-topics">
+                            <li>Terrain & maillages</li>
+                            <li>Coupes & élévations</li>
+                            <li>Cotations & annotations</li>
+                            <li>Nomenclatures & métrés</li>
+                            <li>Carnet de mise en page</li>
+                        </ul>
+                        <span class="week-days">Jours 11 → 15</span>
+                    </div>
+                </div>
+                <!-- Semaine 4 -->
+                <div class="week-card">
+                    <div class="week-number highlight">
+                        <span>S4</span>
+                    </div>
+                    <div class="week-content">
+                        <h3>Rendu 3D & Productivité</h3>
+                        <p>Matériaux, rendus, Enscape, 3ds Max et passerelle SketchUp</p>
+                        <ul class="week-topics">
+                            <li>Matériaux & textures</li>
+                            <li>Rendu & éclairage</li>
+                            <li>Enscape & 3ds Max</li>
+                            <li>SketchUp ↔ ARCHICAD</li>
+                            <li>Projet final complet</li>
+                        </ul>
+                        <span class="week-days">Jours 16 → 20</span>
+                    </div>
+                </div>
+            </div>
+            <div class="programme-note">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+                </svg>
+                <span>Le programme est entièrement adaptable : le nombre de jours et l'ordre des modules s'ajustent selon vos disponibilités et votre progression.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Méthode Section -->
+    <section class="methode" id="methode">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Méthode</span>
+                <h2>Une formation pensée pour vous</h2>
+                <p>Un accompagnement individuel en visio, avec un suivi personnalisé tout au long de votre parcours.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>Formation individuelle</h3>
+                    <p>Sessions en visio en one-to-one pour un apprentissage adapté à votre rythme et vos besoins.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
+                    <h3>Suivi de progression</h3>
+                    <p>Votre tableau de bord personnel vous permet de suivre votre avancement en temps réel.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <h3>Exercices pratiques</h3>
+                    <p>Chaque jour inclut des exercices concrets réalisables pendant la session pour ancrer les acquis.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3>Programme adaptable</h3>
+                    <p>Le contenu s'ajuste à vos disponibilités : 3, 4 ou 5 semaines selon votre planning.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <h3>Récaps de séance</h3>
+                    <p>Après chaque session, retrouvez les points clés et les rappels importants dans votre espace.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                        </svg>
+                    </div>
+                    <h3>Visualisation 3D</h3>
+                    <p>Découvrez Enscape et 3ds Max pour produire des rendus photoréalistes et booster votre productivité.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outils Section -->
+    <section class="outils" id="outils">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Outils</span>
+                <h2>Votre espace apprenant</h2>
+                <p>Tout ce dont vous avez besoin, accessible à tout moment depuis n'importe quel appareil.</p>
+            </div>
+            <div class="tools-showcase">
+                <div class="tool-item">
+                    <div class="tool-preview">
+                        <div class="tool-mock dashboard-mock">
+                            <div class="mock-progress-bar">
+                                <div class="mock-progress" style="width: 35%"></div>
+                            </div>
+                            <div class="mock-cards">
+                                <div class="mock-card done"></div>
+                                <div class="mock-card done"></div>
+                                <div class="mock-card active"></div>
+                                <div class="mock-card"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Dashboard personnel</h3>
+                    <p>Visualisez votre progression et accédez à toutes les ressources de la formation.</p>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-preview">
+                        <div class="tool-mock shortcuts-mock">
+                            <div class="mock-shortcut"><span>⌘</span><span>S</span></div>
+                            <div class="mock-shortcut"><span>⌘</span><span>Z</span></div>
+                            <div class="mock-shortcut"><span>V</span></div>
+                            <div class="mock-shortcut"><span>⇧</span><span>F6</span></div>
+                        </div>
+                    </div>
+                    <h3>Raccourcis clavier</h3>
+                    <p>Tous les raccourcis ARCHICAD essentiels organisés par catégorie.</p>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-preview">
+                        <div class="tool-mock notes-mock">
+                            <div class="mock-note-line long"></div>
+                            <div class="mock-note-line medium"></div>
+                            <div class="mock-note-line long"></div>
+                            <div class="mock-note-line short"></div>
+                        </div>
+                    </div>
+                    <h3>Carnet de notes</h3>
+                    <p>Prenez des notes pendant les sessions et retrouvez-les à tout moment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formateur Section -->
+    <section class="formateur">
+        <div class="container">
+            <div class="formateur-card">
+                <div class="formateur-info">
+                    <span class="section-tag">Votre formateur</span>
+                    <h2>Lucien</h2>
+                    <h3>AtelierLO</h3>
+                    <p>
+                        Formation personnalisée en visio sur ARCHICAD, 
+                        de l'initiation aux fonctionnalités avancées, 
+                        avec maîtrise du rendu 3D (Enscape & 3ds Max).
+                    </p>
+                    <div class="formateur-badges">
+                        <span class="badge">ARCHICAD</span>
+                        <span class="badge">SketchUp</span>
+                        <span class="badge">Rendu 3D</span>
+                        <span class="badge">BIM</span>
+                    </div>
+                </div>
+                <div class="formateur-visual">
+                    <div class="avatar-placeholder">
+                        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="80" height="80" rx="40" fill="#eef2f6"/>
+                            <text x="40" y="48" text-anchor="middle" fill="#00A6C8" font-size="28" font-weight="600" font-family="Inter">LO</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Prêt à commencer ?</h2>
+            <p>Connectez-vous à votre espace personnel pour accéder à votre formation.</p>
+            <a href="app.html" class="btn btn-primary btn-large">
+                <span>Accéder à la plateforme</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" rx="8" fill="#00A6C8"/>
+                            <path d="M10 28L20 12L30 28H10Z" stroke="white" stroke-width="2.5" fill="none"/>
+                            <line x1="14" y1="24" x2="26" y2="24" stroke="white" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span>AtelierLO</span>
+                </div>
+                <p class="footer-text">Formation ARCHICAD — © 2026 AtelierLO - Lucien. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    navLinks.classList.remove('active');
+                    navToggle.classList.remove('active');
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.week-card, .feature-card, .tool-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
