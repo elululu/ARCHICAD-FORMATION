@@ -1133,11 +1133,7 @@ body {
    ========================================== */
 .formateur-section {
     display: none;
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(0, 166, 200, 0.05));
-    border: 1px solid rgba(139, 92, 246, 0.2);
-    border-radius: var(--radius-lg);
     margin-bottom: 20px;
-    overflow: hidden;
 }
 
 .formateur-section.visible {
@@ -1266,6 +1262,370 @@ body {
 .formateur-notes-area:focus {
     border-color: rgba(139, 92, 246, 0.3);
     box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* ==========================================
+   FORMATEUR DETAILED GUIDE — Modules
+   ========================================== */
+/* (visible state defined above in main formateur section) */
+
+.formateur-card {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.04), rgba(0, 166, 200, 0.04));
+    border: 1px solid rgba(139, 92, 246, 0.15);
+    border-radius: var(--radius-lg);
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.formateur-card .day-section-header {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.06), rgba(0, 166, 200, 0.06));
+}
+
+/* Module icons */
+.formateur-module-icon {
+    background: rgba(139, 92, 246, 0.12) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.module-emoji {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.module-duration {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    background: rgba(139, 92, 246, 0.1);
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #8b5cf6;
+    margin-left: 8px;
+}
+
+/* Detailed module items */
+.detailed-module-item {
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    border-radius: var(--radius-md);
+    margin-bottom: 16px;
+    overflow: hidden;
+    background: white;
+    transition: var(--transition);
+}
+
+.detailed-module-item:hover {
+    border-color: rgba(139, 92, 246, 0.25);
+    box-shadow: 0 2px 12px rgba(139, 92, 246, 0.06);
+}
+
+.detailed-module-item:last-child {
+    margin-bottom: 0;
+}
+
+.detailed-module-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    cursor: pointer;
+    background: rgba(139, 92, 246, 0.03);
+    transition: var(--transition);
+}
+
+.detailed-module-header:hover {
+    background: rgba(139, 92, 246, 0.06);
+}
+
+.detailed-module-header h4 {
+    flex: 1;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.detailed-module-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.chevron-toggle-mini {
+    opacity: 0.4;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    flex-shrink: 0;
+}
+
+.chevron-toggle-mini.open {
+    transform: rotate(180deg);
+    opacity: 0.7;
+}
+
+.detailed-module-body {
+    display: none;
+    padding: 0 20px 20px;
+}
+
+.detailed-module-body.open {
+    display: block;
+}
+
+/* Labels for each block type */
+.detailed-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 10px;
+    background: rgba(139, 92, 246, 0.08);
+    color: #8b5cf6;
+}
+
+.detailed-label.speech {
+    background: rgba(59, 130, 246, 0.08);
+    color: #3b82f6;
+}
+
+.detailed-label.demo {
+    background: rgba(34, 197, 94, 0.08);
+    color: #16a34a;
+}
+
+.detailed-label.key {
+    background: rgba(245, 158, 11, 0.08);
+    color: #d97706;
+}
+
+/* Explanation block */
+.detailed-explanation {
+    margin-bottom: 20px;
+    padding: 16px;
+    background: rgba(139, 92, 246, 0.03);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid rgba(139, 92, 246, 0.3);
+}
+
+.detailed-explanation p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* What to say block */
+.detailed-whattosay {
+    margin-bottom: 20px;
+    padding: 16px;
+    background: rgba(59, 130, 246, 0.03);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid rgba(59, 130, 246, 0.3);
+}
+
+.detailed-whattosay blockquote {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin: 0;
+    font-style: italic;
+    padding-left: 0;
+    border: none;
+    position: relative;
+}
+
+/* Demo steps block */
+.detailed-demo {
+    margin-bottom: 20px;
+    padding: 16px;
+    background: rgba(34, 197, 94, 0.03);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid rgba(34, 197, 94, 0.3);
+}
+
+.demo-steps-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.demo-steps-list li {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    padding: 4px 0;
+    padding-left: 6px;
+}
+
+.demo-steps-list li::marker {
+    color: #16a34a;
+    font-weight: 700;
+}
+
+/* Key message block */
+.detailed-keymessage {
+    margin-bottom: 8px;
+    padding: 16px;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.06), rgba(245, 158, 11, 0.02));
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(245, 158, 11, 0.15);
+}
+
+.key-message-text {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.7;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+/* ==========================================
+   FORMATEUR FAQ
+   ========================================== */
+.formateur-faq-icon {
+    background: rgba(59, 130, 246, 0.12) !important;
+    color: #3b82f6 !important;
+}
+
+.formateur-faq-icon svg {
+    color: #3b82f6 !important;
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.faq-item {
+    border: 1px solid rgba(59, 130, 246, 0.12);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition);
+    background: white;
+}
+
+.faq-item:hover {
+    border-color: rgba(59, 130, 246, 0.25);
+}
+
+.faq-question {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    background: rgba(59, 130, 246, 0.03);
+    transition: var(--transition);
+}
+
+.faq-question:hover {
+    background: rgba(59, 130, 246, 0.06);
+}
+
+.faq-question span:nth-child(2) {
+    flex: 1;
+}
+
+.faq-q-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: #3b82f6;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.faq-a-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: rgba(34, 197, 94, 0.12);
+    color: #16a34a;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+    align-self: flex-start;
+    margin-top: 2px;
+}
+
+.faq-answer {
+    display: none;
+    padding: 14px 16px;
+    gap: 12;
+    border-top: 1px solid rgba(59, 130, 246, 0.08);
+}
+
+.faq-item.open .faq-answer {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.faq-answer p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin: 0;
+    flex: 1;
+}
+
+/* ==========================================
+   FORMATEUR TRANSITION
+   ========================================== */
+.formateur-transition-icon {
+    background: rgba(0, 166, 200, 0.12) !important;
+}
+
+.formateur-transition-icon svg {
+    color: var(--primary) !important;
+}
+
+.transition-block {
+    padding: 0;
+}
+
+.transition-block blockquote {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin: 0;
+    font-style: italic;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, rgba(0, 166, 200, 0.04), rgba(139, 92, 246, 0.04));
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--primary);
+}
+
+/* Timing grid */
+.timing-grid {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 20px;
 }
 
 /* ==========================================

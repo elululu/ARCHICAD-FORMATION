@@ -517,62 +517,93 @@ function renderDay(day) {
         <!-- FORMATEUR SECTION -->
         ${day.formateurGuide ? `
         <div class="formateur-section ${formateurMode ? 'visible' : ''}">
-            <div class="day-section-header" onclick="toggleSection(this)">
-                <div class="section-icon purple">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                </div>
-                <h3>
-                    <span class="formateur-badge">Formateur</span>
-                    Guide de séance
-                </h3>
-                <svg class="chevron-toggle open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
-            <div class="day-section-body open">
-                <div class="formateur-content">
-                    <!-- Introduction -->
-                    <div class="tip-block">
-                        <p><strong>💡 Introduction :</strong> ${day.formateurGuide.intro}</p>
+
+            <!-- ===== GUIDE DÉTAILLÉ DES MODULES ===== -->
+            ${renderDetailedModules(day.id)}
+
+            <!-- ===== GUIDE DE SÉANCE (existant) ===== -->
+            <div class="day-section formateur-card">
+                <div class="day-section-header" onclick="toggleSection(this)">
+                    <div class="section-icon purple">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                     </div>
-
-                    <!-- Timing -->
-                    <h4>⏱️ Déroulé de la séance</h4>
-                    ${day.formateurGuide.timing.map(t => `
-                        <div class="script-block">
-                            <h5><span class="timing-badge">${t.time}</span></h5>
-                            <p>${t.content}</p>
-                        </div>
-                    `).join('')}
-
-                    <!-- Tips -->
-                    <h4>✅ Conseils pédagogiques</h4>
-                    ${day.formateurGuide.tips.map(tip => `
+                    <h3>
+                        <span class="formateur-badge">Formateur</span>
+                        Déroulé de la séance
+                    </h3>
+                    <svg class="chevron-toggle open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="day-section-body open">
+                    <div class="formateur-content">
+                        <!-- Introduction -->
                         <div class="tip-block">
-                            <p>${tip}</p>
+                            <p><strong>💡 Introduction :</strong> ${day.formateurGuide.intro}</p>
                         </div>
-                    `).join('')}
 
-                    <!-- Warnings -->
-                    <h4>⚠️ Points de vigilance</h4>
-                    ${day.formateurGuide.warnings.map(w => `
-                        <div class="warning-block">
-                            <p>${w}</p>
+                        <!-- Timing -->
+                        <h4>⏱️ Planning horaire</h4>
+                        <div class="timing-grid">
+                            ${day.formateurGuide.timing.map(t => `
+                                <div class="script-block">
+                                    <h5><span class="timing-badge">${t.time}</span></h5>
+                                    <p>${t.content}</p>
+                                </div>
+                            `).join('')}
                         </div>
-                    `).join('')}
 
-                    <!-- Exercise solution -->
-                    <h4>🔑 Solution de l'exercice</h4>
-                    <div class="script-block">
-                        <p>${day.formateurGuide.exerciseSolution}</p>
+                        <!-- Tips -->
+                        <h4>✅ Conseils pédagogiques</h4>
+                        ${day.formateurGuide.tips.map(tip => `
+                            <div class="tip-block">
+                                <p>${tip}</p>
+                            </div>
+                        `).join('')}
+
+                        <!-- Warnings -->
+                        <h4>⚠️ Points de vigilance</h4>
+                        ${day.formateurGuide.warnings.map(w => `
+                            <div class="warning-block">
+                                <p>${w}</p>
+                            </div>
+                        `).join('')}
+
+                        <!-- Exercise solution -->
+                        <h4>🔑 Solution de l'exercice</h4>
+                        <div class="script-block">
+                            <p>${day.formateurGuide.exerciseSolution}</p>
+                        </div>
                     </div>
-
-                    <!-- Formateur notes -->
-                    <h4 class="mt-24">📝 Mes notes (formateur)</h4>
-                    <textarea class="formateur-notes-area" 
-                              id="formateur-note-${day.id}"
-                              placeholder="Notes personnelles sur cette séance..."
-                              onblur="saveFormateurNote(${day.id})">${userNotes['formateur_' + day.id] || ''}</textarea>
                 </div>
             </div>
+
+            <!-- ===== FAQ FORMATEUR ===== -->
+            ${renderDetailedFaq(day.id)}
+
+            <!-- ===== TRANSITION ===== -->
+            ${renderDetailedTransition(day.id)}
+
+            <!-- ===== NOTES FORMATEUR ===== -->
+            <div class="day-section formateur-card">
+                <div class="day-section-header" onclick="toggleSection(this)">
+                    <div class="section-icon purple">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <h3>
+                        <span class="formateur-badge">Formateur</span>
+                        Mes notes personnelles
+                    </h3>
+                    <svg class="chevron-toggle open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="day-section-body open">
+                    <div class="formateur-content">
+                        <textarea class="formateur-notes-area" 
+                                  id="formateur-note-${day.id}"
+                                  placeholder="Notes personnelles sur cette séance — observations, ajustements, points à retravailler..."
+                                  onblur="saveFormateurNote(${day.id})">${userNotes['formateur_' + day.id] || ''}</textarea>
+                    </div>
+                </div>
+            </div>
+
         </div>
         ` : ''}
 
@@ -602,6 +633,171 @@ function renderDay(day) {
     </div>`;
     
     document.getElementById('content-area').innerHTML = html;
+}
+
+// ==========================================
+// RENDER: DETAILED FORMATEUR GUIDE HELPERS
+// ==========================================
+function renderDetailedModules(dayId) {
+    const guide = typeof FORMATEUR_GUIDE_DETAILS !== 'undefined' ? FORMATEUR_GUIDE_DETAILS[dayId] : null;
+    if (!guide || !guide.moduleExplanations || guide.moduleExplanations.length === 0) return '';
+
+    return guide.moduleExplanations.map((mod, modIndex) => `
+        <div class="day-section formateur-card">
+            <div class="day-section-header" onclick="toggleSection(this)">
+                <div class="section-icon formateur-module-icon">
+                    <span class="module-emoji">${mod.icon || '📖'}</span>
+                </div>
+                <h3>
+                    <span class="formateur-badge">Formateur</span>
+                    ${mod.moduleTitle}
+                    ${mod.duration ? `<span class="module-duration">${mod.duration}</span>` : ''}
+                </h3>
+                <svg class="chevron-toggle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="day-section-body">
+                <div class="formateur-content">
+                    ${mod.detailedContent.map((item, itemIndex) => `
+                        <div class="detailed-module-item">
+                            <div class="detailed-module-header" onclick="toggleDetailedItem(this)">
+                                <span class="detailed-module-number">${modIndex + 1}.${itemIndex + 1}</span>
+                                <h4>${item.subtitle}</h4>
+                                <svg class="chevron-toggle-mini open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                            <div class="detailed-module-body open">
+                                <!-- Explication détaillée -->
+                                <div class="detailed-explanation">
+                                    <div class="detailed-label">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                                        Explication pour le formateur
+                                    </div>
+                                    <p>${item.explanation}</p>
+                                </div>
+
+                                <!-- Ce qu'il faut dire -->
+                                ${item.whatToSay ? `
+                                <div class="detailed-whattosay">
+                                    <div class="detailed-label speech">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                        Ce qu'il faut dire à l'apprenante
+                                    </div>
+                                    <blockquote>${item.whatToSay}</blockquote>
+                                </div>
+                                ` : ''}
+
+                                <!-- Étapes de démonstration -->
+                                ${item.demoSteps && item.demoSteps.length > 0 ? `
+                                <div class="detailed-demo">
+                                    <div class="detailed-label demo">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                                        Démonstration pas à pas
+                                    </div>
+                                    <ol class="demo-steps-list">
+                                        ${item.demoSteps.map(step => `<li>${step}</li>`).join('')}
+                                    </ol>
+                                </div>
+                                ` : ''}
+
+                                <!-- Message clé -->
+                                ${item.keyMessage ? `
+                                <div class="detailed-keymessage">
+                                    <div class="detailed-label key">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                        Message clé à retenir
+                                    </div>
+                                    <p class="key-message-text">${item.keyMessage}</p>
+                                </div>
+                                ` : ''}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+function renderDetailedFaq(dayId) {
+    const guide = typeof FORMATEUR_GUIDE_DETAILS !== 'undefined' ? FORMATEUR_GUIDE_DETAILS[dayId] : null;
+    if (!guide || !guide.faq || guide.faq.length === 0) return '';
+
+    return `
+        <div class="day-section formateur-card">
+            <div class="day-section-header" onclick="toggleSection(this)">
+                <div class="section-icon formateur-faq-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+                <h3>
+                    <span class="formateur-badge">Formateur</span>
+                    Questions fréquentes de l'apprenante
+                </h3>
+                <svg class="chevron-toggle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="day-section-body">
+                <div class="formateur-content">
+                    <div class="faq-list">
+                        ${guide.faq.map((item, i) => `
+                            <div class="faq-item" onclick="toggleFaqItem(this)">
+                                <div class="faq-question">
+                                    <span class="faq-q-label">Q${i+1}</span>
+                                    <span>${item.question}</span>
+                                    <svg class="chevron-toggle-mini" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+                                </div>
+                                <div class="faq-answer">
+                                    <span class="faq-a-label">R</span>
+                                    <p>${item.answer}</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function renderDetailedTransition(dayId) {
+    const guide = typeof FORMATEUR_GUIDE_DETAILS !== 'undefined' ? FORMATEUR_GUIDE_DETAILS[dayId] : null;
+    if (!guide || !guide.transitionToNextDay) return '';
+
+    return `
+        <div class="day-section formateur-card">
+            <div class="day-section-header" onclick="toggleSection(this)">
+                <div class="section-icon formateur-transition-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+                <h3>
+                    <span class="formateur-badge">Formateur</span>
+                    Transition vers le jour suivant
+                </h3>
+                <svg class="chevron-toggle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="day-section-body">
+                <div class="formateur-content">
+                    <div class="transition-block">
+                        <div class="detailed-label speech">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            Ce qu'il faut dire en fin de séance
+                        </div>
+                        <blockquote>${guide.transitionToNextDay}</blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function toggleDetailedItem(header) {
+    const body = header.nextElementSibling;
+    const chevron = header.querySelector('.chevron-toggle-mini');
+    body.classList.toggle('open');
+    if (chevron) chevron.classList.toggle('open');
+}
+
+function toggleFaqItem(faqItem) {
+    faqItem.classList.toggle('open');
+    const chevron = faqItem.querySelector('.chevron-toggle-mini');
+    if (chevron) chevron.classList.toggle('open');
 }
 
 function toggleSection(header) {
