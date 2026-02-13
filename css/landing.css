@@ -1053,3 +1053,62 @@ body {
         justify-content: center;
     }
 }
+
+/* ==========================================
+   DARK MODE TOGGLE BUTTON
+   ========================================== */
+.dark-mode-btn-landing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--text-secondary);
+}
+.dark-mode-btn-landing:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* ==========================================
+   DARK MODE
+   ========================================== */
+html.dark {
+    --bg-dark: #0f1117;
+    --bg-card: #1a1d27;
+    --bg-card-hover: #22252f;
+    --bg-surface: #14161e;
+    --text-primary: #e8eaed;
+    --text-secondary: #9ba3b5;
+    --text-muted: #6b7280;
+    --border: rgba(255, 255, 255, 0.06);
+    --border-light: rgba(255, 255, 255, 0.1);
+    --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 8px 48px rgba(0, 0, 0, 0.4);
+}
+
+html.dark .navbar.scrolled {
+    background: rgba(15, 17, 23, 0.92);
+}
+
+html.dark .nav-links {
+    background: rgba(15, 17, 23, 0.98) !important;
+}
+
+html.dark .mock-shortcut span {
+    background: #22252f;
+}
+
+html.dark .window-header {
+    background: #14161e;
+}
+
+html.dark .avatar-placeholder rect {
+    fill: #1a1d27;
+}
+

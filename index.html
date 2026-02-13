@@ -3,6 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formation ARCHICAD personnalisée par AtelierLO — 20 jours de formation complète, de la prise en main jusqu'aux rendus 3D avec Enscape & 3ds Max.">
+    <meta name="keywords" content="ARCHICAD, formation, BIM, AtelierLO, CAO, architecture, Enscape, 3ds Max, SketchUp">
+    <meta name="author" content="AtelierLO — Lucien">
+    <meta name="theme-color" content="#00A6C8">
+    <!-- Open Graph -->
+    <meta property="og:title" content="AtelierLO — Formation ARCHICAD">
+    <meta property="og:description" content="Maîtrisez ARCHICAD de A à Z. Formation personnalisée en visio, du débutant au rendu 3D professionnel.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://atelierlo-formation.web.app">
+    <meta property="og:image" content="https://atelierlo-formation.web.app/icons/og-image.png">
+    <meta property="og:locale" content="fr_FR">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AtelierLO — Formation ARCHICAD">
+    <meta name="twitter:description" content="Maîtrisez ARCHICAD de A à Z. Formation personnalisée en visio.">
+    <link rel="manifest" href="manifest.json">
     <title>AtelierLO — Formation ARCHICAD</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -26,6 +42,10 @@
                 <a href="#programme">Programme</a>
                 <a href="#methode">Méthode</a>
                 <a href="#outils">Outils</a>
+                <button class="dark-mode-btn-landing" id="dark-mode-btn-landing" onclick="toggleDarkMode()" aria-label="Mode sombre">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
                 <a href="app.html" class="btn-nav">Accéder à la plateforme</a>
             </div>
             <button class="nav-toggle" aria-label="Menu">
@@ -398,6 +418,32 @@
     </footer>
 
     <script>
+        // Dark Mode
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            localStorage.setItem('atelierlo_dark', isDark);
+            const btn = document.getElementById('dark-mode-btn-landing');
+            if (btn) {
+                btn.querySelector('.icon-sun').style.display = isDark ? 'none' : 'block';
+                btn.querySelector('.icon-moon').style.display = isDark ? 'block' : 'none';
+            }
+        }
+        // Init dark mode
+        if (localStorage.getItem('atelierlo_dark') === 'true') {
+            document.documentElement.classList.add('dark');
+            const btn = document.getElementById('dark-mode-btn-landing');
+            if (btn) {
+                btn.querySelector('.icon-sun').style.display = 'none';
+                btn.querySelector('.icon-moon').style.display = 'block';
+            }
+        }
+
+        // PWA Registration
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js').catch(() => {});
+        }
+
         // Mobile menu toggle
         const navToggle = document.querySelector('.nav-toggle');
         const navLinks = document.querySelector('.nav-links');
