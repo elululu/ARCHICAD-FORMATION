@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /TEST/
+
+Sitemap: https://lo-archicad-formation.web.app/sitemap.xml
