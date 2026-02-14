@@ -23,13 +23,12 @@
 // RÈGLES FIRESTORE : voir firestore.rules
 
 const FIREBASE_CONFIG = {
-    // ⚠️ REMPLACEZ CES VALEURS par votre configuration Firebase
-    apiKey: "VOTRE_API_KEY",
-    authDomain: "votre-projet.firebaseapp.com",
-    projectId: "votre-projet",
-    storageBucket: "votre-projet.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "1:123456789:web:abc123"
+    apiKey: "AIzaSyD2l_zq2JMLdDlEBK-8UxyA3Bd_C4KLehM",
+    authDomain: "lo-archicad-formation.firebaseapp.com",
+    projectId: "lo-archicad-formation",
+    storageBucket: "lo-archicad-formation.firebasestorage.app",
+    messagingSenderId: "772093978084",
+    appId: "1:772093978084:web:b5beab9ee8f381b6c013f1"
 };
 
 // ==========================================
@@ -200,11 +199,42 @@ function initFirebase() {
 async function firebaseLogin(email, password) {
     if (USE_FIREBASE && firebaseAuth) {
         const cred = await firebaseAuth.signInWithEmailAndPassword(email, password);
-        const doc = await firebaseDb.collection('users').doc(cred.user.uid).get();
+        const uid = cred.user.uid;
+        const userEmail = cred.user.email;
+        
+        // Vérifier si le profil utilisateur existe dans Firestore
+        const doc = await firebaseDb.collection('users').doc(uid).get();
+        
+        if (doc.exists && doc.data().role) {
+            return {
+                uid: uid,
+                email: userEmail,
+                ...doc.data()
+            };
+        }
+        
+        // Profil inexistant — le créer automatiquement
+        // Déterminer le rôle : formateur si email connu, sinon apprenant
+        const isFormateur = (userEmail === 'formateur@atelierlo.fr');
+        const profile = {
+            role: isFormateur ? 'formateur' : 'apprenant',
+            name: isFormateur ? 'Formateur' : userEmail.split('@')[0].replace(/[._]/g, ' ')
+        };
+        
+        // Vérifier aussi dans les comptes dynamiques (créés par le formateur)
+        await loadDynamicAccounts();
+        if (DEMO_ACCOUNTS[userEmail]) {
+            profile.role = DEMO_ACCOUNTS[userEmail].role;
+            profile.name = DEMO_ACCOUNTS[userEmail].name;
+        }
+        
+        // Sauvegarder le profil dans Firestore
+        await firebaseDb.collection('users').doc(uid).set(profile);
+        
         return {
-            uid: cred.user.uid,
-            email: cred.user.email,
-            ...doc.data()
+            uid: uid,
+            email: userEmail,
+            ...profile
         };
     } else {
         // Mode local
