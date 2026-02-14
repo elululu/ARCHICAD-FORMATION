@@ -178,6 +178,11 @@ async function showApp() {
     // Build sidebar
     buildSidebarProgramme();
 
+    // Update message unread badge
+    setTimeout(updateUnreadBadge, 200);
+    // Periodically check for new messages (every 30s)
+    setInterval(updateUnreadBadge, 30000);
+
     // Show dashboard
     navigateTo('dashboard');
 
@@ -258,7 +263,8 @@ function navigateTo(view) {
         'calendar': 'Planning de formation',
         'evaluation': 'Evaluation des competences',
         'badges': 'Mes badges & trophees',
-        'students': 'Gestion des apprenants'
+        'students': 'Gestion des apprenants',
+        'messages': 'Messagerie'
     };
     document.getElementById('content-title').textContent = titles[view] || 'Dashboard';
 
@@ -272,6 +278,7 @@ function navigateTo(view) {
         case 'evaluation': renderEvaluation(); break;
         case 'badges': renderBadges(); break;
         case 'students': renderStudentsOverview(); break;
+        case 'messages': renderMessagesInbox(); break;
     }
 
     // Close mobile sidebar
@@ -552,6 +559,9 @@ function renderDashboard() {
             '<button class="formateur-action-btn" onclick="navigateTo(\'students\')">' +
             '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>' +
             ' Inscrire un eleve</button>' +
+            '<button class="formateur-action-btn" onclick="navigateTo(\'messages\')">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' +
+            ' Messagerie</button>' +
             '<div class="stat-mini-card" style="min-width:120px"><div class="stat-mini-num">' + formatTimerDuration(timerSeconds) + '</div><div class="stat-mini-label">Temps session</div></div>' +
             '</div>' +
             '<div id="formateur-students-preview"></div>' +
@@ -778,17 +788,19 @@ function renderDay(day) {
     });
     html += '</ul></div></div>';
 
-    // Comments section
+    // Messaging section (replaces old comments)
     html += '<div class="day-section"><div class="day-section-header" onclick="toggleSection(this)" role="button" tabindex="0" aria-expanded="true">' +
-        '<div class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>' +
-        '<h3>Echanges et commentaires</h3>' +
+        '<div class="section-icon msg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>' +
+        '<h3>💬 Fil de discussion</h3>' +
         '<svg class="chevron-toggle open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg></div>' +
-        '<div class="day-section-body open"><div class="comments-section">' +
-        '<div class="comments-list" id="comments-list-' + day.id + '">' + renderComments(day.id) + '</div>' +
-        '<div class="comment-input-wrapper">' +
-        '<input type="text" class="comment-input" id="comment-input-' + day.id + '" placeholder="Ajouter un commentaire..." onkeypress="if(event.key===\'Enter\')addComment(' + day.id + ')" aria-label="Ajouter un commentaire">' +
-        '<button class="comment-send-btn" onclick="addComment(' + day.id + ')">Envoyer</button>' +
-        '</div></div></div></div>';
+        '<div class="day-section-body open">' +
+        '<div class="msg-thread" id="msg-thread-' + day.id + '"><div class="msg-loading">Chargement des messages...</div></div>' +
+        '<div class="msg-input-area">' +
+        '<textarea class="msg-input" id="msg-input-' + day.id + '" placeholder="' + (currentUser.role === 'formateur' ? 'Repondre a l\'apprenant...' : 'Poser une question au formateur...') + '" rows="2"></textarea>' +
+        '<button class="msg-send-btn" onclick="sendMessage(' + day.id + ')">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>' +
+        ' Envoyer</button>' +
+        '</div></div></div>';
 
     // Formateur section
     if (day.formateurGuide) {
@@ -874,44 +886,334 @@ function renderDay(day) {
     html += '</div>';
 
     document.getElementById('content-area').innerHTML = html;
+
+    // Load messages for this day asynchronously
+    loadDayMessages(day.id);
 }
 
 // ==========================================
-// COMMENTS SYSTEM
+// MESSAGING SYSTEM
 // ==========================================
-function renderComments(dayId) {
-    var comments = userComments[dayId] || [];
-    if (comments.length === 0) {
-        return '<p style="color:var(--text-muted);font-size:13px;text-align:center;padding:16px">Aucun commentaire pour le moment</p>';
+
+// Load and render messages for a specific day
+async function loadDayMessages(dayId) {
+    var container = document.getElementById('msg-thread-' + dayId);
+    if (!container) return;
+
+    // Determine the student uid for this thread
+    var studentUid;
+    if (currentUser.role === 'formateur') {
+        // Formateur viewing from day view: show all threads for this day
+        // But in day view, we show the formateur's own "sandbox" thread
+        // The real conversations happen in the Messages inbox
+        container.innerHTML = '<p class="msg-empty">💡 Pour voir et repondre aux messages des eleves, utilisez la <a href="#" onclick="navigateTo(\'messages\');return false;" style="color:var(--primary);font-weight:600;">Messagerie</a>.</p>';
+        return;
+    } else {
+        studentUid = currentUser.uid;
     }
-    return comments.map(function(c) {
-        return '<div class="comment-item">' +
-            '<div class="comment-avatar ' + (c.role === 'formateur' ? 'formateur' : '') + '">' + (c.name ? c.name.charAt(0).toUpperCase() : '?') + '</div>' +
-            '<div class="comment-body"><div class="comment-meta"><strong>' + c.name + '</strong><span>' + c.date + '</span></div>' +
-            '<div class="comment-text">' + c.text + '</div></div></div>';
-    }).join('');
+
+    var messages = await loadThreadMessages(studentUid, dayId);
+
+    // Mark messages from formateur as read by apprenant
+    await markThreadRead(studentUid, dayId, 'apprenant');
+    updateUnreadBadge();
+
+    if (messages.length === 0) {
+        container.innerHTML = '<div class="msg-empty">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' +
+            '<p>Aucun message pour cette seance.</p>' +
+            '<p style="font-size:12px;color:var(--text-muted)">Posez une question au formateur, il recevra une notification.</p></div>';
+        return;
+    }
+
+    var html = '';
+    messages.forEach(function(m) {
+        var isOwn = m.role === currentUser.role;
+        var timeStr = m.date || '';
+        html += '<div class="msg-bubble ' + (isOwn ? 'msg-own' : 'msg-other') + ' ' + (m.role === 'formateur' ? 'msg-formateur' : 'msg-apprenant') + '">' +
+            '<div class="msg-bubble-header">' +
+            '<span class="msg-author">' + (m.role === 'formateur' ? '🎓 ' : '') + m.name + '</span>' +
+            '<span class="msg-time">' + timeStr + '</span>' +
+            '</div>' +
+            '<div class="msg-bubble-text">' + escapeHtml(m.text) + '</div>' +
+            '</div>';
+    });
+    container.innerHTML = html;
+
+    // Auto-scroll to bottom
+    container.scrollTop = container.scrollHeight;
 }
 
-async function addComment(dayId) {
-    var input = document.getElementById('comment-input-' + dayId);
+// Send a message from the day view
+async function sendMessage(dayId) {
+    var input = document.getElementById('msg-input-' + dayId);
+    if (!input) return;
     var text = input.value.trim();
     if (!text) return;
 
-    if (!userComments[dayId]) userComments[dayId] = [];
+    // Determine student uid
+    var studentUid;
+    if (currentUser.role === 'formateur') {
+        // Formateur replies from inbox, not from day view
+        showToast('Utilisez la Messagerie pour repondre aux eleves', 'info');
+        return;
+    } else {
+        studentUid = currentUser.uid;
+    }
 
-    var comment = {
+    var message = {
         name: currentUser.name,
         role: currentUser.role,
+        uid: currentUser.uid,
         text: text,
-        date: new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })
+        date: new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }),
+        timestamp: Date.now()
     };
 
-    userComments[dayId].push(comment);
-    await saveUserData(currentUser.uid, 'comments', userComments);
-
+    await saveMessage(studentUid, dayId, message);
     input.value = '';
-    document.getElementById('comments-list-' + dayId).innerHTML = renderComments(dayId);
-    showToast('Commentaire ajoute', 'success');
+    showToast('Message envoye au formateur !', 'success');
+
+    // Reload thread
+    await loadDayMessages(dayId);
+}
+
+// Send a reply from formateur inbox
+async function sendFormateurReply(studentUid, dayId) {
+    var input = document.getElementById('reply-input-' + studentUid + '-' + dayId);
+    if (!input) return;
+    var text = input.value.trim();
+    if (!text) return;
+
+    var message = {
+        name: currentUser.name,
+        role: 'formateur',
+        uid: currentUser.uid,
+        text: text,
+        date: new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }),
+        timestamp: Date.now()
+    };
+
+    await saveMessage(studentUid, dayId, message);
+    input.value = '';
+    showToast('Reponse envoyee !', 'success');
+
+    // Reload inbox
+    renderMessagesInbox();
+}
+
+// Escape HTML to prevent XSS
+function escapeHtml(text) {
+    var div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// Update unread badge in sidebar
+async function updateUnreadBadge() {
+    var role = currentUser ? currentUser.role : null;
+    if (!role) return;
+
+    var count = await countUnreadMessages(role);
+    var badge = document.getElementById('msg-unread-badge');
+    if (badge) {
+        if (count > 0) {
+            badge.textContent = count > 9 ? '9+' : count;
+            badge.style.display = 'flex';
+        } else {
+            badge.style.display = 'none';
+        }
+    }
+}
+
+// ==========================================
+// FORMATEUR: MESSAGES INBOX
+// ==========================================
+async function renderMessagesInbox() {
+    if (currentUser.role !== 'formateur') {
+        // Apprenant: show their own conversations overview
+        renderApprenantMessages();
+        return;
+    }
+
+    document.getElementById('content-area').innerHTML = '<div class="messages-page"><h1>📬 Messagerie</h1><p>Chargement...</p></div>';
+
+    var allMessages = await loadAllMessages();
+    var apprenants = await getAllApprenants();
+
+    // Mark all as read by formateur
+    for (var threadKey in allMessages) {
+        var parts = threadKey.split('_day');
+        if (parts.length === 2) {
+            await markThreadRead(parts[0], parseInt(parts[1]), 'formateur');
+        }
+    }
+    updateUnreadBadge();
+
+    // Build a map of apprenant info
+    var apprenantMap = {};
+    apprenants.forEach(function(a) { apprenantMap[a.uid] = a; });
+
+    // Group threads by student
+    var threadsByStudent = {};
+    Object.keys(allMessages).forEach(function(key) {
+        var rawData = allMessages[key];
+        var msgArray = Array.isArray(rawData) ? rawData : (rawData.messages || []);
+        if (msgArray.length === 0) return;
+
+        var parts = key.split('_day');
+        if (parts.length !== 2) return;
+        var sUid = parts[0];
+        var dId = parseInt(parts[1]);
+
+        if (!threadsByStudent[sUid]) threadsByStudent[sUid] = [];
+        threadsByStudent[sUid].push({ dayId: dId, messages: msgArray });
+    });
+
+    var html = '<div class="messages-page">' +
+        '<h1>📬 Messagerie</h1>' +
+        '<p>Questions et echanges avec vos apprenants. Repondez directement depuis cette page.</p>';
+
+    var studentKeys = Object.keys(threadsByStudent);
+    if (studentKeys.length === 0) {
+        html += '<div class="msg-empty-inbox">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' +
+            '<h3>Aucun message</h3>' +
+            '<p>Les messages de vos eleves apparaitront ici.</p></div>';
+        html += '</div>';
+        document.getElementById('content-area').innerHTML = html;
+        return;
+    }
+
+    // Sort students by most recent message
+    studentKeys.sort(function(a, b) {
+        var latestA = 0, latestB = 0;
+        threadsByStudent[a].forEach(function(t) { t.messages.forEach(function(m) { if (m.timestamp > latestA) latestA = m.timestamp; }); });
+        threadsByStudent[b].forEach(function(t) { t.messages.forEach(function(m) { if (m.timestamp > latestB) latestB = m.timestamp; }); });
+        return latestB - latestA;
+    });
+
+    studentKeys.forEach(function(sUid) {
+        var info = apprenantMap[sUid];
+        var name = info ? info.name : 'Apprenant inconnu';
+        var initial = name.charAt(0).toUpperCase();
+        var threads = threadsByStudent[sUid];
+
+        // Count total messages and unread
+        var totalMsgs = 0;
+        threads.forEach(function(t) { totalMsgs += t.messages.length; });
+
+        // Sort threads by dayId
+        threads.sort(function(a, b) { return b.dayId - a.dayId; });
+
+        html += '<div class="inbox-student-card">' +
+            '<div class="inbox-student-header" onclick="this.parentElement.classList.toggle(\'expanded\')">' +
+            '<div class="inbox-student-info">' +
+            '<div class="student-table-avatar">' + initial + '</div>' +
+            '<div><strong>' + name + '</strong><span class="inbox-student-meta">' + totalMsgs + ' message' + (totalMsgs > 1 ? 's' : '') + ' · ' + threads.length + ' jour' + (threads.length > 1 ? 's' : '') + '</span></div>' +
+            '</div>' +
+            '<svg class="inbox-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>' +
+            '</div>';
+
+        html += '<div class="inbox-student-threads">';
+        threads.forEach(function(thread) {
+            var dayTitle = getDayTitle(thread.dayId);
+            html += '<div class="inbox-thread">' +
+                '<div class="inbox-thread-header"><span class="inbox-thread-day">Jour ' + thread.dayId + '</span><span class="inbox-thread-title">' + dayTitle + '</span></div>';
+
+            // Messages
+            html += '<div class="inbox-thread-messages">';
+            thread.messages.forEach(function(m) {
+                var isFormateur = m.role === 'formateur';
+                html += '<div class="msg-bubble ' + (isFormateur ? 'msg-own msg-formateur' : 'msg-other msg-apprenant') + '">' +
+                    '<div class="msg-bubble-header">' +
+                    '<span class="msg-author">' + (isFormateur ? '🎓 ' : '') + m.name + '</span>' +
+                    '<span class="msg-time">' + m.date + '</span></div>' +
+                    '<div class="msg-bubble-text">' + escapeHtml(m.text) + '</div></div>';
+            });
+            html += '</div>';
+
+            // Reply input
+            html += '<div class="inbox-reply-area">' +
+                '<input type="text" class="inbox-reply-input" id="reply-input-' + sUid + '-' + thread.dayId + '" placeholder="Repondre..." onkeypress="if(event.key===\'Enter\')sendFormateurReply(\'' + sUid + '\', ' + thread.dayId + ')">' +
+                '<button class="msg-send-btn msg-send-sm" onclick="sendFormateurReply(\'' + sUid + '\', ' + thread.dayId + ')">' +
+                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>' +
+                '</div>';
+
+            html += '</div>';
+        });
+        html += '</div></div>';
+    });
+
+    html += '</div>';
+    document.getElementById('content-area').innerHTML = html;
+
+    // Auto-expand the first student
+    var firstCard = document.querySelector('.inbox-student-card');
+    if (firstCard) firstCard.classList.add('expanded');
+}
+
+// Apprenant: overview of their own conversations
+async function renderApprenantMessages() {
+    document.getElementById('content-area').innerHTML = '<div class="messages-page"><h1>💬 Mes messages</h1><p>Chargement...</p></div>';
+
+    var studentUid = currentUser.uid;
+    var allMessages = await loadAllMessages();
+
+    // Mark all as read by apprenant
+    for (var threadKey in allMessages) {
+        if (threadKey.startsWith(studentUid + '_day')) {
+            var parts = threadKey.split('_day');
+            await markThreadRead(studentUid, parseInt(parts[1]), 'apprenant');
+        }
+    }
+    updateUnreadBadge();
+
+    // Collect threads for this student
+    var threads = [];
+    Object.keys(allMessages).forEach(function(key) {
+        if (!key.startsWith(studentUid + '_day')) return;
+        var rawData = allMessages[key];
+        var msgArray = Array.isArray(rawData) ? rawData : (rawData.messages || []);
+        if (msgArray.length === 0) return;
+        var dayId = parseInt(key.split('_day')[1]);
+        threads.push({ dayId: dayId, messages: msgArray });
+    });
+
+    threads.sort(function(a, b) { return b.dayId - a.dayId; });
+
+    var html = '<div class="messages-page">' +
+        '<h1>💬 Mes messages</h1>' +
+        '<p>Vos echanges avec le formateur. Vous pouvez aussi poser des questions depuis chaque jour de formation.</p>';
+
+    if (threads.length === 0) {
+        html += '<div class="msg-empty-inbox">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' +
+            '<h3>Aucun message</h3>' +
+            '<p>Posez une question depuis n\'importe quel jour de formation !</p></div>';
+    } else {
+        threads.forEach(function(thread) {
+            var dayTitle = getDayTitle(thread.dayId);
+            var lastMsg = thread.messages[thread.messages.length - 1];
+            var hasFormateurReply = thread.messages.some(function(m) { return m.role === 'formateur'; });
+
+            html += '<div class="apprenant-thread-card" onclick="navigateToDay(' + thread.dayId + ')">' +
+                '<div class="apprenant-thread-header">' +
+                '<span class="inbox-thread-day">Jour ' + thread.dayId + '</span>' +
+                '<span class="inbox-thread-title">' + dayTitle + '</span>' +
+                (hasFormateurReply ? '<span class="msg-replied-badge">✓ Repondu</span>' : '<span class="msg-pending-badge">En attente</span>') +
+                '</div>' +
+                '<div class="apprenant-thread-preview">' +
+                '<span class="msg-preview-author">' + lastMsg.name + ' :</span> ' +
+                '<span class="msg-preview-text">' + escapeHtml(lastMsg.text.substring(0, 80)) + (lastMsg.text.length > 80 ? '...' : '') + '</span>' +
+                '</div>' +
+                '<div class="apprenant-thread-meta">' + thread.messages.length + ' message' + (thread.messages.length > 1 ? 's' : '') + ' · ' + lastMsg.date + '</div>' +
+                '</div>';
+        });
+    }
+
+    html += '</div>';
+    document.getElementById('content-area').innerHTML = html;
 }
 
 // ==========================================

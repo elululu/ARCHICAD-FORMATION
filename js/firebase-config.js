@@ -316,5 +316,99 @@ async function loadAllApprenantsData() {
     return result;
 }
 
+// ==========================================
+// MESSAGING SYSTEM (shared between formateur & apprenants)
+// ==========================================
+// Messages are stored globally (not per-user) so both parties see the conversation.
+// Key structure: messages are organized by dayId + studentUid for each thread.
+
+// Save a message to a conversation thread
+async function saveMessage(studentUid, dayId, message) {
+    var threadKey = studentUid + '_day' + dayId;
+    if (USE_FIREBASE && firebaseDb) {
+        var threadRef = firebaseDb.collection('messages').doc(threadKey);
+        var doc = await threadRef.get();
+        var messages = doc.exists ? (doc.data().messages || []) : [];
+        messages.push(message);
+        await threadRef.set({ messages: messages, studentUid: studentUid, dayId: dayId, updatedAt: new Date().toISOString() }, { merge: true });
+    } else {
+        var allMessages = JSON.parse(localStorage.getItem('atelierlo_messages') || '{}');
+        if (!allMessages[threadKey]) allMessages[threadKey] = [];
+        allMessages[threadKey].push(message);
+        localStorage.setItem('atelierlo_messages', JSON.stringify(allMessages));
+    }
+}
+
+// Load messages for a specific thread (studentUid + dayId)
+async function loadThreadMessages(studentUid, dayId) {
+    var threadKey = studentUid + '_day' + dayId;
+    if (USE_FIREBASE && firebaseDb) {
+        var doc = await firebaseDb.collection('messages').doc(threadKey).get();
+        return doc.exists ? (doc.data().messages || []) : [];
+    } else {
+        var allMessages = JSON.parse(localStorage.getItem('atelierlo_messages') || '{}');
+        return allMessages[threadKey] || [];
+    }
+}
+
+// Load ALL messages across all threads (for formateur inbox)
+async function loadAllMessages() {
+    if (USE_FIREBASE && firebaseDb) {
+        var snapshot = await firebaseDb.collection('messages').get();
+        var result = {};
+        snapshot.forEach(function(doc) {
+            result[doc.id] = doc.data();
+        });
+        return result;
+    } else {
+        return JSON.parse(localStorage.getItem('atelierlo_messages') || '{}');
+    }
+}
+
+// Mark messages in a thread as read by a specific role
+async function markThreadRead(studentUid, dayId, role) {
+    var threadKey = studentUid + '_day' + dayId;
+    if (USE_FIREBASE && firebaseDb) {
+        var doc = await firebaseDb.collection('messages').doc(threadKey).get();
+        if (doc.exists) {
+            var messages = doc.data().messages || [];
+            var changed = false;
+            messages.forEach(function(m) {
+                if (m.role !== role && !m.readBy) { m.readBy = role; changed = true; }
+                else if (m.role !== role && m.readBy && m.readBy.indexOf(role) === -1) { m.readBy += ',' + role; changed = true; }
+            });
+            if (changed) {
+                await firebaseDb.collection('messages').doc(threadKey).update({ messages: messages });
+            }
+        }
+    } else {
+        var allMessages = JSON.parse(localStorage.getItem('atelierlo_messages') || '{}');
+        if (allMessages[threadKey]) {
+            allMessages[threadKey].forEach(function(m) {
+                if (m.role !== role && !m.readBy) m.readBy = role;
+                else if (m.role !== role && m.readBy && m.readBy.indexOf(role) === -1) m.readBy += ',' + role;
+            });
+            localStorage.setItem('atelierlo_messages', JSON.stringify(allMessages));
+        }
+    }
+}
+
+// Count unread messages for a given role across all threads
+async function countUnreadMessages(role) {
+    var allMsgs = await loadAllMessages();
+    var count = 0;
+    Object.keys(allMsgs).forEach(function(threadKey) {
+        var messages = allMsgs[threadKey];
+        // allMsgs can have messages array or be raw array depending on storage
+        var msgArray = Array.isArray(messages) ? messages : (messages.messages || []);
+        msgArray.forEach(function(m) {
+            if (m.role !== role) {
+                if (!m.readBy || m.readBy.indexOf(role) === -1) count++;
+            }
+        });
+    });
+    return count;
+}
+
 // Initialize
 initFirebase();
