@@ -1,1292 +1,865 @@
 // ==========================================
-// FORMATEUR DETAILED GUIDE
-// Guide pédagogique détaillé pour le formateur
+// GUIDE DÉTAILLÉ DU FORMATEUR — 20 jours
 // AtelierLO — Formation ARCHICAD
+// Approche immersive : on construit dès le jour 1
 // ==========================================
 
 const FORMATEUR_GUIDE_DETAILS = {
-
-    // ==========================================
-    // JOUR 1 — Interface & environnement de travail
-    // ==========================================
-    1: {
-        moduleExplanations: [
-            {
-                moduleTitle: "L'interface ARCHICAD — Décryptage complet",
-                icon: "🖥️",
-                duration: "~1h30",
-                detailedContent: [
-                    {
-                        subtitle: "La Boîte à outils (Toolbox)",
-                        explanation: "La boîte à outils est le panneau vertical situé à gauche de l'écran. Elle contient TOUS les outils de modélisation d'ARCHICAD, organisés par catégorie. Contrairement à AutoCAD où on tape des commandes, ici on sélectionne un outil puis on dessine.",
-                        whatToSay: "Montre la boîte à outils et explique : « Chaque icône représente un élément de construction réel : un mur, une dalle, une fenêtre... Ce n'est plus du dessin, c'est de la construction virtuelle. »",
-                        demoSteps: [
-                            "Ouvrir un projet exemple et montrer la boîte à outils",
-                            "Survoler chaque outil en expliquant brièvement à quoi il sert",
-                            "Montrer que cliquer sur un outil change le curseur et les options disponibles",
-                            "Expliquer la différence entre outils de modélisation (mur, dalle...) et outils d'annotation (texte, cotation...)"
-                        ],
-                        keyMessage: "Dans ARCHICAD, on ne dessine pas des traits — on construit des éléments réels qui ont des propriétés (matériaux, dimensions, coûts)."
-                    },
-                    {
-                        subtitle: "La Palette d'informations (Info Box)",
-                        explanation: "La palette d'informations est la barre horizontale en haut, sous les menus. Elle affiche et permet de modifier les paramètres de l'outil sélectionné AVANT de dessiner. C'est comme régler ses outils avant de travailler.",
-                        whatToSay: "« Avant de dessiner un mur, on règle ici son épaisseur, sa hauteur, son matériau. C'est comme préparer son pinceau avant de peindre. »",
-                        demoSteps: [
-                            "Sélectionner l'outil Mur et montrer les paramètres dans l'Info Box",
-                            "Changer l'épaisseur du mur dans l'Info Box et montrer le changement",
-                            "Expliquer que chaque outil a ses propres paramètres dans l'Info Box",
-                            "Montrer le bouton pour ouvrir la boîte de dialogue complète (double-clic sur l'outil)"
-                        ],
-                        keyMessage: "L'Info Box est le cockpit de pilotage : elle affiche les réglages essentiels de l'outil actif."
-                    },
-                    {
-                        subtitle: "Le Navigateur (Navigator)",
-                        explanation: "Le Navigateur est le panneau qui organise TOUTES les vues du projet : plans d'étages, coupes, élévations, 3D, mises en page. C'est la carte du projet. Il fonctionne comme un explorateur de fichiers mais pour les vues.",
-                        whatToSay: "« Le Navigateur, c'est votre GPS dans le projet. Vous y trouvez toutes les vues : les plans de chaque étage, les coupes, les façades, la 3D. Tout est là, organisé. »",
-                        demoSteps: [
-                            "Ouvrir le panneau Navigateur (F7 ou menu Fenêtre)",
-                            "Montrer l'arborescence : Plans d'étage > Coupes > Élévations > 3D",
-                            "Double-cliquer sur différentes vues pour naviguer",
-                            "Montrer la différence entre le Navigateur et le Mini-navigateur (en bas à gauche)"
-                        ],
-                        keyMessage: "Toutes les vues (plan, coupe, 3D...) sont des REPRÉSENTATIONS différentes du MÊME modèle. Modifier le modèle met à jour toutes les vues."
-                    },
-                    {
-                        subtitle: "Les Palettes flottantes",
-                        explanation: "ARCHICAD utilise des palettes flottantes qu'on peut ancrer ou laisser flotter : Coordonnées (tracker), Options rapides, Favoris, etc. On peut personnaliser leur position et leur visibilité.",
-                        whatToSay: "« Comme un atelier de menuisier, tu organises tes outils sur ton établi comme tu veux. Chacun a sa disposition préférée. »",
-                        demoSteps: [
-                            "Montrer les principales palettes flottantes",
-                            "Montrer comment les déplacer, ancrer et masquer",
-                            "Recommander une disposition de travail efficace",
-                            "Montrer le menu Fenêtre > Palettes pour gérer la visibilité"
-                        ],
-                        keyMessage: "Un bon agencement des palettes = un travail plus rapide. Prends le temps de configurer ton espace de travail."
-                    }
+    // ========== JOUR 1 ==========
+    jour1: {
+        title: "Premier contact & premier bâtiment",
+        approachPhilosophy: "Impact maximum. Zéro cours magistral. L'apprenant voit un projet fini en 3D, puis il construit son propre volume dans les 30 premières minutes. Le déclic vient de l'action, pas de la théorie.",
+        moduleExplanations: {
+            interface: {
+                whatToSay: "Bienvenue dans ARCHICAD. Je ne vais pas te faire un tour de l'interface pendant 2 heures — on va apprendre en construisant. Retiens 3 choses : la boîte à outils à gauche (tes outils de construction), la palette d'infos en haut (les réglages de ton outil actif), et le navigateur qui est ton GPS dans le projet. C'est tout pour le moment.",
+                demoSteps: [
+                    "Montrer un projet terminé : visite 3D rapide (2 min max) pour donner envie",
+                    "Pointer la boîte à outils : 'Chaque icône = un élément de construction (mur, dalle, toit...)'",
+                    "Palette d'infos : 'C'est ici que tu règles les paramètres de l'outil que tu utilises'",
+                    "Navigateur : 'Plans, coupes, 3D... tout est là. F2 = plan, F3 = 3D'"
                 ]
             },
-            {
-                moduleTitle: "Navigation 2D et 3D — Se déplacer dans le projet",
-                icon: "🧭",
-                duration: "~2h",
-                detailedContent: [
-                    {
-                        subtitle: "Navigation en plan (2D)",
-                        explanation: "En vue plan, la navigation est similaire à AutoCAD mais avec quelques différences. La molette zoome (comme AutoCAD), le clic molette déplace la vue (pan). L'avantage : pas besoin de commandes, tout est à la souris.",
-                        whatToSay: "« Si tu connais AutoCAD, tu retrouves tes habitudes : molette pour zoomer, clic molette pour te déplacer. Mais ARCHICAD va plus loin avec des raccourcis très efficaces. »",
-                        demoSteps: [
-                            "Montrer le zoom avec la molette (avant/arrière)",
-                            "Montrer le pan avec le clic molette",
-                            "Montrer Ctrl+0 (Zoom sur tout) — très utile pour se retrouver",
-                            "Montrer le zoom sur sélection (Ctrl+Shift+Z)",
-                            "Montrer la navigation avec les flèches du clavier"
-                        ],
-                        keyMessage: "La molette est ton meilleur ami ! Zoom, pan, c'est tout ce dont tu as besoin en 2D."
-                    },
-                    {
-                        subtitle: "Navigation en 3D",
-                        explanation: "La vue 3D est l'une des forces majeures d'ARCHICAD par rapport à AutoCAD 2D. On y accède avec F3. La navigation 3D utilise Shift + clic molette pour orbiter autour du modèle, ce qui permet de voir le bâtiment sous tous les angles.",
-                        whatToSay: "« C'est LE moment 'waouh' de la formation ! En un clic (F3), tu vois ton bâtiment en 3D. Tu peux tourner autour, zoomer, entrer à l'intérieur. C'est ça la puissance du BIM. »",
-                        demoSteps: [
-                            "Appuyer sur F3 pour passer en 3D — faire réagir l'apprenante",
-                            "Montrer l'orbite : Shift + clic molette",
-                            "Montrer le zoom en 3D : molette",
-                            "Montrer le pan en 3D : clic molette",
-                            "Basculer entre perspective (Shift+F3) et axonométrie (Ctrl+F3)",
-                            "Montrer les vues 3D prédéfinies dans le menu Vue",
-                            "Revenir en plan avec F2 — montrer la fluidité du basculement"
-                        ],
-                        keyMessage: "F2 = plan, F3 = 3D. Bascule en permanence entre les deux ! C'est la méthode de travail BIM."
-                    },
-                    {
-                        subtitle: "Les modes d'affichage 3D",
-                        explanation: "ARCHICAD propose plusieurs modes d'affichage 3D : filaire (on voit les arêtes), lignes cachées (plus lisible), ombrage (couleurs et ombres). Chaque mode est utile selon ce qu'on fait.",
-                        whatToSay: "« Le mode filaire c'est comme un dessin au trait. Le mode ombré, c'est comme une maquette peinte. Tu choisis selon ce que tu veux voir. »",
-                        demoSteps: [
-                            "Montrer Ctrl+1 (filaire), Ctrl+2 (lignes cachées), Ctrl+3 (ombrage)",
-                            "Expliquer quand utiliser chaque mode",
-                            "Montrer l'impact sur les performances (filaire = rapide, ombrage = plus lent)"
-                        ],
-                        keyMessage: "En phase de modélisation, travaille en lignes cachées (rapide et lisible). L'ombrage est pour vérifier le rendu."
-                    }
+            navigation: {
+                whatToSay: "La navigation c'est le geste le plus fréquent dans ARCHICAD. Il faut que ce soit instinctif, comme conduire une voiture. Molette = zoom. Clic molette maintenu = pan. Et le plus important : Shift + molette = orbite en 3D. F2 pour revenir en plan, F3 pour la 3D. On va pratiquer ça jusqu'à ce que tes doigts le fassent sans réfléchir.",
+                demoSteps: [
+                    "Ouvrir un projet exemple avec du contenu 3D",
+                    "Montrer zoom/pan/orbite en direct — le faire de manière fluide",
+                    "Faire pratiquer immédiatement pendant 5 minutes",
+                    "Vérifier que le réflexe F2/F3 est ancré"
                 ]
             },
-            {
-                moduleTitle: "La logique BIM — Changement de paradigme",
-                icon: "🏗️",
-                duration: "~1h",
-                detailedContent: [
-                    {
-                        subtitle: "Du dessin 2D à la maquette numérique",
-                        explanation: "C'est le concept fondamental à faire passer. Dans AutoCAD, on dessine des LIGNES qui REPRÉSENTENT des murs. Dans ARCHICAD, on PLACE des MURS qui sont des objets 3D avec des propriétés. La différence est fondamentale : un mur AutoCAD est une suite de lignes, un mur ARCHICAD est un objet intelligent.",
-                        whatToSay: "« Imagine : dans AutoCAD, tu dessines 4 lignes pour faire un mur en plan. C'est juste un dessin. Dans ARCHICAD, tu places UN mur. Ce mur, il sait qu'il fait 20cm d'épaisseur, 2m60 de haut, qu'il est en béton. Et il se dessine tout seul en plan ET en 3D. »",
-                        demoSteps: [
-                            "Dessiner un mur avec l'outil Mur",
-                            "Cliquer dessus et montrer ses propriétés : épaisseur, hauteur, matériaux",
-                            "Montrer que le mur existe en plan ET en 3D simultanément",
-                            "Modifier une propriété et montrer que ça change partout",
-                            "Comparer avec AutoCAD : 'ici, si tu changes l'épaisseur, tout se met à jour automatiquement'"
-                        ],
-                        keyMessage: "BIM = Building Information Modeling. Chaque élément est un objet intelligent avec des données. C'est bien plus qu'un dessin."
-                    },
-                    {
-                        subtitle: "Le principe 'un modèle, toutes les vues'",
-                        explanation: "Dans la logique BIM, il n'y a qu'UN seul modèle (la maquette 3D). Les plans, coupes, élévations et 3D sont des VUES différentes de ce même modèle. Modifier le modèle met à jour TOUTES les vues automatiquement. Plus de mise à jour manuelle !",
-                        whatToSay: "« C'est fini le cauchemar AutoCAD : modifier le plan, puis la coupe, puis la façade... Ici, tu modifies UNE fois, et tout se met à jour. C'est ça le BIM. »",
-                        demoSteps: [
-                            "Ouvrir un plan en plan (F2), une coupe, et la 3D côte à côte si possible",
-                            "Modifier un mur en plan (changer sa position ou son épaisseur)",
-                            "Montrer que la coupe et la 3D se mettent à jour automatiquement",
-                            "Insister : 'Tu as modifié UNE fois, et les 3 vues se sont mises à jour'"
-                        ],
-                        keyMessage: "Un modèle unique, des vues multiples. C'est le principe central du BIM."
-                    },
-                    {
-                        subtitle: "Les données intégrées aux éléments",
-                        explanation: "Chaque élément BIM porte des informations : dimensions, matériaux, fabricant, coût, phase de construction, etc. Ces données sont utilisables pour les nomenclatures, les métrés et les analyses.",
-                        whatToSay: "« Un mur ARCHICAD, c'est comme une fiche technique complète : tu sais ce qu'il y a dedans, combien ça pèse, combien ça coûte. Et tu peux extraire tout ça automatiquement dans des tableaux. »",
-                        demoSteps: [
-                            "Sélectionner un mur et ouvrir ses propriétés complètes (Ctrl+T)",
-                            "Montrer les différents onglets : géométrie, matériaux, classification, IFC",
-                            "Montrer un objet (porte ou fenêtre) et ses propriétés encore plus riches",
-                            "Faire le lien : 'C'est grâce à ces données qu'on peut faire des nomenclatures automatiques'"
-                        ],
-                        keyMessage: "Le BIM, ce n'est pas juste de la 3D. C'est de la 3D AVEC des données. C'est l'avenir de la construction."
-                    }
+            philosophieBIM: {
+                whatToSay: "Avant de commencer à construire, je vais te dire le truc le plus important de toute la formation : dans ARCHICAD, tu ne DESSINES pas. Tu CONSTRUIS. Quand tu traces un mur, ce n'est pas deux lignes parallèles — c'est un vrai mur avec une épaisseur, une hauteur, des matériaux. Il existe en plan ET en 3D en même temps. Tu es en train de monter une maquette numérique à l'échelle 1:1. Pense toujours 'construction', jamais 'dessin'.",
+                demoSteps: [
+                    "Tracer un mur et basculer immédiatement en 3D",
+                    "Montrer que le mur a une épaisseur, une hauteur — c'est un objet 3D",
+                    "Cliquer sur le mur : montrer ses propriétés (matériau, hauteur...)",
+                    "Faire le parallèle : 'C'est exactement comme poser une brique sur un chantier, sauf que c'est numérique'"
+                ]
+            },
+            premiersMurs: {
+                whatToSay: "C'est parti. On construit. Active l'outil Mur avec la touche W. En haut, dans la palette d'infos, règle l'épaisseur à 20cm et la hauteur à 2,60m. Maintenant, clique quelque part sur le plan, déplace ta souris, et clique une deuxième fois. Tu viens de construire ton premier mur. Appuie sur F3 — regarde, il est là en 3D !",
+                demoSteps: [
+                    "Touche W → outil Mur actif",
+                    "Palette d'infos : montrer épaisseur (20cm) et hauteur (2,60m)",
+                    "Tracer le premier mur en plan — lentement, en expliquant",
+                    "F3 immédiatement → 'Voilà ton mur en 3D !'",
+                    "Revenir en plan (F2), tracer les 3 autres murs",
+                    "F3 → 'Tu as un volume !' — moment de fierté"
+                ]
+            },
+            portesEtFenetres: {
+                whatToSay: "Maintenant on perce des ouvertures. Outil Porte (D), clique dans un mur. La porte se place et crée l'ouverture toute seule. Outil Fenêtre (Shift+D), pareil : clic dans un mur. Pense à régler l'allège — c'est la distance entre le sol et le bas de la fenêtre. 90cm en standard.",
+                demoSteps: [
+                    "Touche D → placer une porte de 90cm dans un mur extérieur",
+                    "Basculer en 3D : 'L'ouverture s'est créée automatiquement dans le mur'",
+                    "Shift+D → placer une fenêtre, montrer l'allège dans les paramètres",
+                    "Revenir en plan : montrer la représentation automatique (sens d'ouverture, etc.)"
+                ]
+            },
+            baguetteMagique: {
+                whatToSay: "Et maintenant, le tour de magie. Sélectionne l'outil Dalle (L), puis appuie sur la barre Espace — c'est la Baguette magique. Clique à l'intérieur de tes murs. BOUM. La dalle est créée automatiquement en suivant le contour des murs. Un seul clic. C'est la productivité ARCHICAD.",
+                demoSteps: [
+                    "Outil Dalle (L) → paramètres : épaisseur 20cm",
+                    "Appuyer sur Espace pour activer la Baguette magique",
+                    "Cliquer à l'intérieur du contour de murs → dalle créée instantanément",
+                    "F3 → montrer la dalle en 3D : 'Tu as un plancher maintenant !'"
                 ]
             }
+        },
+        FAQ: [
+            { question: "Mes murs ne se connectent pas entre eux", answer: "Zoome au maximum sur l'intersection. Utilise les points d'accrochage (petits symboles oranges). Le curseur doit 'accrocher' l'extrémité du mur existant. Si les murs ne sont pas connectés, la Baguette magique ne fonctionnera pas non plus." },
+            { question: "La vue 3D est toute noire / bizarre", answer: "Clique sur le bouton 'Zoom sur tout' (ou Ctrl+0) pour recentrer la vue. Si tes éléments sont très loin de l'origine, ils peuvent sembler invisibles." },
+            { question: "Je n'arrive pas à naviguer en 3D", answer: "Shift + clic molette = orbite. Si rien ne se passe, vérifie que tu es bien en vue 3D (F3) et non en plan. La molette seule fait le zoom, le clic molette fait le pan." },
+            { question: "La Baguette magique ne fonctionne pas", answer: "Tes murs ne forment probablement pas un contour fermé. Zoome à chaque angle pour vérifier que les murs se touchent réellement. Un seul petit écart de 1mm suffit à empêcher la détection." }
         ],
-        faq: [
-            {
-                question: "C'est très différent d'AutoCAD, est-ce que je vais m'y retrouver ?",
-                answer: "Oui ! Les principes de dessin restent les mêmes (coordonnées, accrochages, calques). La grande différence, c'est qu'on dessine des éléments 3D au lieu de lignes 2D. C'est une évolution, pas une révolution. Et la navigation (molette, pan) est identique."
-            },
-            {
-                question: "Est-ce qu'on peut quand même dessiner en 2D dans ARCHICAD ?",
-                answer: "Absolument ! ARCHICAD dispose d'outils 2D (ligne, arc, texte, hachure...) qui fonctionnent comme dans AutoCAD. On les utilise pour les annotations, les détails, et les modifications graphiques en plan."
-            },
-            {
-                question: "Pourquoi la 3D est-elle si importante ?",
-                answer: "La 3D permet de détecter les erreurs de conception (un mur qui ne monte pas assez haut, un toit qui ne ferme pas...), de communiquer avec les clients (ils comprennent mieux une 3D qu'un plan), et de générer automatiquement les coupes et élévations."
-            },
-            {
-                question: "C'est quoi exactement le BIM ?",
-                answer: "BIM = Building Information Modeling (Modélisation des Informations du Bâtiment). C'est une méthode de travail où l'on construit une maquette numérique intelligente du bâtiment. Chaque élément (mur, fenêtre, dalle...) porte des informations (dimensions, matériaux, coûts...). C'est devenu obligatoire pour les marchés publics en France."
-            }
-        ],
-        transitionToNextDay: "Demain, on va utiliser les outils de dessin 2D pour se remettre en confiance avec des gestes familiers (lignes, arcs...). Ça va faire le lien avec tes habitudes AutoCAD avant d'attaquer la vraie modélisation BIM au jour 3."
+        transitionToNextDay: "Bravo ! Tu as construit un studio en une journée. Demain on passe aux choses sérieuses : les murs composites, la ligne de référence, et on construit un appartement T3 complet. Tu vas voir, les murs dans ARCHICAD c'est beaucoup plus puissant que ce qu'on a vu aujourd'hui."
     },
 
-    // ==========================================
-    // JOUR 2 — Outils de dessin 2D
-    // ==========================================
-    2: {
-        moduleExplanations: [
-            {
-                moduleTitle: "Les outils de dessin 2D — Transition depuis AutoCAD",
-                icon: "✏️",
-                duration: "~2h",
-                detailedContent: [
-                    {
-                        subtitle: "L'outil Ligne",
-                        explanation: "L'outil Ligne (raccourci 1) fonctionne de manière similaire à AutoCAD. On clique un point de départ, puis un point d'arrivée. La différence : ARCHICAD affiche un tracker en temps réel avec les coordonnées, la longueur et l'angle.",
-                        whatToSay: "« La ligne dans ARCHICAD, c'est comme dans AutoCAD. Mais regarde le tracker en bas : il t'affiche en temps réel la longueur et l'angle. Tu peux taper directement une valeur pour être précis. »",
-                        demoSteps: [
-                            "Activer l'outil Ligne (touche 1)",
-                            "Tracer une ligne en cliquant deux points",
-                            "Montrer le tracker (palette coordonnées) en bas de l'écran",
-                            "Tracer une ligne en tapant la longueur dans le tracker (ex: 5m)",
-                            "Montrer Tab pour naviguer entre les champs du tracker (longueur, angle)",
-                            "Montrer la contrainte d'angle : en tenant le curseur proche d'un angle cardinal (0°, 90°...)"
-                        ],
-                        keyMessage: "Le tracker + Tab = précision absolue sans effort. C'est plus rapide que taper des coordonnées dans AutoCAD."
-                    },
-                    {
-                        subtitle: "L'outil Polyligne",
-                        explanation: "La polyligne (raccourci 2) permet de dessiner une suite de segments connectés, droits ou courbes. On peut mélanger lignes droites et arcs dans la même polyligne. C'est très utile pour les contours complexes.",
-                        whatToSay: "« La polyligne, c'est comme la PLINE d'AutoCAD. Tu enchaînes les segments sans lever le crayon. Et tu peux passer de droit à courbe en appuyant sur la barre d'espace pour changer de méthode. »",
-                        demoSteps: [
-                            "Activer l'outil Polyligne (touche 2)",
-                            "Dessiner un contour avec plusieurs segments",
-                            "Montrer comment fermer le contour (double-clic ou revenir au point de départ)",
-                            "Montrer le changement de méthode de dessin dans l'Info Box (ligne droite, arc...)"
-                        ],
-                        keyMessage: "La polyligne est l'outil roi pour les contours complexes. Pense à fermer le contour si tu veux l'utiliser pour créer des dalles ou des zones."
-                    },
-                    {
-                        subtitle: "Arc, Cercle et Spline",
-                        explanation: "L'outil Arc/Cercle (raccourci 3) permet de tracer des arcs et des cercles. Plusieurs méthodes existent : par centre et rayon, par 3 points, tangent... La Spline permet de tracer des courbes lisses passant par des points.",
-                        whatToSay: "« Les arcs sont essentiels en architecture : murs courbes, escaliers hélicoïdaux, baies vitrées cintrées... L'outil Arc d'ARCHICAD est très complet avec plusieurs modes de tracé. »",
-                        demoSteps: [
-                            "Montrer le cercle par centre et rayon",
-                            "Montrer l'arc par 3 points (début, point intermédiaire, fin)",
-                            "Montrer l'arc tangent à un segment existant",
-                            "Montrer brièvement la Spline pour les formes organiques"
-                        ],
-                        keyMessage: "Chaque méthode de tracé correspond à une situation architectural différente. Avec la pratique, tu choisiras instinctivement la bonne."
-                    }
+    // ========== JOUR 2 ==========
+    jour2: {
+        title: "Murs : l'art de construire des parois",
+        approachPhilosophy: "L'outil Mur représente 60% du travail quotidien en ARCHICAD. Aujourd'hui on en fait le tour complet. La ligne de référence est la clé de voûte — sans elle, les jonctions seront toujours bancales. Les murs composites font le lien avec la construction réelle.",
+        moduleExplanations: {
+            outilMurApprofondi: {
+                whatToSay: "Hier tu as posé tes premiers murs — simple, droit au but. Aujourd'hui on va creuser. L'outil Mur est ton outil principal. Tu vas l'utiliser 1000 fois par projet. Donc il faut le maîtriser parfaitement. Ctrl+T : ça ouvre la boîte de dialogue complète. Là tu as TOUS les paramètres. Épaisseur, hauteur, matériaux, structure composite. C'est là que tu définis si c'est un mur de façade en béton, une cloison placo, ou un mur en pierre de taille.",
+                demoSteps: [
+                    "Touche W → Ctrl+T pour la boîte de dialogue complète",
+                    "Montrer les paramètres essentiels : épaisseur, hauteur, matériaux",
+                    "Montrer les 3 méthodes de dessin : droit, trapèze, courbe",
+                    "Tracer un mur courbe → F3 : 'Regarde, même les murs courbes sont en 3D'",
+                    "Montrer le pet palette pour modifier un mur existant"
                 ]
             },
-            {
-                moduleTitle: "Saisie numérique et précision",
-                icon: "🔢",
-                duration: "~1h",
-                detailedContent: [
-                    {
-                        subtitle: "Le système de coordonnées",
-                        explanation: "ARCHICAD utilise un système de coordonnées cartésiennes (X, Y, Z). L'origine (0, 0, 0) est un point fixe dans le projet. On peut saisir des coordonnées absolues (par rapport à l'origine) ou relatives (par rapport au dernier point cliqué).",
-                        whatToSay: "« Le système de coordonnées, tu le connais déjà avec AutoCAD. Ici c'est pareil : X horizontal, Y vertical, Z en hauteur. La différence c'est le tracker qui rend la saisie beaucoup plus intuitive. »",
-                        demoSteps: [
-                            "Montrer l'origine du projet (point 0,0)",
-                            "Tracer un point en saisissant des coordonnées absolues (X;Y)",
-                            "Montrer la saisie relative avec le tracker",
-                            "Expliquer la différence : 'absolu = depuis l'origine, relatif = depuis le dernier point'"
-                        ],
-                        keyMessage: "Utilise les coordonnées relatives dans le tracker pour 95% de ton travail. C'est plus intuitif que les coordonnées absolues."
-                    },
-                    {
-                        subtitle: "Le Tracker (palette de coordonnées)",
-                        explanation: "Le tracker est la palette de saisie numérique en bas de l'écran. Il affiche en temps réel la position du curseur, la longueur, l'angle, etc. La touche Tab permet de naviguer entre les champs. On peut taper une valeur et appuyer sur Entrée pour l'appliquer.",
-                        whatToSay: "« Le tracker, c'est ton meilleur outil de précision. Tu dessines à la souris pour la direction, puis tu tapes la longueur exacte. C'est beaucoup plus rapide que de calculer des coordonnées. »",
-                        demoSteps: [
-                            "Commencer à dessiner une ligne",
-                            "Montrer le tracker qui suit le curseur avec les valeurs en temps réel",
-                            "Appuyer sur Tab pour aller dans le champ longueur",
-                            "Taper '5' puis Entrée pour une ligne de 5m",
-                            "Montrer Tab pour passer au champ angle",
-                            "Taper '45' pour un angle de 45°"
-                        ],
-                        keyMessage: "La séquence magique : clic point de départ → direction à la souris → Tab → valeur → Entrée. Tu dessines à la précision du millimètre."
-                    }
+            ligneDeReference: {
+                whatToSay: "La ligne de référence, c'est LE concept à comprendre pour des plans propres. Chaque mur a une ligne de référence — c'est la ligne de construction. L'épaisseur du mur se développe d'un côté ou de l'autre de cette ligne. Règle d'or : pour les murs de façade, place la ligne de référence côté extérieur. Pour les cloisons intérieures, au centre. Ça garantit des jonctions propres entre tous tes murs.",
+                demoSteps: [
+                    "Tracer un mur et montrer la ligne de référence en pointillé",
+                    "Changer le côté de développement : montrer l'effet en plan ET en 3D",
+                    "Faire un angle de 2 murs avec ligne de réf. extérieure : jonction propre",
+                    "Faire le même angle avec ligne de réf. au mauvais endroit : jonction sale",
+                    "L'apprenant voit immédiatement la différence → déclic"
                 ]
             },
-            {
-                moduleTitle: "Outils d'édition",
-                icon: "🔧",
-                duration: "~1h30",
-                detailedContent: [
-                    {
-                        subtitle: "Déplacer, Copier, Rotation, Miroir",
-                        explanation: "Les outils d'édition permettent de modifier les éléments existants. On sélectionne d'abord l'élément, puis on choisit l'opération. La palette Pet (le petit menu qui apparaît au survol d'un point de l'élément) propose les options contextuelles.",
-                        whatToSay: "« C'est comme dans AutoCAD : tu sélectionnes, puis tu modifies. La différence, c'est le Pet Palette — ce petit menu qui apparaît quand tu survoles un point de l'élément. Il te propose les actions possibles en contexte. »",
-                        demoSteps: [
-                            "Dessiner un rectangle avec l'outil Ligne",
-                            "Sélectionner le rectangle (clic dessus avec la flèche)",
-                            "Montrer Ctrl+D pour déplacer, avec saisie de la distance",
-                            "Montrer Ctrl+Shift+D pour copier à une distance",
-                            "Montrer Ctrl+E pour la rotation",
-                            "Montrer Ctrl+M pour le miroir",
-                            "Montrer Ctrl+Shift+M pour la multiplication (copies multiples)"
-                        ],
-                        keyMessage: "Le Pet Palette est une exclusivité ARCHICAD. Il adapte les options au contexte : sur un coin → déplacer, sur un segment → étirer, etc."
-                    },
-                    {
-                        subtitle: "Le Pet Palette — Édition contextuelle",
-                        explanation: "Le Pet Palette est un mini-menu qui apparaît quand on survole un point caractéristique d'un élément sélectionné (nœud, arête, surface). Il propose des options d'édition contextuelles : déplacer le nœud, étirer le segment, insérer un point, etc.",
-                        whatToSay: "« Le Pet Palette, c'est la fonctionnalité que tu vas adorer. Tu survoles un point d'un mur, et il te propose : déplacer ce coin, étirer ce côté, courber ce segment... C'est ultra-intuitif. »",
-                        demoSteps: [
-                            "Sélectionner un mur",
-                            "Survoler un coin : montrer les options (déplacer nœud, angle...)",
-                            "Survoler un segment : montrer les options (déplacer/étirer, offset...)",
-                            "Montrer comment basculer entre les options avec des clics sur les icônes"
-                        ],
-                        keyMessage: "Le Pet Palette te fait gagner un temps fou. Plus besoin de chercher dans les menus : l'option dont tu as besoin est proposée directement au bon endroit."
-                    }
+            mursComposites: {
+                whatToSay: "En vrai, un mur de façade c'est pas juste 20cm de béton. C'est un sandwich : structure béton ou brique porteuse, puis l'isolant, puis le parement extérieur, puis le placo intérieur. ARCHICAD gère ça avec les murs composites. Tu définis chaque couche avec son épaisseur et son matériau. Et la magie : les jonctions entre les couches se calculent automatiquement. La structure rejoint la structure, l'isolant rejoint l'isolant.",
+                demoSteps: [
+                    "Ouvrir un mur composite existant dans les paramètres",
+                    "Montrer la composition couche par couche",
+                    "Modifier une couche : changer l'épaisseur de l'isolant par exemple",
+                    "En plan : montrer les hachures différentes par couche",
+                    "Jonction de 2 murs composites : montrer la continuité des couches",
+                    "Montrer une photo de mur en chantier : 'C'est exactement ça dans ARCHICAD'"
                 ]
             },
-            {
-                moduleTitle: "Accrochages et calques",
-                icon: "📌",
-                duration: "~1h",
-                detailedContent: [
-                    {
-                        subtitle: "Points d'accrochage (Snap)",
-                        explanation: "Les points d'accrochage permettent de se positionner exactement sur les points caractéristiques des éléments existants : extrémité, milieu, intersection, perpendiculaire, etc. Ils sont essentiels pour un dessin précis sans avoir à saisir de coordonnées.",
-                        whatToSay: "« Les snaps, tu les connais d'AutoCAD (OSNAP). Ici ils fonctionnent pareil mais sont activés par défaut et très intuitifs. Regarde les petits symboles qui apparaissent quand tu approches d'un point caractéristique. »",
-                        demoSteps: [
-                            "Dessiner une ligne et approcher le curseur d'une extrémité → montrer le snap",
-                            "Montrer le snap au milieu d'un segment",
-                            "Montrer le snap à l'intersection de deux lignes",
-                            "Montrer le snap perpendiculaire",
-                            "Montrer comment activer/désactiver les types de snap dans Options > Snap"
-                        ],
-                        keyMessage: "Les snaps garantissent la précision : si tu vois le petit symbole, le point est EXACTEMENT sur le snap. Pas d'approximation."
-                    },
-                    {
-                        subtitle: "Calques (Layers) — Différences avec AutoCAD",
-                        explanation: "Les calques ARCHICAD fonctionnent différemment d'AutoCAD. Chaque TYPE d'outil a un calque par défaut (ex: calque 'Murs porteurs' pour les murs porteurs). Les combinaisons de calques permettent d'afficher/masquer des groupes de calques selon le type de vue (plan archi, plan structure, plan technique...).",
-                        whatToSay: "« Les calques dans ARCHICAD, c'est un peu différent d'AutoCAD. D'abord, chaque outil a son calque par défaut. Ensuite, au lieu de montrer/cacher les calques un par un, on utilise des COMBINAISONS de calques — comme des presets. »",
-                        demoSteps: [
-                            "Ouvrir le gestionnaire de calques (Ctrl+L ou menu Documentation > Calques)",
-                            "Montrer les calques existants par défaut",
-                            "Montrer qu'un outil Mur est automatiquement sur le calque 'Mur'",
-                            "Montrer les combinaisons de calques : 'Plan architectural', 'Plan structural'...",
-                            "Basculer entre deux combinaisons pour voir l'effet"
-                        ],
-                        keyMessage: "Les combinaisons de calques sont la clé : elles te permettent de passer instantanément d'un plan archi à un plan structure, sans toucher aux calques un par un."
-                    }
+            intersectionsEtJonctions: {
+                whatToSay: "Les intersections de murs, c'est le test de qualité d'un plan. Si les jonctions sont propres, c'est que tu as bien travaillé. Si c'est le bazar avec des traits qui se croisent, c'est que la ligne de référence est mal placée ou que les priorités de jonction ne sont pas bonnes. La règle : la couche porteuse a la priorité la plus forte. Elle passe toujours devant l'isolant et le placo.",
+                demoSteps: [
+                    "Montrer un T de murs avec bonne priorité → jonction propre",
+                    "Montrer le même T avec mauvaise priorité → jonction cassée",
+                    "Expliquer les numéros de priorité : plus c'est fort, plus ça traverse",
+                    "Montrer la commande de nettoyage des intersections"
                 ]
             }
+        },
+        FAQ: [
+            { question: "Mes murs se chevauchent en plan — traits parasites", answer: "C'est un problème de ligne de référence. Vérifie que tous tes murs de façade ont la ligne de réf. du même côté (extérieur). Sélectionne le mur, regarde dans les paramètres, inverse le côté si nécessaire." },
+            { question: "Comment créer mon propre mur composite ?", answer: "Ctrl+T → bouton 'Composites' ou va dans Options > Composites du projet. Tu crées un nouveau composite en ajoutant des couches une par une. Donne des noms explicites (Béton 20, Iso 10, Placo 1.3)." },
+            { question: "Les couches de mes murs ne se connectent pas correctement", answer: "C'est une question de priorité de jonction. La couche porteuse doit avoir la priorité la plus forte. Va dans les paramètres du composite et ajuste les numéros de priorité." },
+            { question: "Comment transformer un mur simple en mur composite ?", answer: "Sélectionne le mur → Ctrl+T → dans la section structure, passe de 'Simple' à 'Composite'. Tu peux alors choisir un composite existant ou en créer un nouveau." }
         ],
-        faq: [
-            {
-                question: "Les raccourcis clavier sont très différents d'AutoCAD ?",
-                answer: "Certains sont identiques (Ctrl+Z, Ctrl+S, Ctrl+C/V). D'autres changent : pas de commande LINE à taper, on appuie sur la touche 1 pour l'outil Ligne. L'avantage c'est que c'est plus rapide — un seul appui au lieu de taper une commande entière."
-            },
-            {
-                question: "Comment savoir quel calque utiliser pour un élément ?",
-                answer: "ARCHICAD attribue automatiquement un calque par défaut à chaque outil. Pour les murs porteurs, le calque 'Mur porteur'. Pour les cloisons, le calque 'Cloison'. En général, tu n'as pas à changer le calque manuellement, sauf si tu veux une organisation personnalisée."
-            },
-            {
-                question: "Je trouve que la saisie numérique est compliquée...",
-                answer: "C'est normal au début. Le réflexe à prendre : direction à la souris, puis Tab pour entrer la valeur. Avec la pratique, ça deviendra automatique et beaucoup plus rapide que de calculer des coordonnées. Donne-toi 2-3 jours."
-            }
-        ],
-        transitionToNextDay: "Demain, on attaque le vrai BIM : les MURS ! Tu vas construire tes premiers éléments 3D. Tout ce que tu as appris aujourd'hui (saisie numérique, accrochages) va te servir directement."
+        transitionToNextDay: "Tu maîtrises les murs. C'est la base de tout. Demain on passe à la structure : dalles composites, poteaux, poutres. Tu vas donner une ossature solide à ton bâtiment — comme un ingénieur structure."
     },
 
-    // ==========================================
-    // JOUR 3 — Murs
-    // ==========================================
-    3: {
-        moduleExplanations: [
-            {
-                moduleTitle: "L'outil Mur — Premier élément BIM",
-                icon: "🧱",
-                duration: "~2h",
-                detailedContent: [
-                    {
-                        subtitle: "Créer un mur — Les bases",
-                        explanation: "L'outil Mur (raccourci W) est l'outil central d'ARCHICAD. On dessine le mur en plan comme une ligne, mais il se construit en 3D avec une épaisseur, une hauteur, et des matériaux. C'est le premier vrai élément BIM.",
-                        whatToSay: "« Aujourd'hui tu vas construire ton premier mur ! Appuie sur W, clique un point de début, un point de fin, et BAM — un mur 3D apparaît. C'est aussi simple que ça. »",
-                        demoSteps: [
-                            "Appuyer sur W pour activer l'outil Mur",
-                            "Montrer les paramètres dans l'Info Box : épaisseur, hauteur, matériau",
-                            "Dessiner un mur simple en cliquant deux points",
-                            "Passer en 3D (F3) pour voir le résultat — laisser réagir l'apprenante",
-                            "Revenir en plan (F2) et continuer à dessiner des murs",
-                            "Montrer la méthode rectangulaire (dessiner un rectangle de murs d'un coup)"
-                        ],
-                        keyMessage: "Le mur est L'élément fondamental. Tu dessines en plan, tu obtiens un mur 3D complet avec épaisseur, hauteur et matériaux."
-                    },
-                    {
-                        subtitle: "La boîte de dialogue du mur (Ctrl+T)",
-                        explanation: "Double-cliquer sur l'outil Mur (ou Ctrl+T) ouvre la boîte de dialogue complète. Elle contient TOUS les paramètres du mur : géométrie (épaisseur, hauteur), position (altitude de base, altitude haute), matériaux (3 surfaces : intérieur, extérieur, coupe), et classification.",
-                        whatToSay: "« La boîte de dialogue, c'est la fiche technique complète du mur. Tu y réglées tout : les dimensions, les matériaux, l'altitude, et même les propriétés IFC pour le BIM. Pour l'instant, concentre-toi sur les 3 paramètres essentiels : épaisseur, hauteur, matériaux. »",
-                        demoSteps: [
-                            "Ouvrir la boîte de dialogue avec Ctrl+T",
-                            "Montrer le panneau Géométrie : épaisseur, hauteur",
-                            "Montrer le panneau Plan et coupe : représentation en plan",
-                            "Montrer le panneau Modèle : matériaux des 3 surfaces",
-                            "Modifier l'épaisseur à 20cm et la hauteur à 2.60m",
-                            "Dessiner un mur avec ces paramètres et vérifier en 3D"
-                        ],
-                        keyMessage: "Trois paramètres à régler systématiquement : épaisseur (structure), hauteur (étage), matériaux (rendu). Le reste viendra avec la pratique."
-                    },
-                    {
-                        subtitle: "La ligne de référence",
-                        explanation: "Chaque mur a une ligne de référence qui détermine de quel côté s'étend l'épaisseur du mur. Elle peut être au centre, à l'extérieur ou à l'intérieur du mur. C'est CRUCIAL pour les intersections propres. Si la ligne de référence est mal positionnée, les murs ne se connectent pas correctement.",
-                        whatToSay: "« La ligne de référence, c'est LE concept le plus important avec les murs. C'est la 'colonne vertébrale' du mur. Quand tu dessines, le mur se construit d'un côté ou de l'autre de cette ligne. En architecture, on positionne généralement la ligne de référence sur le nu extérieur du mur. »",
-                        demoSteps: [
-                            "Dessiner un mur et montrer sa ligne de référence en plan (trait plus épais)",
-                            "Changer la position de la ligne de référence : centre, intérieur, extérieur",
-                            "Montrer le résultat en plan — le mur se décale",
-                            "Montrer ce qui se passe avec deux murs mal alignés (ligne de réf. incohérente)",
-                            "Montrer ce qui se passe avec deux murs bien alignés (ligne de réf. cohérente)",
-                            "Expliquer la règle : « Nu extérieur pour les murs extérieurs, centre pour les cloisons »"
-                        ],
-                        keyMessage: "Règle d'or : toujours la ligne de référence côté extérieur pour les murs de façade. C'est ce qui garantit des jonctions propres."
-                    }
+    // ========== JOUR 3 ==========
+    jour3: {
+        title: "Structure : dalles, poteaux, poutres",
+        approachPhilosophy: "La Baguette magique est le moment 'waouh' de la journée. L'apprenant voit la puissance réelle du logiciel. On construit la structure comme un ingénieur structure penserait le bâtiment — du bas vers le haut.",
+        moduleExplanations: {
+            dallesApprofondies: {
+                whatToSay: "Hier tu as utilisé la Baguette magique pour créer une dalle simple. Aujourd'hui on va beaucoup plus loin. Une dalle, en vrai, c'est pas juste du béton. C'est un plancher complet : carrelage en finition, chape de pose, isolant phonique, dalle béton en structure. Comme les murs composites, ARCHICAD gère les dalles composites avec des couches superposées. Et l'altitude de référence est CRUCIALE — c'est le piège numéro 1 du débutant.",
+                demoSteps: [
+                    "Outil Dalle (L) → Ctrl+T : montrer tous les paramètres",
+                    "Créer une dalle composite : carrelage 1cm + chape 5cm + isolant 5cm + béton 20cm",
+                    "Montrer l'altitude de référence : 0.00 pour le RDC",
+                    "Baguette magique dans le T3 d'hier : dalle en un clic !",
+                    "Vérifier en coupe : montrer que les couches sont là"
                 ]
             },
-            {
-                moduleTitle: "Types de murs et composites",
-                icon: "🏠",
-                duration: "~1h30",
-                detailedContent: [
-                    {
-                        subtitle: "Murs simples vs murs composites",
-                        explanation: "Un mur simple a une seule couche (ex: béton 20cm). Un mur composite est constitué de plusieurs couches (ex: brique 10cm + isolant 10cm + placo 1.3cm). ARCHICAD gère automatiquement les jonctions entre les couches des murs composites.",
-                        whatToSay: "« En réalité, un mur de façade n'est jamais une seule couche. C'est un sandwich : la structure (béton ou brique), l'isolation, le parement extérieur, le placo intérieur. ARCHICAD sait gérer tout ça avec les murs composites. »",
-                        demoSteps: [
-                            "Créer un mur simple de 20cm et le visualiser en coupe",
-                            "Créer un mur composite (ouvrir le gestionnaire de composites)",
-                            "Montrer la composition : brique + isolation + placo",
-                            "Dessiner les deux murs côte à côte et comparer en coupe",
-                            "Montrer l'avantage : ARCHICAD calcule l'épaisseur totale et gère les jonctions"
-                        ],
-                        keyMessage: "Les murs composites sont indispensables pour des projets réalistes. Ils permettent de calculer correctement les surfaces et les quantités de matériaux."
-                    },
-                    {
-                        subtitle: "Intersections et jonctions de murs",
-                        explanation: "Quand deux murs se rencontrent, ARCHICAD calcule automatiquement l'intersection (nettoyage des traits en plan, jonction 3D). Si les murs ont la même priorité de jonction, ils fusionnent. Si les priorités diffèrent, ils se croisent de manière réaliste.",
-                        whatToSay: "« C'est la magie d'ARCHICAD : quand deux murs se touchent, il comprend que c'est une jonction et il nettoie automatiquement le plan. Plus besoin de dessiner les intersections à la main comme dans AutoCAD ! »",
-                        demoSteps: [
-                            "Dessiner deux murs qui se croisent en T",
-                            "Montrer l'intersection propre en plan (nettoyage automatique)",
-                            "Montrer le résultat en 3D",
-                            "Montrer un cas problématique : murs qui ne se touchent pas = pas de jonction",
-                            "Montrer la solution : prolonger le mur pour qu'il touche l'autre",
-                            "Montrer les priorités de jonction dans les propriétés du mur"
-                        ],
-                        keyMessage: "Pour que les jonctions fonctionnent : les murs doivent se TOUCHER, et les lignes de référence doivent être cohérentes. Si ça ne marche pas, vérifie ces deux points."
-                    }
+            baguetteMagiqueAvancee: {
+                whatToSay: "La Baguette magique, c'est l'outil de productivité d'ARCHICAD. Tu sélectionnes n'importe quel outil (dalle, zone, hachure...), tu appuies sur Espace, et tu cliques dans un contour fermé — l'élément se crée automatiquement en épousant le contour. Ça marche avec les dalles, les zones, les hachures... Si ça ne marche pas, c'est que ton contour n'est pas fermé. Zoome aux angles, tu trouveras le trou.",
+                demoSteps: [
+                    "Montrer la Baguette magique avec la dalle → un clic = plancher",
+                    "Montrer avec l'outil Zone → un clic = zone calculée",
+                    "Cas où ça ne marche pas → zoomer sur l'angle problématique → connecter les murs → réessayer"
                 ]
             },
-            {
-                moduleTitle: "Édition avancée des murs",
-                icon: "✂️",
-                duration: "~1h",
-                detailedContent: [
-                    {
-                        subtitle: "Modifier un mur existant",
-                        explanation: "Les murs existants peuvent être modifiés de nombreuses façons : étirer (changer la longueur), déplacer un nœud, changer l'épaisseur, la hauteur, diviser un mur en deux, fusionner deux murs adjacents.",
-                        whatToSay: "« Pas de panique si un mur n'est pas parfait du premier coup. Tu peux tout modifier après : le rallonger, le déplacer, changer son épaisseur, le diviser... Le Pet Palette est ton meilleur ami pour ça. »",
-                        demoSteps: [
-                            "Sélectionner un mur et montrer le Pet Palette sur un nœud (déplacer)",
-                            "Étirer un mur en déplaçant son extrémité",
-                            "Montrer la division d'un mur (clic droit > Diviser)",
-                            "Montrer la fusion de deux murs adjacents",
-                            "Montrer le changement d'épaisseur d'un mur existant",
-                            "Montrer Ctrl+T sur un mur sélectionné pour modifier tous ses paramètres"
-                        ],
-                        keyMessage: "N'hésite jamais à modifier un mur après coup. L'avantage du BIM, c'est la flexibilité : tout est modifiable à tout moment."
-                    }
+            poteauxEtPoutres: {
+                whatToSay: "Les poteaux et les poutres, c'est l'ossature du bâtiment. En maison individuelle, tu les utilises quand tu as une grande ouverture (baie vitrée de 4m, garage sans mur porteur) ou une double hauteur. En collectif ou en tertiaire, c'est la trame structurelle complète. Un poteau se place par un simple clic. Une poutre relie deux points. Pense toujours 'descente de charges' — comme un ingénieur.",
+                demoSteps: [
+                    "Outil Poteau : section 30×30cm, hauteur étage complet",
+                    "Placer 4 poteaux aux angles d'une grande ouverture",
+                    "Outil Poutre : relier les poteaux, section 30×50cm",
+                    "Vérifier en 3D : les poteaux portent les poutres",
+                    "Vérifier en coupe : cohérence des altitudes"
                 ]
             }
+        },
+        FAQ: [
+            { question: "Ma dalle est au mauvais niveau", answer: "Sélectionne la dalle → paramètres → vérifie l'altitude de référence. 0.00 pour le RDC, +2.80 (ou la hauteur de ton étage) pour le plancher du R+1. L'altitude se règle par rapport à l'étage courant ou par rapport au projet." },
+            { question: "La Baguette magique ne détecte pas le contour", answer: "Ton contour de murs n'est pas fermé. Zoome à chaque angle pour vérifier. Même un écart de 0.5mm empêche la détection. Utilise les points d'accrochage pour reconnecter les murs." },
+            { question: "Mon poteau traverse la dalle", answer: "Vérifie les altitudes du poteau et de la dalle. Le poteau doit aller de 0.00 à la sous-face de la dalle (par exemple 2.60m). Pas jusqu'au dessus de la dalle." },
+            { question: "La poutre ne se connecte pas au poteau", answer: "Utilise les points d'accrochage pour attraper le centre ou l'angle du poteau. La poutre doit démarrer et finir exactement sur un poteau ou un mur porteur." }
         ],
-        faq: [
-            {
-                question: "Mes murs ne se connectent pas correctement, pourquoi ?",
-                answer: "3 causes principales : 1) Les murs ne se touchent pas vraiment (zoom pour vérifier). 2) Les lignes de référence sont incohérentes (une au centre, l'autre à l'extérieur). 3) Les murs sont sur des calques différents avec des priorités de jonction différentes. Vérifie ces 3 points dans cet ordre."
-            },
-            {
-                question: "Quelle épaisseur pour les murs ?",
-                answer: "Standards courants : Murs porteurs extérieurs = 20cm (béton) ou composite 30-35cm. Cloisons intérieures = 7cm (placo) ou 10cm. Murs porteurs intérieurs = 15-20cm. Murs de refend = 20cm. Ces valeurs sont des bases — à adapter selon le projet réel."
-            },
-            {
-                question: "Comment savoir où mettre la ligne de référence ?",
-                answer: "Règle simple : pour les murs extérieurs, mets la ligne de référence sur le NU EXTÉRIEUR (côté dehors). Pour les cloisons intérieures, mets-la au CENTRE. Cette convention facilite les jonctions et le calcul des surfaces."
-            }
-        ],
-        transitionToNextDay: "Tu as maintenant les murs de ton bâtiment ! Demain on ajoute la structure : dalles (planchers), poteaux et poutres. Le bâtiment va devenir un vrai volume 3D."
+        transitionToNextDay: "La structure est en place. Demain c'est le jour des menuiseries : portes, fenêtres, baies vitrées. C'est le moment où le bâtiment prend vraiment vie — on va percer toutes les ouvertures et faire une visite 3D !"
     },
 
-    // ==========================================
-    // JOUR 4 — Dalles, poteaux, poutres
-    // ==========================================
-    4: {
-        moduleExplanations: [
-            {
-                moduleTitle: "L'outil Dalle — Planchers et plafonds",
-                icon: "⬛",
-                duration: "~2h",
-                detailedContent: [
-                    {
-                        subtitle: "Créer une dalle",
-                        explanation: "La dalle se dessine en plan par son contour. On peut la tracer manuellement (polygone) ou utiliser la Baguette magique pour créer automatiquement une dalle à partir d'un contour fermé de murs. L'altitude de référence détermine la position verticale de la dalle.",
-                        whatToSay: "« La dalle, c'est ton plancher et ton plafond. Tu la dessines en plan et elle se construit en 3D. Le plus magique : la Baguette magique (barre espace) qui crée la dalle automatiquement en cliquant à l'intérieur des murs ! »",
-                        demoSteps: [
-                            "Activer l'outil Dalle (touche L)",
-                            "Méthode 1 : Dessiner manuellement un rectangle (comme une polyligne fermée)",
-                            "Passer en 3D pour voir la dalle",
-                            "Méthode 2 : Baguette magique — cliquer à l'intérieur d'un contour de murs",
-                            "Montrer l'effet magique : la dalle épouse le contour des murs !",
-                            "Expliquer l'altitude de référence : 0.00 pour le RDC, hauteur d'étage pour le plancher haut"
-                        ],
-                        keyMessage: "La Baguette magique (barre espace) est un gain de temps considérable. Elle détecte le contour fermé et crée la dalle en un clic."
-                    },
-                    {
-                        subtitle: "Dalles composites et épaisseurs",
-                        explanation: "Comme les murs, les dalles peuvent être composites : chape + isolation + structure béton. L'épaisseur totale et la composition influencent les calculs thermiques et structurels. L'Info Box permet de régler l'épaisseur et le type.",
-                        whatToSay: "« Un plancher réel n'est pas un simple bloc de béton. C'est un sandwich : chape de finition, isolation phonique, structure béton, faux-plafond en dessous. ARCHICAD gère tout ça comme pour les murs composites. »",
-                        demoSteps: [
-                            "Ouvrir la boîte de dialogue de la dalle (Ctrl+T)",
-                            "Montrer les paramètres : épaisseur, composite, altitude",
-                            "Créer une dalle simple de 20cm",
-                            "Créer une dalle composite (carrelage + chape + isolation + béton)",
-                            "Comparer les deux en coupe"
-                        ],
-                        keyMessage: "L'altitude de référence est le piège classique ! Plancher RDC = 0.00, plancher R+1 = hauteur d'étage. Toujours vérifier en coupe."
-                    },
-                    {
-                        subtitle: "La Baguette magique — Outil de productivité",
-                        explanation: "La Baguette magique (barre espace) est un outil transversal qui fonctionne avec de nombreux outils (dalle, zone, toiture...). Elle détecte les contours fermés et crée l'élément en un clic. C'est l'un des outils les plus productifs d'ARCHICAD.",
-                        whatToSay: "« La Baguette magique, c'est comme un sort dans Harry Potter : tu pointes à l'intérieur d'une pièce, et PAF, la dalle se crée toute seule en suivant les murs. Ça marche aussi pour les zones et plein d'autres choses. »",
-                        demoSteps: [
-                            "Activer l'outil Dalle, maintenir la barre espace (baguette magique)",
-                            "Cliquer à l'intérieur d'un espace fermé par des murs",
-                            "Montrer que la dalle épouse parfaitement le contour",
-                            "Essayer avec un espace plus complexe (mur courbe, angles)",
-                            "Montrer un cas où ça ne marche pas : contour non fermé → montrer l'erreur",
-                            "Solution : trouver et fermer le trou dans les murs"
-                        ],
-                        keyMessage: "Si la Baguette magique ne fonctionne pas, c'est que le contour n'est pas fermé. Zoom sur les coins pour trouver le petit espace entre les murs."
-                    }
+    // ========== JOUR 4 ==========
+    jour4: {
+        title: "Portes, fenêtres & menuiseries",
+        approachPhilosophy: "Séance gratifiante ! Chaque porte/fenêtre transforme le bâtiment. On fait le lien avec les codes architecturaux : pourquoi ces dimensions, ces allèges, ces sens d'ouverture. L'apprenant pense comme un architecte, pas comme un dessinateur.",
+        moduleExplanations: {
+            portes: {
+                whatToSay: "Les portes dans ARCHICAD, c'est simple et puissant. Tu actives l'outil Porte (D), tu cliques dans un mur, la porte s'insère et l'ouverture se crée automatiquement. Le truc important, c'est de connaître les standards : 90cm pour une porte d'entrée ou PMR, 80cm pour les chambres, 70cm pour la SDB, 60cm pour le WC. Hauteur standard 204cm. Et le sens d'ouverture : la porte s'ouvre toujours contre le mur pour ne pas gêner la circulation dans la pièce.",
+                demoSteps: [
+                    "Touche D → outil Porte",
+                    "Montrer les paramètres : largeur, hauteur, type (battante, coulissante)",
+                    "Placer une porte de 90cm dans un mur → montrer l'insertion automatique",
+                    "F3 : l'ouverture dans le mur est parfaite en 3D",
+                    "Montrer le sens d'ouverture : intérieur/extérieur, gauche/droite",
+                    "Astuce : cliquer des deux côtés du mur pendant le placement pour choisir le sens"
                 ]
             },
-            {
-                moduleTitle: "Poteaux et poutres",
-                icon: "🏛️",
-                duration: "~1h30",
-                detailedContent: [
-                    {
-                        subtitle: "L'outil Poteau",
-                        explanation: "Les poteaux se placent par point (clic simple). Ils peuvent être structurels (porteurs — béton, acier) ou architecturaux (décoratifs — bois, pierre). Leurs paramètres principaux sont la section (rectangulaire, circulaire) et la hauteur.",
-                        whatToSay: "« Le poteau, c'est un élément ponctuel : tu cliques, il se place. Simple. Tu choisis sa section (carré, rond), sa hauteur, et son matériau. Il se met en place en 3D automatiquement. »",
-                        demoSteps: [
-                            "Activer l'outil Poteau",
-                            "Montrer les paramètres : section, dimensions, hauteur",
-                            "Placer un poteau rectangulaire (30x30cm) à un angle du bâtiment",
-                            "Placer un poteau circulaire (diamètre 25cm)",
-                            "Passer en 3D pour voir les poteaux",
-                            "Montrer le lien poteau-dalle : le poteau dépasse-t-il de la dalle ? Ajuster."
-                        ],
-                        keyMessage: "Les poteaux sont souvent oubliés par les débutants. Ils sont pourtant essentiels pour la cohérence structurelle du modèle BIM."
-                    },
-                    {
-                        subtitle: "L'outil Poutre",
-                        explanation: "Les poutres relient deux points et ont un profil (rectangulaire, IPE, IPN...). Elles se dessinent comme une ligne : clic au point de départ, clic au point d'arrivée. L'altitude et le décalage sont importants pour les positionner correctement.",
-                        whatToSay: "« La poutre relie deux poteaux (ou deux murs). Elle a un profil — rectangulaire pour du béton, en I (IPE/IPN) pour de l'acier. Tu la dessines comme une ligne entre deux points. »",
-                        demoSteps: [
-                            "Activer l'outil Poutre",
-                            "Régler le profil : rectangulaire 30x50cm",
-                            "Dessiner une poutre entre deux poteaux",
-                            "Passer en 3D pour voir le résultat",
-                            "Montrer le positionnement vertical : la poutre doit être sous la dalle",
-                            "Montrer un profil acier (IPE) pour comparaison"
-                        ],
-                        keyMessage: "En architecture courante, les poutres sont surtout présentes dans les franchissements (grande portée). Les murs porteurs et les dalles suffisent souvent pour les projets simples."
-                    }
-                ]
-            }
-        ],
-        faq: [
-            {
-                question: "Ma dalle est au mauvais niveau, comment la repositionner ?",
-                answer: "Sélectionne la dalle, ouvre ses propriétés (Ctrl+T), et modifie l'altitude de référence. Tu peux aussi la sélectionner et taper une nouvelle altitude dans l'Info Box. Vérifie ensuite en coupe que la dalle est bien positionnée."
-            },
-            {
-                question: "La Baguette magique ne crée pas la dalle, pourquoi ?",
-                answer: "Le contour n'est probablement pas fermé. Zoom aux intersections des murs pour vérifier qu'il n'y a pas d'espace. Même un micro-espace (0.1mm) empêche la Baguette magique de fonctionner. Astuce : rallonge les murs un peu au-delà du croisement."
-            },
-            {
-                question: "Faut-il mettre des poteaux dans une maison individuelle ?",
-                answer: "Pour une maison à murs porteurs, les poteaux ne sont pas toujours nécessaires. Ils le sont si tu as de grandes ouvertures (baie vitrée de 4m+) ou des espaces sans mur porteur. En revanche, pour un bâtiment en structure poteaux-poutres, ils sont indispensables."
-            }
-        ],
-        transitionToNextDay: "Le gros œuvre est presque fini ! Demain, on perce les ouvertures : portes et fenêtres. C'est le moment où le projet commence vraiment à ressembler à un bâtiment habitable."
-    },
-
-    // ==========================================
-    // JOUR 5 — Portes & fenêtres
-    // ==========================================
-    5: {
-        moduleExplanations: [
-            {
-                moduleTitle: "L'outil Porte — Ouvrir les espaces",
-                icon: "🚪",
-                duration: "~2h",
-                detailedContent: [
-                    {
-                        subtitle: "Placer une porte dans un mur",
-                        explanation: "Les portes sont des objets paramétriques qui se placent DANS les murs. Quand on place une porte, ARCHICAD crée automatiquement l'ouverture dans le mur. La porte détecte le mur sous le curseur et s'y insère.",
-                        whatToSay: "« Tu cliques dans un mur, et hop, la porte se place et perce le mur automatiquement. Plus besoin de dessiner l'ouverture, les traits de la porte, l'arc d'ouverture... ARCHICAD fait tout. »",
-                        demoSteps: [
-                            "Activer l'outil Porte (touche D)",
-                            "Montrer les paramètres dans l'Info Box : largeur, hauteur, type",
-                            "Approcher le curseur d'un mur — montrer que la porte 's'accroche' au mur",
-                            "Cliquer pour placer la porte",
-                            "Montrer le curseur à 4 positions : il définit le côté d'ouverture",
-                            "Passer en 3D pour voir la porte percée dans le mur"
-                        ],
-                        keyMessage: "La porte est liée au mur. Si tu déplaces le mur, la porte suit. Si tu supprimes le mur, la porte disparaît. C'est la logique BIM."
-                    },
-                    {
-                        subtitle: "Paramétrer une porte",
-                        explanation: "Chaque porte a de nombreux paramètres : largeur de passage, hauteur, type d'ouverture (battante, coulissante, pivotante), matériau du vantail, type de poignée, seuil, imposte... La boîte de dialogue (Ctrl+T) donne accès à tout.",
-                        whatToSay: "« La porte ARCHICAD, c'est une vraie porte : tu choisis sa largeur (60, 70, 80, 90cm), son type (battante, coulissante), le sens d'ouverture, et même le type de poignée. C'est beaucoup plus qu'un trait sur un plan. »",
-                        demoSteps: [
-                            "Ouvrir la boîte de dialogue d'une porte (Ctrl+T sur la porte sélectionnée)",
-                            "Montrer les dimensions : largeur 80cm, hauteur 204cm (standards)",
-                            "Changer le type d'ouverture : battante simple, double, coulissante",
-                            "Montrer le sens d'ouverture et comment l'inverser",
-                            "Montrer l'aperçu en plan et en 3D dans la boîte de dialogue",
-                            "Donner les largeurs standards : WC/SDB = 60-70cm, chambres = 80cm, entrée = 90cm, PMR = 90cm min"
-                        ],
-                        keyMessage: "Dimensions standards à retenir : WC = 60cm, SDB = 70cm, chambres = 80cm, entrée/PMR = 90cm, hauteur standard = 204cm."
-                    }
+            fenetres: {
+                whatToSay: "Outil Fenêtre (Shift+D). Même logique que la porte, mais avec un paramètre en plus : l'allège. L'allège c'est la distance entre le sol et le bas de la fenêtre. Standard 90cm — ça correspond à la hauteur d'un appui de fenêtre confortable. Mais ça change selon les pièces : 130cm pour la SDB (intimité), 0cm pour une baie vitrée toute hauteur. Pense toujours à l'usage de la pièce avant de choisir ton allège.",
+                demoSteps: [
+                    "Shift+D → outil Fenêtre",
+                    "Montrer le paramètre allège dans la palette d'infos",
+                    "Placer une fenêtre standard (120×135cm, allège 90cm) → vérifier en 3D",
+                    "Placer une baie vitrée (240×215cm, allège 0cm) → effet spectaculaire en 3D",
+                    "Placer une fenêtre haute de SDB (60×45cm, allège 130cm)",
+                    "Comparer les 3 en 3D : 'Chaque type de fenêtre a son usage architectural'"
                 ]
             },
-            {
-                moduleTitle: "L'outil Fenêtre — Éclairer les espaces",
-                icon: "🪟",
-                duration: "~2h",
-                detailedContent: [
-                    {
-                        subtitle: "Placer et paramétrer une fenêtre",
-                        explanation: "L'outil Fenêtre (Shift+D) fonctionne comme la porte : on clique dans un mur et la fenêtre se place automatiquement. Le paramètre supplémentaire clé est l'ALLÈGE : la distance entre le sol fini et le bas de la fenêtre.",
-                        whatToSay: "« La fenêtre, c'est comme la porte mais avec un paramètre en plus : l'allège. L'allège, c'est la hauteur entre le sol et le bas de la fenêtre. Standard : 90cm pour les pièces de vie, 130cm pour la salle de bain (pour l'intimité), 0cm pour une baie vitrée. »",
-                        demoSteps: [
-                            "Activer l'outil Fenêtre (Shift+D)",
-                            "Régler les paramètres : largeur 120cm, hauteur 135cm, allège 90cm",
-                            "Placer la fenêtre dans un mur extérieur",
-                            "Montrer le résultat en 3D — la fenêtre est bien à la bonne hauteur",
-                            "Changer l'allège à 0cm pour montrer une baie vitrée",
-                            "Montrer l'allège à 130cm pour une fenêtre de salle de bain"
-                        ],
-                        keyMessage: "L'allège est le paramètre le plus oublié ! Toujours vérifier l'allège avant de placer une fenêtre. 90cm = standard, 0cm = baie vitrée, 130cm = SDB."
-                    },
-                    {
-                        subtitle: "La bibliothèque d'objets",
-                        explanation: "ARCHICAD dispose d'une bibliothèque riche de portes et fenêtres (et de tous les autres objets). On peut naviguer dans la bibliothèque pour trouver le bon type de porte/fenêtre. BIMcomponents.com propose des objets supplémentaires téléchargeables.",
-                        whatToSay: "« La bibliothèque, c'est un catalogue de menuiseries. Tu y trouves des portes battantes, coulissantes, à galandage, des fenêtres à la française, oscillo-battantes, des baies vitrées... Il y en a pour tous les projets. »",
-                        demoSteps: [
-                            "Ouvrir la boîte de dialogue de la fenêtre",
-                            "Naviguer dans la bibliothèque : montrer les différents types",
-                            "Montrer une fenêtre à la française",
-                            "Montrer une baie coulissante",
-                            "Montrer comment chercher par nom dans la bibliothèque",
-                            "Évoquer BIMcomponents.com pour les objets spéciaux"
-                        ],
-                        keyMessage: "La bibliothèque standard couvre 90% des besoins. Pour les cas particuliers, BIMcomponents.com est la référence."
-                    }
+            bibliotheque: {
+                whatToSay: "ARCHICAD a une bibliothèque intégrée très riche. Tu y trouves des dizaines de types de portes et fenêtres : battantes, coulissantes, oscillo-battantes, à galandage, vitrées, pleines... Ne perds pas de temps à tout explorer maintenant. Les standards suffisent pour 90% des projets. Tu iras chercher les objets spéciaux quand tu en auras besoin.",
+                demoSteps: [
+                    "Ouvrir la bibliothèque de portes : montrer les catégories",
+                    "Choisir une porte d'entrée avec imposte vitrée",
+                    "Choisir une porte coulissante pour la SDB",
+                    "Montrer rapidement les types de fenêtres disponibles",
+                    "Conseil : 'Reste simple, utilise les standards. Tu personnaliseras plus tard.'"
                 ]
             }
+        },
+        FAQ: [
+            { question: "Ma porte est du mauvais côté du mur", answer: "Pendant le placement, tu peux cliquer des deux côtés du mur pour choisir de quel côté la porte s'ouvre. Si elle est déjà placée, sélectionne-la et utilise le pet palette pour l'inverser (miroir)." },
+            { question: "L'allège de ma fenêtre n'est pas bonne", answer: "Sélectionne la fenêtre → paramètres → modifie la valeur d'allège. 90cm standard, 130cm SDB, 0cm baie vitrée. La modification est immédiate en 3D." },
+            { question: "Comment placer une baie vitrée toute hauteur ?", answer: "C'est une fenêtre avec allège = 0cm et hauteur = hauteur sous plafond (ou légèrement inférieure). Largeur : 180cm minimum pour l'effet 'baie vitrée'. Tu peux aller jusqu'à 300cm ou plus." },
+            { question: "Mes fenêtres ne sont pas alignées entre elles", answer: "Utilise le tracker (Tab) pour entrer la distance exacte depuis un point de référence. Ou utilise un guide temporaire (ligne d'aide) pour aligner les axes des fenêtres." }
         ],
-        faq: [
-            {
-                question: "Comment inverser le sens d'ouverture d'une porte déjà placée ?",
-                answer: "Sélectionne la porte, ouvre ses propriétés (Ctrl+T), et cherche l'option 'Miroir' ou 'Inverser'. Tu peux aussi utiliser le Pet Palette : survole la porte sélectionnée et utilise l'option de retournement. Ou plus simple : supprime et replace en cliquant du bon côté."
-            },
-            {
-                question: "Quelles sont les dimensions standards de fenêtres ?",
-                answer: "Fenêtres standards : 60x45cm (WC), 90x95cm (petite), 120x135cm (standard chambre), 140x135cm (standard séjour), 180x215cm (porte-fenêtre), 240x215cm+ (baie vitrée coulissante). Allège : 90cm standard, 130cm SDB, 0cm baie vitrée."
-            },
-            {
-                question: "Ma porte est à l'envers (s'ouvre du mauvais côté) ?",
-                answer: "Quand tu places une porte, ARCHICAD utilise 4 positions de curseur pour définir le côté d'ouverture. Si la porte est mal orientée, le plus simple est de la supprimer et la replacer en faisant attention au clic : le premier clic définit le côté charnière, le second le sens d'ouverture."
-            }
-        ],
-        transitionToNextDay: "La semaine 1 est terminée ! Tu as un T3 complet avec murs, dalles, portes et fenêtres. La semaine prochaine, on monte d'un niveau : escaliers, toitures, plusieurs étages. Le projet va prendre de l'envergure."
+        transitionToNextDay: "Le T3 a toutes ses ouvertures ! Demain on finit la semaine 1 en beauté : escalier et toiture. Ton bâtiment sera complet de la dalle au faîtage. Et le rognage des murs sous le toit… tu vas adorer l'effet."
     },
 
-    // ==========================================
-    // JOUR 6 — Escaliers & garde-corps
-    // ==========================================
-    6: {
-        moduleExplanations: [
-            {
-                moduleTitle: "L'outil Escalier — Relier les étages",
-                icon: "🪜",
-                duration: "~2h30",
-                detailedContent: [
-                    {
-                        subtitle: "Principes de conception d'un escalier",
-                        explanation: "Avant de dessiner, il faut comprendre les règles : la formule de Blondel (2h + g = 60 à 65cm), où h est la hauteur de marche et g le giron. Pour un confort optimal : h = 17-18cm et g = 27-28cm. La règle réglementaire impose h ≤ 21cm en ERP.",
-                        whatToSay: "« Avant de dessiner un escalier, on fait un peu de math. La formule de Blondel, c'est ce qui fait qu'un escalier est confortable ou pas. 2 fois la hauteur de marche + le giron doit donner entre 60 et 65cm. Un bon escalier : 17cm de hauteur, 28cm de giron. »",
-                        demoSteps: [
-                            "Écrire la formule au tableau ou à l'écran : 2h + g = 60-65cm",
-                            "Calculer ensemble : hauteur d'étage 2.80m → 2800/170 = 16.5 → 16 marches",
-                            "Vérifier : h = 2800/16 = 175mm, g = 640 - 2×175 = 290mm → OK !",
-                            "Montrer les valeurs idéales et les valeurs limites",
-                            "Montrer un escalier confortable vs inconfortable en exemple"
-                        ],
-                        keyMessage: "Formule de Blondel : 2h + g = 60-65cm. C'est la règle d'or. Un escalier qui ne la respecte pas sera inconfortable ou dangereux."
-                    },
-                    {
-                        subtitle: "Créer un escalier dans ARCHICAD",
-                        explanation: "L'outil Escalier d'ARCHICAD est très puissant. On commence par choisir un type (droit, quart tournant, demi-tournant, hélicoïdal), puis on place l'escalier en plan. ARCHICAD calcule automatiquement le nombre de marches en fonction de la hauteur d'étage.",
-                        whatToSay: "« L'outil Escalier d'ARCHICAD est un des meilleurs du marché. Tu choisis la forme, tu places les points, et il calcule tout : nombre de marches, hauteur, giron, trémie dans la dalle. C'est bluffant. »",
-                        demoSteps: [
-                            "Activer l'outil Escalier",
-                            "Montrer les formes prédéfinies : droit, quart tournant, demi-tournant",
-                            "Choisir un escalier droit pour commencer (plus simple)",
-                            "Régler la hauteur connectée (vérifier l'étage de départ et d'arrivée)",
-                            "Placer l'escalier en plan : clic début, clic fin",
-                            "Passer en 3D pour voir le résultat",
-                            "Montrer le réglage individuel des marches dans l'éditeur"
-                        ],
-                        keyMessage: "L'outil Escalier gère la trémie automatiquement ! Vérifie en 3D et en coupe que le percement dans la dalle est correct."
-                    }
+    // ========== JOUR 5 ==========
+    jour5: {
+        title: "Escaliers, toiture & bilan semaine 1",
+        approachPhilosophy: "Fin de semaine 1 = bilan spectaculaire. L'escalier est technique mais le résultat est gratifiant. Le rognage des murs sous le toit est LE moment 'waouh'. L'apprenant termine fier avec un bâtiment complet du sol au faîtage.",
+        moduleExplanations: {
+            escalier: {
+                whatToSay: "L'outil Escalier d'ARCHICAD est un des meilleurs sur le marché. Tu choisis la forme (droit, quart tournant, demi-tournant), tu places tes points de départ et d'arrivée, et ARCHICAD calcule tout : nombre de marches, hauteur de marche, giron, et même la trémie dans la dalle du dessus. La règle d'or c'est la formule de Blondel : 2h + g doit être entre 60 et 65cm. h = hauteur de marche, g = giron (profondeur de marche). Pour une hauteur d'étage de 2,80m : 16 marches de 17,5cm avec un giron de 29cm. Blondel = 2×17,5 + 29 = 64. Parfait.",
+                demoSteps: [
+                    "Calculer ensemble : h=2800/16=175mm, g=290mm, Blondel=640mm ✓",
+                    "Outil Escalier : choisir 'Quart tournant avec palier'",
+                    "Entrer les paramètres calculés",
+                    "Placer l'escalier dans le plan — 2 clics pour le départ et l'arrivée",
+                    "F3 : voir l'escalier en 3D — résultat spectaculaire",
+                    "Ajouter le garde-corps de 90cm",
+                    "Vérifier en coupe que la trémie est cohérente"
                 ]
             },
-            {
-                moduleTitle: "Les garde-corps",
-                icon: "🏗️",
-                duration: "~1h30",
-                detailedContent: [
-                    {
-                        subtitle: "L'outil Garde-corps",
-                        explanation: "L'outil Garde-corps est indépendant de l'escalier. On le dessine comme une polyligne le long de l'escalier, du balcon ou du vide. Il est très paramétrique : type de main courante, barreaux, remplissage (verre, câbles, panneaux).",
-                        whatToSay: "« Le garde-corps n'est pas lié à l'escalier : c'est un outil séparé. Tu le dessines le long du parcours que tu veux protéger. L'avantage : tu peux mettre un garde-corps n'importe où, pas seulement sur un escalier. »",
-                        demoSteps: [
-                            "Activer l'outil Garde-corps",
-                            "Montrer les types prédéfinis dans la bibliothèque",
-                            "Dessiner un garde-corps le long d'un escalier",
-                            "Paramétrer : hauteur 90cm (minimum réglementaire), type de remplissage",
-                            "Montrer un garde-corps sur un balcon",
-                            "Passer en 3D pour voir le résultat"
-                        ],
-                        keyMessage: "Réglementation : hauteur minimum 90cm pour un garde-corps, 100cm si la hauteur de chute dépasse 1m. Espacement entre barreaux : 11cm max."
-                    }
+            toiture: {
+                whatToSay: "La toiture, c'est la signature architecturale de la maison. Toit à 2 pans classique, 4 pans bourgeois, toit plat contemporain — chaque forme raconte quelque chose. Dans ARCHICAD, tu construis la toiture pan par pan. Tu dessines la ligne de gouttière, tu donnes la pente, le logiciel construit le pan. Pentes standards : 30-35° pour des tuiles, 15-25° pour de l'ardoise, 3-5° pour un toit-terrasse avec étanchéité. Débord standard : 40 à 80cm selon l'esthétique.",
+                demoSteps: [
+                    "Outil Toit (R) : montrer les paramètres (pente, débord, épaisseur)",
+                    "Créer le premier pan : tracer la ligne de gouttière, pente 30°",
+                    "Créer le deuxième pan en face",
+                    "Vérifier l'intersection en 3D : la ligne de faîtage apparaît",
+                    "Ajuster les débords (60cm) et l'épaisseur (30cm pour tuiles + charpente)"
                 ]
-            }
-        ],
-        faq: [
-            {
-                question: "Combien de marches pour une hauteur de 2.80m ?",
-                answer: "16 marches de 17.5cm (2800/16 = 175mm). Giron avec Blondel : 64cm - 2×17.5 = 29cm. C'est un escalier très confortable. Alternative : 17 marches de 16.5cm avec giron de 31cm (plus doux)."
             },
-            {
-                question: "L'escalier ne 'perce' pas la dalle ?",
-                answer: "Vérifie que l'escalier est bien connecté aux bons étages (étage de départ et d'arrivée). Sinon, il faut créer la trémie manuellement : dessiner un trou dans la dalle haute avec le Solid Element Operations ou en soustrayant une forme."
-            }
-        ],
-        transitionToNextDay: "Demain, on couvre le bâtiment avec les toitures ! C'est un sujet technique mais avec un résultat visuel très satisfaisant."
-    },
-
-    // ==========================================
-    // JOUR 7 — Toitures
-    // ==========================================
-    7: {
-        moduleExplanations: [
-            {
-                moduleTitle: "Créer des toitures",
-                icon: "🏠",
-                duration: "~3h",
-                detailedContent: [
-                    {
-                        subtitle: "Le principe des pans de toiture",
-                        explanation: "Dans ARCHICAD, une toiture se construit pan par pan. Chaque pan est défini par sa ligne de base (gouttière), sa pente, et son épaisseur. ARCHICAD calcule ensuite les intersections entre les pans (faîtage, arêtier, noue).",
-                        whatToSay: "« La toiture dans ARCHICAD, on la construit comme en vrai : pan par pan. Tu dessines la ligne de gouttière, tu donnes la pente, et le pan se construit. Si tu fais plusieurs pans, ARCHICAD calcule les intersections automatiquement. »",
-                        demoSteps: [
-                            "Activer l'outil Toit (touche R)",
-                            "Montrer les paramètres : pente (en degrés), épaisseur, débord",
-                            "Dessiner un toit simple à 2 pans : tracer un pan d'un côté, puis l'autre",
-                            "Montrer l'intersection automatique : le faîtage se crée",
-                            "Passer en 3D pour voir la toiture",
-                            "Montrer un toit à 4 pans (croupe) : même principe mais sur les 4 côtés"
-                        ],
-                        keyMessage: "La pente standard en France : 30-35° pour des tuiles, 15-25° pour de l'ardoise, 3-5° pour une toiture-terrasse. Adapte la pente au matériau de couverture."
-                    },
-                    {
-                        subtitle: "Rogner les murs sous la toiture",
-                        explanation: "Après avoir créé la toiture, les murs dépassent au-dessus. Il faut les 'rogner' : l'outil 'Ajuster éléments au toit' (menu Design) coupe automatiquement les murs pour qu'ils épousent la pente du toit.",
-                        whatToSay: "« Après avoir posé le toit, tes murs dépassent au-dessus. Pas de panique : la commande 'Ajuster à la toiture' coupe les murs pile à la bonne forme. C'est un effet spectaculaire ! »",
-                        demoSteps: [
-                            "Montrer les murs qui dépassent au-dessus du toit en 3D",
-                            "Sélectionner les murs à ajuster",
-                            "Menu Design > Ajuster éléments au toit (ou Connect > Trim Elements to Roof)",
-                            "Cliquer sur le toit",
-                            "Voir les murs se couper automatiquement — moment 'waouh'",
-                            "Montrer le résultat en 3D"
-                        ],
-                        keyMessage: "Le rognage des murs est une opération à faire APRÈS avoir finalisé la forme du toit. Si tu modifies le toit après, il faudra peut-être refaire le rognage."
-                    }
+            rognageMurs: {
+                whatToSay: "Et maintenant, le moment magique. Regarde en 3D : tes murs dépassent au-dessus du toit. C'est logique, ils sont encore à la hauteur d'étage. On va les couper pour qu'ils suivent la pente du toit. Sélectionne les murs concernés, puis Conception > Ajuster à la toiture. BOOM. Les murs épousent la pente du toit. C'est propre, c'est auto, c'est beau.",
+                demoSteps: [
+                    "Montrer le 'avant' en 3D : murs qui dépassent = pas joli",
+                    "Sélectionner les murs sous le toit",
+                    "Conception > Ajuster à la toiture (ou raccourci)",
+                    "Les murs se coupent instantanément → effet 'waouh'",
+                    "Montrer le résultat final en orbite 3D"
                 ]
-            }
-        ],
-        faq: [
-            {
-                question: "Les pans de toit ne se rejoignent pas au faîtage ?",
-                answer: "Vérifie que les deux pans ont la même pente et que leurs lignes de base sont bien alignées. Utilise 'Connecter les toits' dans le menu Design pour forcer l'intersection."
             },
-            {
-                question: "Quel débord de toit ?",
-                answer: "Débord standard : 40-80cm. Plus le débord est grand, plus il protège les murs de la pluie. En architecture contemporaine, on réduit souvent le débord (30-40cm). Pour une maison traditionnelle : 60cm est un bon standard."
-            }
-        ],
-        transitionToNextDay: "Demain, on ajoute un étage ! Le bâtiment va doubler de volume. Tu vas apprendre à gérer les niveaux et à copier des éléments entre les étages."
-    },
-
-    // ==========================================
-    // JOURS 8-20 — Guides synthétiques
-    // ==========================================
-    8: {
-        moduleExplanations: [
-            {
-                moduleTitle: "Gestion des étages — Le projet grandit",
-                icon: "🏢",
-                duration: "~3h",
-                detailedContent: [
-                    {
-                        subtitle: "Créer et gérer les étages",
-                        explanation: "La palette Étages (Design > Étages) permet de créer, renommer et gérer les niveaux du projet. Chaque étage a une altitude et une hauteur. Les éléments sont liés à un étage et suivent ses modifications d'altitude.",
-                        whatToSay: "« C'est le moment où ton bâtiment prend de la hauteur ! La palette Étages, c'est comme l'ascenseur de ton projet. Tu crées le R+1, tu définis sa hauteur (2.80m), et tu peux commencer à construire dessus. »",
-                        demoSteps: [
-                            "Ouvrir la palette Étages (menu Design > Étages)",
-                            "Montrer les étages existants : sous-sol, RDC, R+1...",
-                            "Créer un nouvel étage : définir la hauteur (2.80m)",
-                            "Naviguer entre les étages (double-clic dans la palette ou flèches)",
-                            "Montrer que le plan change selon l'étage actif"
-                        ],
-                        keyMessage: "L'étage actif détermine la vue en plan. Les éléments que tu crées sont automatiquement liés à l'étage actif. Vérifie toujours quel étage est actif avant de dessiner !"
-                    },
-                    {
-                        subtitle: "Copie entre étages",
-                        explanation: "On peut copier des éléments d'un étage à l'autre. C'est très utile pour les murs porteurs, les poteaux et les dalles qui se répètent. La copie conserve les propriétés et repositionne les éléments à la bonne altitude.",
-                        whatToSay: "« Gros gain de temps : tu as dessiné tous tes murs porteurs au RDC ? Tu peux les copier au R+1 en un clic. Sélectionne > Copier > Coller sur étage. ARCHICAD les place automatiquement à la bonne altitude. »",
-                        demoSteps: [
-                            "Sélectionner les murs porteurs du RDC",
-                            "Édition > Copier (Ctrl+C)",
-                            "Aller au R+1 (changer d'étage)",
-                            "Édition > Coller sur place sur un étage (menu spécial)",
-                            "Montrer que les murs sont bien à la bonne altitude",
-                            "Vérifier en coupe que tout est aligné"
-                        ],
-                        keyMessage: "Copie entre étages = gain de temps énorme. Mais attention : modifie ensuite les cloisons du R+1 car la distribution est rarement identique entre les étages."
-                    }
+            bilanSemaine1: {
+                whatToSay: "Regarde ce que tu as fait en 5 jours. Tu es parti de zéro, tu ne connaissais pas ARCHICAD, et tu as un bâtiment complet devant toi. Murs composites, structure, menuiseries, escalier, toiture. C'est un vrai volume architectural, habitable, constructible. La semaine prochaine, on passe au projet fil rouge : une vraie maison individuelle R+1 de 140m². Tu vas travailler en autonomie comme en agence d'architecture.",
+                demoSteps: [
+                    "Visite 3D complète du T3 terminé — orbite lente",
+                    "Montrer en coupe : du plancher au faîtage, tout est cohérent",
+                    "Récapituler les outils maîtrisés : Mur, Dalle, Porte, Fenêtre, Poteau, Poutre, Escalier, Toit",
+                    "Teaser semaine 2 : 'Une vraie maison, travail en autonomie, comme en agence'"
                 ]
             }
+        },
+        FAQ: [
+            { question: "Mon escalier a un nombre de marches bizarre", answer: "Vérifie la hauteur d'étage dans les paramètres de l'escalier. Elle doit correspondre exactement à la différence d'altitude entre les deux niveaux (ex: 2,80m). ARCHICAD calcule ensuite le nombre de marches optimal." },
+            { question: "Les pans de toiture ne se rejoignent pas au faîtage", answer: "Vérifie que les deux pans ont la même pente et que les lignes de gouttière sont à la même altitude. Si les pentes sont différentes, le faîtage ne sera pas au centre." },
+            { question: "Le rognage ne fonctionne pas", answer: "Vérifie que : 1) Le toit est bien au-dessus des murs, 2) Les murs sont bien sélectionnés, 3) Tu utilises bien 'Ajuster à la toiture' et pas 'Ajuster au plan' . Le toit doit être un objet toit, pas une dalle inclinée." },
+            { question: "La trémie de l'escalier ne se fait pas dans la dalle", answer: "Va dans les paramètres de l'escalier → onglet Structure → vérifie que l'option 'Trémie automatique' est activée. Si ça ne fonctionne toujours pas, tu peux créer la trémie manuellement avec une opération booléenne sur la dalle." }
         ],
-        faq: [
-            {
-                question: "Les éléments copiés sont au bon niveau ?",
-                answer: "Oui, si tu utilises 'Coller sur place sur l'étage'. Les éléments sont automatiquement repositionnés à l'altitude du nouvel étage. Vérifie toujours en coupe pour être sûr."
-            }
-        ],
-        transitionToNextDay: "Demain, on calcule les surfaces ! Zones, SHAB, surface de plancher... C'est indispensable pour les permis de construire et les métrés."
+        transitionToNextDay: "Semaine 1 terminée. En 5 jours tu as maîtrisé les outils fondamentaux et construit un bâtiment complet. Lundi, on attaque le vrai projet : une maison individuelle R+1 de 140m². Tu travailleras en autonomie comme un architecte en agence. C'est parti pour la semaine 2 !"
     },
 
-    9: {
-        moduleExplanations: [
-            {
-                moduleTitle: "Zones et calcul de surfaces",
-                icon: "📐",
-                duration: "~3h",
-                detailedContent: [
-                    {
-                        subtitle: "L'outil Zone",
-                        explanation: "L'outil Zone (touche Z) permet de définir les espaces/pièces. La zone détecte automatiquement les murs autour d'elle et calcule la surface. On peut nommer chaque zone (séjour, chambre 1, cuisine...) et lui attribuer une catégorie.",
-                        whatToSay: "« L'outil Zone, c'est ce qui transforme des volumes en pièces identifiées. Tu cliques à l'intérieur d'une pièce fermée, la zone détecte les murs, et elle te donne la surface automatiquement. C'est ARCHICAD qui calcule, plus besoin de faire les métrés à la main ! »",
-                        demoSteps: [
-                            "Activer l'outil Zone (touche Z)",
-                            "Utiliser la Baguette magique à l'intérieur d'une pièce fermée",
-                            "Montrer l'étiquette qui apparaît : nom de la pièce + surface",
-                            "Personnaliser : nommer la zone (« Séjour »), catégorie (« Habitable »)",
-                            "Répéter pour toutes les pièces du RDC",
-                            "Montrer le code couleur par catégorie en plan"
-                        ],
-                        keyMessage: "Zone = pièce identifiée avec un nom, une catégorie et une surface calculée automatiquement. C'est la base de tout calcul de surfaces réglementaires."
-                    },
-                    {
-                        subtitle: "Surfaces réglementaires",
-                        explanation: "La surface de plancher (SDP) est la référence depuis 2012 en France. Elle se calcule à partir de la somme des surfaces de plancher de chaque niveau, en déduisant les murs, les trémies, et les hauteurs sous plafond inférieures à 1.80m. ARCHICAD calcule tout ça automatiquement à partir des zones.",
-                        whatToSay: "« La surface de plancher, c'est ce qu'on met dans le formulaire CERFA du permis de construire. ARCHICAD la calcule automatiquement à partir des zones. Plus de calculs manuels avec un kutch et une calculatrice ! »",
-                        demoSteps: [
-                            "Montrer les catégories de zones : habitable, annexe, circulation",
-                            "Montrer le calcul automatique de surface dans les propriétés de zone",
-                            "Créer un tableau récapitulatif des surfaces (nomenclature de zones)",
-                            "Montrer le total par catégorie",
-                            "Expliquer : SDP = somme des surfaces closes et couvertes, sous condition de hauteur (1.80m)"
-                        ],
-                        keyMessage: "Surface de plancher ≠ surface habitable ≠ emprise au sol. Chaque notion a sa définition réglementaire précise. ARCHICAD aide à calculer tout ça mais il faut comprendre les concepts."
-                    }
+    // ========== JOUR 6 ==========
+    jour6: {
+        title: "Maison individuelle — Gros œuvre RDC",
+        approachPhilosophy: "Premier jour du vrai projet. Autonomie maximale. L'apprenant doit travailler comme en agence : plan de référence, réflexion avant action, qualité professionnelle. Le formateur observe, guide, ne fait pas.",
+        moduleExplanations: {
+            methodologieProjet: {
+                whatToSay: "À partir d'aujourd'hui, tu travailles comme en agence d'architecture. Je te donne un programme, un plan de référence, et tu construis. L'ordre de travail professionnel c'est toujours le même : 1) Paramétrage du projet (unités, étages, calques), 2) Murs extérieurs, 3) Murs porteurs intérieurs, 4) Cloisons, 5) Menuiseries, 6) Dalles. À chaque étape, tu vérifies en 3D. C'est cette méthodologie qui fait la différence entre un plan propre et un plan amateur.",
+                demoSteps: [
+                    "Présenter le plan de la maison (format papier ou écran)",
+                    "Montrer le programme : séjour, cuisine, garage, 3 chambres, SDB...",
+                    "Paramétrer ensemble : unités en mètres, 2 étages (RDC à 0.00, R+1 à +2.80)",
+                    "Créer les calques de base : A-Mur-Ext, A-Mur-Port, A-Cloison, A-Menu, A-Dalle",
+                    "Lancer l'apprenant en autonomie"
                 ]
-            }
-        ],
-        faq: [
-            {
-                question: "La zone ne se crée pas (pas de détection) ?",
-                answer: "Même cause que pour les dalles : le contour de murs n'est pas fermé. Vérifie les coins et les jonctions. Un micro-espace empêche la détection. Alternativement, dessine la zone manuellement (mode polygone au lieu de Baguette magique)."
-            }
-        ],
-        transitionToNextDay: "Demain, c'est le grand projet fil rouge ! Tu vas modéliser une maison individuelle complète en autonomie. C'est le test de tout ce que tu as appris depuis le début."
-    },
-
-    10: {
-        moduleExplanations: [
-            {
-                moduleTitle: "Projet fil rouge — Méthodologie",
-                icon: "🎯",
-                duration: "Toute la journée",
-                detailedContent: [
-                    {
-                        subtitle: "Méthodologie de modélisation",
-                        explanation: "L'ordre de modélisation est crucial : 1) Paramétrage projet 2) Murs extérieurs RDC 3) Murs intérieurs 4) Dalle RDC 5) Portes et fenêtres 6) Poteaux si nécessaire. Toujours vérifier en 3D et en coupe après chaque étape.",
-                        whatToSay: "« Aujourd'hui tu es en autonomie. Tu construis une maison de A à Z. Je suis là pour t'aider si tu bloques, mais l'objectif c'est que tu trouves tes propres solutions. Suis l'ordre : murs extérieurs → cloisons → dalles → menuiseries. »",
-                        demoSteps: [
-                            "Distribuer le plan de référence (PDF ou impression)",
-                            "Aider au paramétrage initial : unités, grille, calques",
-                            "Laisser travailler en autonomie — observer sans intervenir",
-                            "Intervenir uniquement sur demande ou si blocage prolongé (> 15 min)",
-                            "Faire des points réguliers : vérifier le travail en 3D"
-                        ],
-                        keyMessage: "L'autonomie est l'objectif ! Ce projet fil rouge valide les acquis des 9 premiers jours. L'apprenante doit pouvoir modéliser sans aide constante."
-                    }
-                ]
-            }
-        ],
-        faq: [],
-        transitionToNextDay: "La semaine prochaine, on passe à la documentation : coupes, élévations, cotations, nomenclatures... Le modèle 3D devient un dossier de plans professionnel."
-    },
-
-    11: {
-        moduleExplanations: [
-            {
-                moduleTitle: "Finalisation du projet et terrain",
-                icon: "🌳",
-                duration: "~7h",
-                detailedContent: [
-                    {
-                        subtitle: "L'outil Maillage (terrain)",
-                        explanation: "L'outil Maillage permet de créer un terrain 3D. On définit des points avec des altitudes différentes pour simuler la topographie. Le maillage peut recevoir des matériaux (herbe, gravier) et être modifié en ajoutant/déplaçant des points.",
-                        whatToSay: "« Le terrain, c'est ce qui donne du réalisme au projet. On modélise la parcelle avec l'outil Maillage : tu places des points avec des altitudes et ARCHICAD crée le relief entre les points. C'est comme sculpter la terre. »",
-                        demoSteps: [
-                            "Activer l'outil Maillage",
-                            "Dessiner un contour de parcelle rectangulaire (20x30m)",
-                            "Modifier l'altitude de certains sommets pour créer une pente",
-                            "Placer la maison sur le terrain",
-                            "Ajouter un matériau 'herbe' au terrain",
-                            "Passer en 3D pour voir le résultat"
-                        ],
-                        keyMessage: "Le terrain donne du contexte au projet. Il est aussi utile pour calculer les volumes de terrassement (déblai/remblai)."
-                    }
-                ]
-            }
-        ],
-        faq: [],
-        transitionToNextDay: "Demain, on génère les coupes et élévations ! Tu vas voir la magie du BIM : les vues se créent automatiquement depuis la maquette 3D."
-    },
-
-    12: {
-        moduleExplanations: [
-            {
-                moduleTitle: "Coupes et élévations",
-                icon: "✂️",
-                duration: "~7h",
-                detailedContent: [
-                    {
-                        subtitle: "Créer des coupes",
-                        explanation: "Les coupes dans ARCHICAD sont des vues dynamiques générées automatiquement depuis la maquette 3D. On place une ligne de coupe en plan, et la vue correspondante se crée dans le Navigateur. Tout changement dans le modèle se répercute dans la coupe.",
-                        whatToSay: "« C'est LA preuve de la puissance du BIM ! Tu places une ligne de coupe en plan, et ARCHICAD génère automatiquement la coupe avec toutes les épaisseurs, les matériaux, les hachures. Et si tu modifies le modèle, la coupe se met à jour toute seule. Fini les mises à jour manuelles ! »",
-                        demoSteps: [
-                            "Menu Documentation > Outil Coupe/Façade/Intérieur",
-                            "Tracer une ligne de coupe en plan (choisir le passage intéressant)",
-                            "Montrer la flèche qui indique la direction de vue",
-                            "Double-cliquer sur le marqueur pour ouvrir la vue de coupe",
-                            "Montrer le résultat : coupe générée avec hachures, épaisseurs, matériaux",
-                            "Modifier un mur en plan et montrer la mise à jour automatique en coupe"
-                        ],
-                        keyMessage: "Les coupes BIM sont TOUJOURS à jour. C'est la fin des incohérences plan/coupe qui sont le cauchemar des agences d'archi en 2D."
-                    },
-                    {
-                        subtitle: "Les 4 élévations (façades)",
-                        explanation: "Les élévations fonctionnent comme les coupes mais pour les façades. On place 4 marqueurs d'élévation autour du bâtiment (Nord, Sud, Est, Ouest). ARCHICAD génère les 4 façades automatiquement.",
-                        whatToSay: "« Les 4 façades en un clic chacune. Tu places le marqueur d'élévation, et la façade se génère. Les matériaux, les menuiseries, les ombres... tout est là, automatiquement. »",
-                        demoSteps: [
-                            "Placer les 4 marqueurs d'élévation autour du bâtiment",
-                            "Ouvrir chaque élévation depuis le Navigateur",
-                            "Montrer le paramètre de profondeur de vue",
-                            "Ajuster les épaisseurs de traits : lignes de coupe plus épaisses que les lignes vues"
-                        ],
-                        keyMessage: "Profondeur de vue = combien de 'profondeur' est visible derrière le plan de coupe. Ajuste-la pour que ta coupe soit lisible sans être surchargée."
-                    }
-                ]
-            }
-        ],
-        faq: [],
-        transitionToNextDay: "Demain, on habille les plans : cotations, étiquettes, annotations. C'est ce qui fait la différence entre un dessin amateur et un plan professionnel."
-    },
-
-    13: {
-        moduleExplanations: [
-            {
-                moduleTitle: "Cotations et annotations",
-                icon: "📏",
-                duration: "~7h",
-                detailedContent: [
-                    {
-                        subtitle: "Cotation linéaire et chaîne de cotes",
-                        explanation: "L'outil Cotation (touche M) permet de coter les éléments. On peut créer des cotations individuelles ou des chaînes de cotes (extérieures). La cotation automatique détecte les ouvertures dans les murs et les cote d'un seul coup.",
-                        whatToSay: "« La cotation, c'est l'art de rendre un plan professionnel. Les architectes utilisent des conventions : chaînes de cotes extérieures (3 lignes minimum), cotes intérieures des pièces, cotes des ouvertures. ARCHICAD automatise une grande partie de ce travail. »",
-                        demoSteps: [
-                            "Activer l'outil Cotation (touche M)",
-                            "Créer une cotation linéaire entre deux points",
-                            "Créer une chaîne de cotes extérieure (tous les murs d'un côté)",
-                            "Montrer la cotation automatique : sélectionner un mur, coter automatiquement les ouvertures",
-                            "Ajouter les cotes de dimension des pièces",
-                            "Montrer la personnalisation : police, taille, format (m, cm, mm)"
-                        ],
-                        keyMessage: "Convention architecturale : 3 niveaux de chaînes de cotes extérieures. 1) Ouvertures, 2) Entre murs, 3) Hors-tout. Seul le niveau 1 peut être automatisé, les autres sont manuels."
-                    },
-                    {
-                        subtitle: "Étiquettes automatiques",
-                        explanation: "Les étiquettes sont liées aux éléments et affichent leurs informations automatiquement. Une étiquette de fenêtre affiche ses dimensions, une étiquette de zone affiche le nom et la surface. Si l'élément change, l'étiquette se met à jour !",
-                        whatToSay: "« Les étiquettes, c'est comme des post-it intelligents. Tu les colles sur un élément, et elles affichent automatiquement ses caractéristiques. Si tu changes la fenêtre, l'étiquette se met à jour. C'est du BIM ! »",
-                        demoSteps: [
-                            "Activer l'outil Étiquette (touche K)",
-                            "Placer une étiquette sur une fenêtre → montrer l'affichage dimensions",
-                            "Placer une étiquette sur une porte → montrer le type et les dimensions",
-                            "Placer des étiquettes de zones → nom + surface",
-                            "Modifier une fenêtre et montrer que l'étiquette se met à jour"
-                        ],
-                        keyMessage: "Les étiquettes automatiques éliminent les erreurs. Plus de cote qui ne correspond plus à la réalité après une modification !"
-                    }
-                ]
-            }
-        ],
-        faq: [],
-        transitionToNextDay: "Demain, on extrait les données du modèle : nomenclatures, tableaux, métrés. C'est là que le BIM montre toute sa valeur ajoutée par rapport au 2D."
-    },
-
-    14: {
-        moduleExplanations: [
-            {
-                moduleTitle: "Nomenclatures et métrés",
-                icon: "📊",
-                duration: "~7h",
-                detailedContent: [
-                    {
-                        subtitle: "Nomenclatures bidirectionnelles",
-                        explanation: "Les nomenclatures ARCHICAD sont connectées au modèle : cliquer sur une ligne du tableau sélectionne l'élément dans le plan, et modifier un paramètre dans le tableau modifie l'élément. C'est du vrai BIM bidirectionnel.",
-                        whatToSay: "« C'est ici qu'on voit toute la puissance du BIM. Tu veux la liste de toutes les fenêtres avec leurs dimensions ? Un clic. Tu veux modifier une fenêtre depuis le tableau ? Tu peux. Essaie de faire ça avec AutoCAD ! »",
-                        demoSteps: [
-                            "Menu Documentation > Nomenclatures > Nomenclature d'éléments",
-                            "Créer une nomenclature de fenêtres",
-                            "Montrer les colonnes disponibles : référence, dimensions, vitrage, matériau",
-                            "Cliquer sur une ligne : montrer la sélection dans le plan",
-                            "Modifier une valeur dans le tableau : montrer que l'élément change",
-                            "Exporter en Excel"
-                        ],
-                        keyMessage: "La nomenclature, ce n'est pas un tableau qu'on remplit à la main. C'est une VUE du modèle, comme un plan ou une coupe. Elle est toujours à jour automatiquement."
-                    }
-                ]
-            }
-        ],
-        faq: [],
-        transitionToNextDay: "Demain, c'est la mise en page ! On compose des planches professionnelles et on exporte le dossier en PDF. C'est le livrable final du travail."
-    },
-
-    15: {
-        moduleExplanations: [
-            {
-                moduleTitle: "Mise en page et publication",
-                icon: "📄",
-                duration: "~7h",
-                detailedContent: [
-                    {
-                        subtitle: "Le Carnet de mise en page",
-                        explanation: "Le Carnet de mise en page est l'endroit où on compose les planches de présentation. On y place des vues (plans, coupes, 3D) sur des feuilles au format souhaité (A4, A3, A1). Chaque vue est un lien vers le modèle — si le modèle change, la mise en page se met à jour.",
-                        whatToSay: "« Le Carnet de mise en page, c'est ton dossier de plans. Tu crées des feuilles, tu y places tes vues, tu ajoutes un cartouche... et tu exportes en PDF. C'est aussi simple que ça. Et si tu modifies le projet, les planches se mettent à jour ! »",
-                        demoSteps: [
-                            "Ouvrir le Carnet de mise en page dans le Navigateur",
-                            "Créer une nouvelle feuille A3 avec un gabarit",
-                            "Glisser une vue (plan RDC) depuis le Navigateur vers la feuille",
-                            "Ajuster l'échelle (1/100 pour un plan d'habitation)",
-                            "Créer un cartouche personnalisé avec les outils 2D",
-                            "Ajouter d'autres vues : coupe, 3D",
-                            "Exporter tout en PDF"
-                        ],
-                        keyMessage: "Le Carnet de mise en page produit les livrables. C'est la dernière étape du workflow BIM : du modèle vers le document imprimable."
-                    }
-                ]
-            }
-        ],
-        faq: [],
-        transitionToNextDay: "La semaine prochaine, on entre dans la partie visuelle et créative : matériaux, rendus, Enscape ! Le projet va devenir photoréaliste."
-    },
-
-    16: {
-        moduleExplanations: [
-            {
-                moduleTitle: "Matériaux et textures",
-                icon: "🎨",
-                duration: "~7h",
-                detailedContent: [
-                    {
-                        subtitle: "Appliquer des matériaux",
-                        explanation: "Les matériaux dans ARCHICAD ont 3 facettes : l'apparence en plan (hachures), l'apparence en 3D (texture/couleur), et les propriétés physiques (densité, conductivité). On peut appliquer des matériaux différents pour chaque surface d'un élément.",
-                        whatToSay: "« C'est le moment relooking du projet ! On va passer du gris uniforme à un projet avec des vrais matériaux : bois, pierre, verre, béton... Et ARCHICAD gère même les propriétés physiques pour les calculs thermiques. »",
-                        demoSteps: [
-                            "Ouvrir le gestionnaire de matériaux (Options > Attributs)",
-                            "Montrer la bibliothèque de textures disponibles",
-                            "Appliquer un matériau de façade (enduit blanc) aux murs extérieurs",
-                            "Appliquer un bardage bois sur un pan de mur",
-                            "Montrer le résultat en 3D ombré",
-                            "Personnaliser un matériau : changer la couleur, la texture, la réflexion"
-                        ],
-                        keyMessage: "Les matériaux donnent vie au projet. Choisis une palette cohérente (3-4 matériaux principaux max) pour un rendu harmonieux."
-                    }
-                ]
-            }
-        ],
-        faq: [],
-        transitionToNextDay: "Demain, on passe aux rendus photoréalistes ! Éclairage, rendus, et premières images de synthèse du projet."
-    },
-
-    17: {
-        moduleExplanations: [
-            {
-                moduleTitle: "Éclairage et rendu",
-                icon: "💡",
-                duration: "~7h",
-                detailedContent: [
-                    {
-                        subtitle: "Éclairage solaire et rendus",
-                        explanation: "ARCHICAD simule la position du soleil en fonction de la géolocalisation du projet et de la date/heure. Le moteur de rendu intégré (CineRender/Redshift) produit des images photoréalistes avec ombres, reflets et matériaux.",
-                        whatToSay: "« On va faire des photos de ta maison... avant même qu'elle soit construite ! ARCHICAD calcule la position exacte du soleil, les ombres, les reflets. Le résultat peut être bluffant de réalisme. »",
-                        demoSteps: [
-                            "Paramétrer la géolocalisation du projet",
-                            "Régler la date et l'heure pour le soleil",
-                            "Placer des luminaires intérieurs",
-                            "Lancer un rendu test (basse qualité → rapide)",
-                            "Ajuster les paramètres et relancer en meilleure qualité",
-                            "Montrer la différence entre perspective extérieure et vue intérieure"
-                        ],
-                        keyMessage: "Commence toujours par un rendu basse qualité (rapide) pour vérifier le cadrage et l'ambiance. Augmente la qualité seulement pour le rendu final."
-                    }
-                ]
-            }
-        ],
-        faq: [],
-        transitionToNextDay: "Demain, on découvre Enscape : le rendu en temps réel ! C'est comme naviguer dans un jeu vidéo mais avec ton projet d'architecture."
-    },
-
-    18: {
-        moduleExplanations: [
-            {
-                moduleTitle: "Enscape et 3ds Max",
-                icon: "🎮",
-                duration: "~7h",
-                detailedContent: [
-                    {
-                        subtitle: "Enscape — Rendu en temps réel",
-                        explanation: "Enscape est un plugin qui s'intègre directement dans ARCHICAD. Il ouvre une fenêtre de rendu en temps réel : tu te déplaces dans le modèle comme dans un jeu vidéo, avec une qualité quasi-photoréaliste. Tu peux capturer des images, créer des panoramas 360° et même des animations vidéo.",
-                        whatToSay: "« Enscape, c'est le jeu vidéo de l'architecte. Tu cliques sur 'Start', et tu te balades dans ton projet en rendu photoréaliste en temps réel. Tu peux montrer ça directement à un client sur ton écran ou lui envoyer un panorama 360°. C'est un outil de communication incroyable. »",
-                        demoSteps: [
-                            "Vérifier que le plugin Enscape est installé et à jour",
-                            "Cliquer sur le bouton Enscape dans la barre d'outils",
-                            "Laisser le modèle se charger — observer la qualité du rendu en temps réel",
-                            "Naviguer avec WASD (comme un jeu vidéo) + souris pour regarder autour",
-                            "Montrer les paramètres d'ambiance : heure du jour, météo, saison",
-                            "Capturer une image haute résolution",
-                            "Montrer le panorama 360° et l'export"
-                        ],
-                        keyMessage: "Enscape est devenu indispensable en agence : rendu instantané pour les décisions de conception, communication client, et production de visuels rapides."
-                    },
-                    {
-                        subtitle: "3ds Max — Rendus haut de gamme",
-                        explanation: "3ds Max est le logiciel de référence pour les rendus photo-réalistes de très haute qualité. Le workflow typique : export FBX depuis ARCHICAD, import dans 3ds Max, application de matériaux V-Ray ou Corona, mise en scène (environnement, mobilier, végétation), rendu final.",
-                        whatToSay: "« 3ds Max, c'est le 'haut de gamme' du rendu. On l'utilise pour les images de concours d'architecture, les promotions immobilières, les publications. C'est un logiciel complexe — aujourd'hui on va juste voir le principe du workflow. »",
-                        demoSteps: [
-                            "Exporter le modèle ARCHICAD en FBX",
-                            "Ouvrir 3ds Max et importer le FBX (si installé, sinon montrer en vidéo/captures)",
-                            "Montrer l'interface 3ds Max et les matériaux V-Ray",
-                            "Montrer un rendu d'exemple pour comparer les niveaux de qualité",
-                            "Expliquer le positionnement : Enscape = rapide et quotidien, 3ds Max = final et exceptionnel"
-                        ],
-                        keyMessage: "Enscape pour 90% des besoins quotidiens. 3ds Max pour les 10% de visuels exceptionnels (concours, publications, promoteurs)."
-                    }
-                ]
-            }
-        ],
-        faq: [
-            {
-                question: "Enscape ou Twinmotion ?",
-                answer: "Les deux sont des moteurs de rendu en temps réel. Enscape est mieux intégré à ARCHICAD (synchronisation directe). Twinmotion est gratuit avec une licence ARCHICAD et offre plus d'éléments de décor (personnages, végétation, véhicules). Recommandation : teste les deux et choisis celui qui te convient."
             },
-            {
-                question: "Faut-il apprendre 3ds Max ?",
-                answer: "Pas obligatoirement. Enscape couvre la majorité des besoins actuels. 3ds Max est un plus pour les agences qui font beaucoup de communication visuelle. C'est un investissement en temps d'apprentissage (plusieurs mois). Concentre-toi d'abord sur ARCHICAD + Enscape."
-            }
-        ],
-        transitionToNextDay: "Demain, on fait le pont SketchUp ↔ ARCHICAD ! Tu vas pouvoir importer tes meubles 3D Warehouse et exporter vers SketchUp."
-    },
-
-    19: {
-        moduleExplanations: [
-            {
-                moduleTitle: "Passerelle SketchUp — ARCHICAD",
-                icon: "🔄",
-                duration: "~7h",
-                detailedContent: [
-                    {
-                        subtitle: "Import de fichiers SketchUp",
-                        explanation: "ARCHICAD peut importer directement les fichiers .skp (SketchUp). Les éléments arrivent comme des objets ou des morph. C'est très utile pour importer du mobilier depuis 3D Warehouse, des éléments de décor, ou des modèles existants créés dans SketchUp.",
-                        whatToSay: "« Tu connais SketchUp et 3D Warehouse. Bonne nouvelle : tu peux importer tout ça dans ARCHICAD ! Le mobilier, les accessoires, les éléments de décor... tout ce qui manque dans la bibliothèque ARCHICAD, tu le trouves sur 3D Warehouse. »",
-                        demoSteps: [
-                            "Télécharger un objet depuis 3D Warehouse (canapé, table, etc.)",
-                            "Menu Fichier > Interopérabilité > Ouvrir un fichier .skp",
-                            "Montrer les options d'import : conversion en objet, en morph, etc.",
-                            "Placer l'objet importé dans le projet",
-                            "Ajuster la taille et la position si nécessaire",
-                            "Vérifier le résultat en 3D"
-                        ],
-                        keyMessage: "3D Warehouse + ARCHICAD = bibliothèque infinie de mobilier et d'objets 3D. C'est un workflow quotidien dans les agences."
-                    },
-                    {
-                        subtitle: "Le format IFC — L'échange BIM universel",
-                        explanation: "L'IFC (Industry Foundation Classes) est le format standard d'échange BIM. Il permet de communiquer avec TOUS les logiciels BIM (Revit, SketchUp, Allplan, Tekla...). C'est le format obligatoire pour les marchés publics BIM en France.",
-                        whatToSay: "« L'IFC, c'est l'esperanto du BIM. Peu importe si ton ingénieur utilise Revit et ton économiste un autre logiciel : l'IFC permet à tout le monde de lire la maquette. C'est le format obligatoire en BIM public. »",
-                        demoSteps: [
-                            "Menu Fichier > Enregistrer sous > IFC",
-                            "Montrer les options d'export IFC",
-                            "Exporter le projet en IFC",
-                            "Réimporter l'IFC pour vérifier la qualité de l'échange",
-                            "Évoquer les viewers IFC gratuits (BIMvision, Solibri Model Viewer)"
-                        ],
-                        keyMessage: "L'IFC est incontournable en BIM. Apprends à exporter proprement en IFC, c'est une compétence demandée par toutes les agences."
-                    }
+            calquesEtOrganisation: {
+                whatToSay: "Les calques, c'est l'organisation de ton projet. Pense-les comme des dossiers : tout ce qui est mur extérieur sur un calque, les cloisons sur un autre, les menuiseries sur un autre. L'intérêt ? Les combinaisons de calques. En un clic tu passes d'un plan architectural (tout visible) à un plan structure (que les murs porteurs et les dalles). C'est comme des filtres intelligents sur ta maquette.",
+                demoSteps: [
+                    "Montrer la gestion des calques (Ctrl+L ou menu Document)",
+                    "Créer 5-6 calques pertinents pour le projet",
+                    "Montrer une combinaison de calques : tout visible → que la structure",
+                    "Montrer qu'en masquant les cloisons, on voit la trame structurelle"
                 ]
-            }
-        ],
-        faq: [],
-        transitionToNextDay: "Demain, c'est le jour final ! On assemble le dossier complet et on fait le bilan de toute la formation."
-    },
-
-    20: {
-        moduleExplanations: [
-            {
-                moduleTitle: "Projet final et bilan",
-                icon: "🎓",
-                duration: "~7h",
-                detailedContent: [
-                    {
-                        subtitle: "Assemblage du dossier final",
-                        explanation: "Le dossier final doit être un livrable professionnel complet : plans cotés de chaque niveau, coupes et élévations, vue 3D, nomenclatures, tableau de surfaces, rendus photoréalistes (ARCHICAD + Enscape). Tout mis en page dans un carnet et exporté en PDF.",
-                        whatToSay: "« C'est le grand final ! Tu vas assembler tout ce que tu as appris en 20 jours dans un seul dossier. C'est ce que tu pourrais présenter à un client ou à un jury. Prends le temps de tout vérifier et de soigner la présentation. »",
-                        demoSteps: [
-                            "Revue complète du modèle 3D (corrections finales)",
-                            "Mettre à jour toutes les vues (plans, coupes, élévations)",
-                            "Vérifier les cotations et les étiquettes",
-                            "Compléter les nomenclatures",
-                            "Générer les rendus finaux",
-                            "Assembler le carnet de mise en page",
-                            "Exporter en PDF"
-                        ],
-                        keyMessage: "Le dossier final est la preuve de tes compétences. Un PDF propre et complet vaut mieux que mille paroles."
-                    },
-                    {
-                        subtitle: "Bilan et perspectives",
-                        explanation: "Le bilan de la formation doit couvrir : ce qui a été acquis, les points à approfondir, les ressources pour continuer à apprendre, et les prochaines étapes. C'est aussi le moment de valoriser les progrès de l'apprenante.",
-                        whatToSay: "« En 20 jours, tu es passée de débutante à capable de modéliser un bâtiment complet, de le documenter et de le présenter. C'est énorme ! Bien sûr, la pratique quotidienne va tout consolider. Voici les ressources pour continuer... »",
-                        demoSteps: [
-                            "Faire présenter le dossier par l'apprenante",
-                            "Donner un feedback constructif et valorisant",
-                            "Identifier les 3 points forts et les 3 axes d'amélioration",
-                            "Remettre la liste des ressources pour continuer",
-                            "Évoquer les certifications ARCHICAD (Graphisoft Certified User)",
-                            "Planifier un suivi post-formation si possible"
-                        ],
-                        keyMessage: "La formation est un tremplin. La vraie compétence se développe avec la pratique quotidienne sur des projets réels. Encourage la pratique régulière."
-                    }
-                ]
-            }
-        ],
-        faq: [
-            {
-                question: "Comment continuer à progresser après la formation ?",
-                answer: "3 recommandations : 1) Pratiquer sur des projets réels ou personnels. 2) Suivre les tutos Graphisoft Learn et YouTube. 3) Rejoindre la communauté ARCHICAD (forums Graphisoft). Le plus important : ouvrir ARCHICAD au moins 3 fois par semaine pour ne pas oublier."
             },
-            {
-                question: "Quelles formations complémentaires ?",
-                answer: "Après cette base : 1) ARCHICAD avancé (Teamwork, BIM Server, MEP). 2) Rendu avancé (Enscape, Twinmotion). 3) IFC et BIM Management. 4) 3ds Max si besoin de rendus haut de gamme. 5) Certification Graphisoft."
+            travailAutonome: {
+                whatToSay: "C'est parti. Tu as ton plan, tu as ta méthode, tu as tes outils. Construis le RDC. Je suis là si tu bloques, mais essaie d'abord de trouver par toi-même. C'est en cherchant que tu apprends. Pense à vérifier en 3D régulièrement — F3 est ton meilleur ami.",
+                demoSteps: [
+                    "Distribuer le plan de référence",
+                    "Laisser travailler en autonomie",
+                    "Passer toutes les 15-20 min pour vérifier : jonctions, altitudes, calques",
+                    "Ne corriger que si l'apprenant est bloqué depuis plus de 15 minutes",
+                    "Faire un point 3D collectif à mi-journée"
+                ]
             }
+        },
+        FAQ: [
+            { question: "Comment créer un deuxième étage ?", answer: "Menu Conception > Niveaux d'étage. Crée un nouvel étage avec la bonne altitude (+2.80m par exemple). Double-clique sur l'étage dans le navigateur pour y accéder." },
+            { question: "Mes calques sont en désordre", answer: "Pas de panique. Va dans la gestion des calques, renomme-les proprement avec un préfixe logique (A- pour architecture). Range chaque élément sur le bon calque. En sélectionnant un élément, tu peux changer son calque dans les paramètres." },
+            { question: "Le plan de référence est flou/petit", answer: "Importe-le avec Fichier > Placer image externe, ou utilise-le comme fond de plan (calque dédié). Redimensionne-le à la bonne échelle en utilisant une cote connue du plan." }
         ],
-        transitionToNextDay: null
+        transitionToNextDay: "Le RDC est posé ! Demain on monte : R+1, escalier, et toiture. La maison va prendre sa forme définitive. Tu vas utiliser la copie inter-étages — un gain de temps énorme."
+    },
+
+    // ========== JOUR 7 ==========
+    jour7: {
+        title: "Maison — R+1 et toiture",
+        approachPhilosophy: "La copie inter-étages est un moment d'efficacité pure. L'apprenant voit que ce qu'il a construit au RDC se réutilise intelligemment. La toiture finalise le volume — la maison est reconnaissable.",
+        moduleExplanations: {
+            copieInterEtages: {
+                whatToSay: "Les murs porteurs du RDC se prolongent au R+1. Plutôt que de les redessiner, on les copie d'un étage à l'autre. Sélectionne tes murs porteurs au RDC, Copie, passe au R+1, Colle sur étage courant. Les murs se placent automatiquement à la bonne altitude, exactement au-dessus de ceux du RDC. C'est de la productivité intelligente.",
+                demoSteps: [
+                    "Sélectionner les murs porteurs et extérieurs du RDC",
+                    "Edition > Copier",
+                    "Naviguer vers le R+1 (double-clic dans le navigateur)",
+                    "Edition > Coller sur étage courant",
+                    "Vérifier en 3D : les murs sont au bon endroit, bonne altitude"
+                ]
+            },
+            distributionR1: {
+                whatToSay: "Le R+1 a sa propre distribution : 3 chambres, 1 SDB, un palier d'escalier. Les cloisons du R+1 n'ont rien à voir avec celles du RDC — elles dépendent de l'agencement des pièces de nuit. Pense à l'intimité, à l'orientation (chambres au calme, SDB accessible), à la lumière naturelle.",
+                demoSteps: [
+                    "Sur le R+1, tracer les cloisons de distribution",
+                    "Placer les menuiseries du R+1",
+                    "Vérifier en 3D étage par étage"
+                ]
+            },
+            toitureComplete: {
+                whatToSay: "On coiffe la maison. Deux pans, pente 35°, débord de 60cm. Comme la semaine dernière sur le T3, mais en plus grand. Après le rognage des murs, la maison a sa silhouette définitive. C'est le moment où tu peux prendre du recul et voir un vrai projet d'architecture.",
+                demoSteps: [
+                    "Créer les pans de toiture depuis le R+1",
+                    "Ajuster la pente (35°) et les débords (60cm)",
+                    "Rogner les murs du R+1 sous la toiture",
+                    "Visite 3D tournante de la maison complète"
+                ]
+            }
+        },
+        FAQ: [
+            { question: "Les murs copiés ne sont pas au bon niveau", answer: "Utilise 'Coller sur étage courant' (et pas juste 'Coller'). Vérifie que tu es bien sur l'étage R+1 dans le navigateur avant de coller." },
+            { question: "L'escalier ne traverse pas les 2 étages correctement", answer: "Vérifie les altitudes : base de l'escalier = 0.00 (RDC), arrivée = +2.80 (R+1). La trémie doit être dans la dalle du R+1. Vérifie en coupe longitudinale." },
+            { question: "Le toit ne couvre pas toute la maison", answer: "Les pans doivent être assez larges pour couvrir l'emprise complète avec les débords. Élargis la ligne de gouttière si nécessaire." }
+        ],
+        transitionToNextDay: "La maison est construite ! Structure complète du sol au faîtage. Demain on sort du bâtiment : terrain, aménagements extérieurs, et les zones pour calculer les surfaces. C'est ce qui transforme une maquette en dossier de permis de construire."
+    },
+
+    // ========== JOUR 8 ==========
+    jour8: {
+        title: "Terrain, aménagements & zones",
+        approachPhilosophy: "On sort du bâtiment pour voir le projet dans son ensemble. Le terrain et les zones sont indispensables pour un dossier de permis de construire. L'outil Zone avec la Baguette magique = productivité instantanée.",
+        moduleExplanations: {
+            maillage: {
+                whatToSay: "Le terrain se modélise avec l'outil Maillage. Tu crées une surface avec des points à différentes altitudes. Chaque point peut avoir sa propre hauteur — c'est comme ça que tu crées une pente, un talus, un terrassement. Pour une maison, un terrain de 25×35m suffit généralement. Le maillage se combine ensuite avec la maison en 3D pour des visualisations réalistes.",
+                demoSteps: [
+                    "Outil Maillage : créer un rectangle 25×35m",
+                    "Modifier les altitudes de certains points pour créer une pente douce",
+                    "Positionner la maison sur le terrain",
+                    "Vérifier en 3D : la maison est dans son jardin"
+                ]
+            },
+            zones: {
+                whatToSay: "L'outil Zone, c'est ce qui transforme ta maquette en document réglementaire. Chaque pièce reçoit une zone : nom, catégorie (habitable, humide, circulations...), et ARCHICAD calcule la surface automatiquement. Baguette magique dans chaque pièce = zone créée en un clic. Nom + surface apparaissent dans le plan. Et c'est bidirectionnel : si tu modifies un mur, la surface de la zone se met à jour toute seule.",
+                demoSteps: [
+                    "Outil Zone (Z) → paramétrer la catégorie",
+                    "Baguette magique dans le séjour : 'Séjour' + surface auto",
+                    "Faire toutes les pièces du RDC rapidement",
+                    "Passer au R+1",
+                    "Montrer le tableau de surfaces auto-généré"
+                ]
+            }
+        },
+        FAQ: [
+            { question: "La zone ne se crée pas avec la Baguette magique", answer: "Comme pour la dalle : le contour doit être fermé. Un mur non connecté = pas de détection. Zoome aux angles suspects." },
+            { question: "Comment calculer la surface de plancher ?", answer: "ARCHICAD peut générer un tableau de surfaces basé sur les catégories de zones. Les zones 'habitables' et 'utiles' contribuent à la surface de plancher (après déduction des murs et surfaces sous 1.80m)." },
+            { question: "Le maillage est très lent", answer: "Le maillage est gourmand en ressources. Limite le nombre de points. Pour une maison, un terrain simple avec 4-6 points d'altitude suffit. Pas besoin de modéliser chaque caillou." }
+        ],
+        transitionToNextDay: "Le projet est dans son contexte : terrain, surfaces calculées. Demain on attaque la documentation BIM : coupes, élévations — générées automatiquement depuis la maquette. C'est là que tu vas comprendre la vraie puissance du BIM."
+    },
+
+    // ========== JOUR 9 ==========
+    jour9: {
+        title: "Coupes, élévations & vues documentaires",
+        approachPhilosophy: "C'est LA démonstration de la valeur du BIM. Les vues se génèrent automatiquement. Modifier un mur → toutes les coupes et élévations se mettent à jour. Ça représente des jours de travail économisés sur un vrai projet.",
+        moduleExplanations: {
+            coupes: {
+                whatToSay: "Les coupes dans ARCHICAD sont magiques. Tu places une ligne de coupe sur ton plan, et la coupe se génère automatiquement avec les hachures, les matériaux, les épaisseurs. Tu ne dessines RIEN. La maquette fournit tout. Et le mieux : si tu modifies un mur dans le modèle, la coupe se met à jour toute seule. Fini les heures à redessiner les coupes après chaque modification. C'est ça le BIM.",
+                demoSteps: [
+                    "Outil Coupe : placer une ligne de coupe longitudinale dans le T3",
+                    "Double-cliquer sur le marqueur → la coupe apparaît",
+                    "Montrer les hachures auto, les matériaux, les épaisseurs",
+                    "Revenir en plan, déplacer un mur de 50cm",
+                    "Retourner dans la coupe : 'Regarde, ça s'est mis à jour tout seul'",
+                    "Effet garanti — l'apprenant comprend la puissance du BIM"
+                ]
+            },
+            elevations: {
+                whatToSay: "Les 4 élévations (façades) se créent en 4 clics. Un marqueur d'élévation par direction — nord, sud, est, ouest. ARCHICAD génère les façades avec les menuiseries, les matériaux, les ombres portées. Même logique que les coupes : tout est dynamique, toujours à jour.",
+                demoSteps: [
+                    "Placer 4 marqueurs d'élévation autour du bâtiment",
+                    "Ouvrir chaque élévation : les 4 façades sont là",
+                    "Montrer les menuiseries, les matériaux, les ombres",
+                    "Modifier une fenêtre en plan → montrer la MAJ dans l'élévation"
+                ]
+            },
+            profondeurDeVue: {
+                whatToSay: "La profondeur de vue, c'est ce qui contrôle ce que tu vois derrière le plan de coupe. Une profondeur courte = juste la coupe pure. Une profondeur longue = la coupe + tout ce qui est derrière en projection. Pour une coupe architecturale standard, tu veux voir ce qui est derrière pour donner de la profondeur au dessin.",
+                demoSteps: [
+                    "Montrer une coupe avec profondeur courte : juste la section",
+                    "Augmenter la profondeur : les éléments derrière apparaissent",
+                    "Trouver le bon réglage : informatif sans être surchargé"
+                ]
+            }
+        },
+        FAQ: [
+            { question: "La coupe n'affiche rien / est vide", answer: "Vérifie que la ligne de coupe passe bien à travers le bâtiment. La flèche indique le sens de regard. Vérifie aussi que les calques ne masquent pas les éléments coupés." },
+            { question: "Les hachures ne sont pas bonnes dans la coupe", answer: "Les hachures viennent des matériaux de section des murs/dalles. Va dans les paramètres du mur > section coupée > vérifie le matériau de remplissage." },
+            { question: "L'élévation est trop chargée", answer: "Ajuste la profondeur de vue. Une profondeur trop grande montrera des éléments lointains qui surchargent le dessin. Joue aussi avec les combinaisons de calques pour masquer certains éléments." }
+        ],
+        transitionToNextDay: "Coupes et élévations générées automatiquement — tu comprends maintenant pourquoi le BIM fait gagner des semaines sur un projet. Demain on termine la semaine 2 avec les cotations, étiquettes et nomenclatures. Tes plans vont passer de 'maquette 3D' à 'dossier professionnel'."
+    },
+
+    // ========== JOUR 10 ==========
+    jour10: {
+        title: "Cotations, annotations & nomenclatures",
+        approachPhilosophy: "Les cotations et nomenclatures transforment une maquette en document professionnel. La bidirectionnalité des nomenclatures est le moment fort — l'apprenant comprend que la maquette BIM est une base de données architecturale vivante.",
+        moduleExplanations: {
+            cotation: {
+                whatToSay: "Un plan sans cotation, c'est un plan inutile. Personne ne sort son mètre pour mesurer à l'échelle. Les règles professionnelles : 3 chaînes de cotes extérieures minimum — première chaîne : les ouvertures et trumeaux, deuxième : les axes porteurs, troisième : la cote globale. Cotes intérieures dans chaque pièce. ARCHICAD a une cotation architecturale automatique qui place tout ça très vite.",
+                demoSteps: [
+                    "Outil Cotation (M) : montrer les différents types",
+                    "Chaîne de cotes extérieure : cliquer les points, valider",
+                    "Cotation auto des ouvertures : sélectionner le mur + lancer la commande",
+                    "Cotes intérieures : largeur × longueur de chaque pièce",
+                    "Montrer un plan pro en référence : 'Voilà le standard à atteindre'"
+                ]
+            },
+            etiquettes: {
+                whatToSay: "Les étiquettes sont des textes intelligents liés aux éléments. Tu places une étiquette sur une fenêtre, elle affiche automatiquement les dimensions (120×135cm). Tu modifies la fenêtre → l'étiquette se met à jour. Pareil pour les zones : l'étiquette affiche le nom et la surface. Plus besoin de retaper les infos à la main.",
+                demoSteps: [
+                    "Outil Étiquette (K) : placer sur une fenêtre → dimensions auto",
+                    "Placer sur une porte → dimensions + type",
+                    "Placer sur une zone → nom + surface",
+                    "Modifier une fenêtre → montrer la MAJ auto de l'étiquette"
+                ]
+            },
+            nomenclatures: {
+                whatToSay: "Les nomenclatures, c'est la cerise sur le gâteau du BIM. ARCHICAD génère des tableaux automatiques : liste de toutes les fenêtres avec leurs dimensions, liste des portes, tableau des surfaces par pièce. Et c'est BIDIRECTIONNEL. Tu cliques sur une ligne du tableau → l'élément correspondant se sélectionne dans le plan. Tu modifies une valeur dans le tableau → l'élément se modifie dans la maquette. Le tableau et la maquette sont un même objet.",
+                demoSteps: [
+                    "Créer une nomenclature de fenêtres : nom, dimensions, allège, calque",
+                    "Montrer le tableau auto-généré",
+                    "Cliquer sur une ligne → l'élément se sélectionne (aller-retour)",
+                    "Modifier une dimension dans le tableau → vérifier dans le plan",
+                    "Créer un tableau de surfaces à partir des zones"
+                ]
+            }
+        },
+        FAQ: [
+            { question: "Mes cotes sont illisibles / trop petites", answer: "Vérifie l'échelle de la vue. Les cotes s'adaptent à l'échelle : à 1/100 elles ont une taille, à 1/50 une autre. Si elles sont trop petites, augmente la taille de police dans les paramètres de cotation." },
+            { question: "L'étiquette n'affiche pas les bonnes infos", answer: "Change le type d'étiquette dans les paramètres. Il existe des étiquettes pour portes, fenêtres, zones, murs... Chaque type affiche des informations différentes." },
+            { question: "Comment exporter la nomenclature en Excel ?", answer: "Sélectionne la nomenclature → Fichier > Enregistrer sous → format .xlsx ou .csv. Tu peux aussi copier-coller directement dans Excel." }
+        ],
+        transitionToNextDay: "Plans cotés, étiquetés, avec nomenclatures. Tu as un dossier professionnel. Semaine 3 : mise en page, matériaux, rendus. On passe du technique à l'esthétique — on va rendre ce projet beau et présentable à un client."
+    },
+
+    // ========== JOUR 11 ==========
+    jour11: {
+        title: "Mise en page & dossier PDF",
+        approachPhilosophy: "Le livrable final est ce que le client voit. Un dossier bien mis en page avec un cartouche professionnel fait toute la différence. C'est le passage de 'je sais modéliser' à 'je sais livrer'.",
+        moduleExplanations: {
+            carnetMiseEnPage: {
+                whatToSay: "Le carnet de mise en page, c'est là que tu assembles ton dossier. Pense-le comme InDesign mais intégré à ARCHICAD. Tu crées des feuilles (A3, A1...), tu y places tes vues (plans, coupes, élévations), et tout reste lié au modèle. Si tu modifies la maquette, les vues dans la mise en page se mettent à jour. Plus jamais de plan pas à jour dans un dossier.",
+                demoSteps: [
+                    "Ouvrir le carnet de mise en page (navigateur > mise en page)",
+                    "Créer un gabarit A3 paysage",
+                    "Placer le plan RDC à l'échelle 1/100",
+                    "Placer une coupe sur la même feuille",
+                    "Modifier un mur dans le modèle → montrer la MAJ dans la mise en page"
+                ]
+            },
+            cartouche: {
+                whatToSay: "Le cartouche, c'est ta signature professionnelle. Nom du projet, nom de l'architecte, date, échelle, numéro de planche, phase (APS, APD, DCE...). Un cartouche soigné donne immédiatement un aspect pro à ton dossier. On va en créer un avec tes infos.",
+                demoSteps: [
+                    "Créer un cartouche dans le gabarit : rectangle bas de page",
+                    "Ajouter les textes auto (nom projet, date, échelle, numéro)",
+                    "Personnaliser avec le nom de l'agence",
+                    "Appliquer le gabarit à toutes les feuilles"
+                ]
+            },
+            exportPDF: {
+                whatToSay: "La publication PDF, c'est la finalité. Tu configures un jeu de publication : quelles feuilles, dans quel ordre, quel format. Un clic et tout s'exporte en PDF multi-pages. Tu peux avoir un jeu 'Permis de construire', un jeu 'Client', un jeu 'Chantier' — chacun avec les planches pertinentes.",
+                demoSteps: [
+                    "Créer un jeu de publication 'Dossier complet'",
+                    "Ajouter les feuilles dans l'ordre logique",
+                    "Publier → PDF multi-pages",
+                    "Ouvrir le PDF et vérifier la qualité"
+                ]
+            }
+        },
+        FAQ: [
+            { question: "Ma vue n'est pas à la bonne échelle dans la mise en page", answer: "Vérifie l'échelle de la vue source dans le navigateur (pas dans la mise en page). La mise en page utilise l'échelle de la vue. Si tu veux du 1/100, la vue source doit être en 1/100." },
+            { question: "Le cartouche ne s'affiche pas sur toutes les feuilles", answer: "Le cartouche doit être dans le gabarit, pas sur une feuille individuelle. Crée-le dans le gabarit et applique ce gabarit à toutes les feuilles." },
+            { question: "Le PDF est trop lourd", answer: "Dans les options de publication, réduis la résolution des images (150 dpi suffit pour un envoi mail, 300 dpi pour l'impression). Vérifie aussi que tu n'as pas inclus de très grandes images ou textures." }
+        ],
+        transitionToNextDay: "Le dossier PDF est prêt ! Demain on passe à l'esthétique : matériaux et habillage. On va transformer la maquette grise en projet photoréaliste. C'est le avant/après le plus spectaculaire de la formation."
+    },
+
+    // ========== JOUR 12 ==========
+    jour12: {
+        title: "Matériaux & habillage",
+        approachPhilosophy: "Séance créative. On parle palette architecturale, cohérence matériaux, identité du projet. Le avant/après est spectaculaire et motivant. Moins c'est plus en architecture.",
+        moduleExplanations: {
+            paletteArchitecturale: {
+                whatToSay: "En architecture, la palette de matériaux définit l'identité du projet. Règle d'or : maximum 3-4 matériaux en façade. Enduit blanc + bardage bois + menuiseries alu anthracite = contemporain classique. Béton apparent + métal noir + verre = brutalisme élégant. Trop de matériaux = chaos visuel. Moins c'est plus. Regarde les projets publiés sur ArchDaily : les meilleures maisons utilisent 2-3 matériaux maximum.",
+                demoSteps: [
+                    "Montrer 3-4 exemples de palettes cohérentes (photos de projets réels)",
+                    "Choisir une palette pour le projet : enduit + bois + alu anthracite",
+                    "Ouvrir les paramètres de matériaux de surface dans ARCHICAD"
+                ]
+            },
+            applicationMateriaux: {
+                whatToSay: "Dans ARCHICAD, un matériau a 3 facettes : en plan (hachure), en 3D (texture), et les données physiques (densité, conductivité...). Pour le rendu, c'est la texture 3D qui compte. Tu l'appliques sur les éléments via leurs paramètres. Chaque face d'un mur peut avoir un matériau différent : enduit extérieur, placo intérieur. C'est la réalité constructive.",
+                demoSteps: [
+                    "Appliquer l'enduit blanc sur les façades principales",
+                    "Bardage bois sur un mur accent",
+                    "Menuiseries alu anthracite sur toutes les fenêtres",
+                    "Intérieurs : parquet chêne + carrelage blanc",
+                    "F3 → avant/après spectaculaire"
+                ]
+            }
+        },
+        FAQ: [
+            { question: "Comment changer le matériau d'une seule face du mur ?", answer: "Dans les paramètres du mur, section 'Surfaces', tu as 3 options : face extérieure, face intérieure, tranche. Tu peux attribuer un matériau différent à chaque face." },
+            { question: "Ma texture est trop grande / trop petite en 3D", answer: "Dans les paramètres de la surface, ajuste la taille de la texture (scale). Un parquet a des lames de 10-15cm, un carrelage fait 30×30 ou 60×60... Adapte l'échelle à la réalité." },
+            { question: "Où trouver d'autres matériaux ?", answer: "BIMcomponents.com pour des matériaux ARCHICAD natifs. Sinon, tu peux créer tes propres matériaux en important une texture (image JPG ou PNG) et en réglant les paramètres de réflexion." }
+        ],
+        transitionToNextDay: "Le projet a une identité visuelle. Demain on passe aux rendus photoréalistes ! Éclairage solaire, ambiances jour et nuit. C'est la séance préférée de tous les apprenants."
+    },
+
+    // ========== JOUR 13 ==========
+    jour13: {
+        title: "Rendus photoréalistes",
+        approachPhilosophy: "Séance préférée des apprenants ! Parler de lumière comme un photographe d'architecture. Le soleil rasant du matin/soir donne les plus belles ombres. Les rendus de nuit avec éclairage intérieur sont spectaculaires.",
+        moduleExplanations: {
+            eclairageSolaire: {
+                whatToSay: "La qualité d'un rendu architectural dépend à 80% de la lumière. Le soleil d'été à 9h du matin ou 18h donne des ombres longues et dramatiques — c'est ce que cherchent les photographes d'architecture. Le soleil de midi est plat, sans relief. Règle le soleil en fonction de la géolocalisation de ton projet et choisis une heure de 'golden hour' pour tes rendus. C'est ce qui fait la différence entre un rendu amateur et un rendu pro.",
+                demoSteps: [
+                    "Paramétrer la géolocalisation du projet (France, ville)",
+                    "Régler la date : été (ombres moins dures qu'en hiver)",
+                    "Régler l'heure : 9h du matin → ombres longues et douces",
+                    "Comparer avec midi : plat, sans relief → 'Tu vois la différence ?'"
+                ]
+            },
+            moteurRendu: {
+                whatToSay: "ARCHICAD intègre un moteur de rendu (CineRender ou Redshift selon ta version). La règle : commence TOUJOURS par un rendu en basse qualité pour vérifier le cadrage, la lumière, les matériaux. Un rendu basse qualité = 30 secondes. Un rendu haute qualité = 15-30 minutes. Tu ne veux pas attendre 30 minutes pour découvrir que ton cadrage était mauvais.",
+                demoSteps: [
+                    "Placer la caméra : vue extérieure depuis le jardin, à hauteur d'homme (1.6m)",
+                    "Rendu basse qualité : vérifier cadrage, lumière, matériaux",
+                    "Ajuster si nécessaire (c'est rapide)",
+                    "Lancer le rendu haute qualité",
+                    "Pendant l'attente : préparer la vue intérieure"
+                ]
+            },
+            rendusNuit: {
+                whatToSay: "Les rendus de nuit sont spectaculaires quand le projet a de grandes baies vitrées. La lumière intérieure qui sort vers l'extérieur crée une ambiance chaleureuse. Il faut placer des luminaires intérieurs : plafonniers, spots, lampes. Ou simplement activer les sources de lumière existantes des objets de la bibliothèque.",
+                demoSteps: [
+                    "Placer quelques luminaires dans les pièces principales",
+                    "Régler l'heure sur 21h → ciel sombre",
+                    "Rendu basse qualité pour vérifier l'ambiance",
+                    "Ajuster l'intensité des luminaires",
+                    "Rendu haute qualité → résultat spectaculaire"
+                ]
+            }
+        },
+        FAQ: [
+            { question: "Mon rendu est trop sombre / trop clair", answer: "Ajuste l'exposition dans les paramètres de rendu. Ou modifie l'intensité du soleil. Un rendu trop sombre peut aussi venir d'un ciel couvert — vérifie les paramètres du ciel." },
+            { question: "Les matériaux sont moches dans le rendu", answer: "Vérifie les paramètres de réflexion et de rugosité des surfaces. Un parquet trop brillant aura l'air plastique. Un mur trop mat sera plat. L'ajustement fin des matériaux fait la différence." },
+            { question: "Le rendu met trop de temps", answer: "Réduis la résolution (1920×1080 suffit), ou baisse la qualité (nombre de passes, de rebonds). Pour les tests, utilise toujours la basse qualité." }
+        ],
+        transitionToNextDay: "Tu as tes premiers rendus ! Demain on passe à Enscape — le rendu temps réel. Tu vas naviguer dans ton projet comme dans un jeu vidéo, en qualité quasi-photoréaliste. C'est l'outil que toutes les agences utilisent au quotidien."
+    },
+
+    // ========== JOUR 14 ==========
+    jour14: {
+        title: "Enscape — Rendu temps réel",
+        approachPhilosophy: "Enscape est devenu un standard en agence. La navigation temps réel est impressionnante. Laisser l'apprenant explorer librement — c'est le moment ludique de la formation. Les panoramas 360° sont un argument client redoutable.",
+        moduleExplanations: {
+            enscapeDecouverte: {
+                whatToSay: "Enscape, c'est la révolution du rendu en architecture. Tu cliques sur un bouton et une fenêtre s'ouvre avec ton projet en rendu quasi-photoréaliste. WASD comme dans un jeu vidéo pour te déplacer, souris pour regarder. Tout est en temps réel — tu modifies un mur dans ARCHICAD, il se met à jour dans Enscape instantanément. C'est devenu le standard en agence pour la conception et la communication client.",
+                demoSteps: [
+                    "Lancer Enscape depuis ARCHICAD (bouton dans la barre d'outils)",
+                    "Naviguer autour de la maison : WASD + souris",
+                    "Entrer dans le bâtiment, parcourir chaque pièce",
+                    "Changer l'heure avec le slider : matin → midi → soir → nuit",
+                    "Laisser l'apprenant naviguer librement pendant 10-15 minutes"
+                ]
+            },
+            materiauxEnscape: {
+                whatToSay: "Enscape améliore les matériaux avec des réflexions temps réel, des bump maps, et de l'émission lumineuse. Un carrelage brillant reflète vraiment la pièce. Un parquet a du relief. Et tu peux rendre un matériau émissif — il émet de la lumière, comme un écran de TV ou un luminaire. Tout ça se règle dans le panneau matériaux d'Enscape.",
+                demoSteps: [
+                    "Ouvrir le panneau matériaux Enscape",
+                    "Augmenter la réflexion d'un carrelage → effet miroir",
+                    "Ajouter un bump map sur le bois → texture tactile",
+                    "Rendre un objet émissif → il éclaire son environnement"
+                ]
+            },
+            captures: {
+                whatToSay: "Enscape permet de capturer des images HD et des panoramas 360°. Les images HD sont parfaites pour les présentations. Les panoramas 360° sont un argument client énorme : tu envoies un lien, le client visite le projet sur son téléphone en tournant dans tous les sens. Effet garanti.",
+                demoSteps: [
+                    "Trouver un bon point de vue (composition, lumière)",
+                    "Capturer une image HD",
+                    "Se placer au centre du séjour",
+                    "Capturer un panorama 360°",
+                    "Montrer le panorama sur téléphone si possible"
+                ]
+            }
+        },
+        FAQ: [
+            { question: "Enscape est lent / saccade", answer: "Enscape demande une bonne carte graphique (GPU). Si ça rame, réduis la qualité dans les paramètres Enscape. Ferme les autres applications gourmandes. Un GPU dédié (NVIDIA ou AMD récent) est recommandé." },
+            { question: "Les matériaux sont différents entre ARCHICAD et Enscape", answer: "C'est normal, chaque moteur interprète différemment. Utilise le panneau matériaux d'Enscape pour ajuster les paramètres spécifiques (réflexion, rugosité, bump) sans modifier les matériaux ARCHICAD." },
+            { question: "Comment partager le panorama 360° ?", answer: "Enscape génère un fichier que tu peux uploader sur un service web (ou sur le cloud Enscape). Tu obtiens un lien à envoyer au client. Il ouvre le lien sur son navigateur ou téléphone pour une visite immersive." }
+        ],
+        transitionToNextDay: "Enscape, c'est fait. Tu sais produire des visuels en temps réel et des panoramas 360° pour tes clients. Demain, vue d'ensemble du pipeline de rendu : 3ds Max, Twinmotion — pour savoir quand utiliser quoi. Et on boucle la semaine 3."
+    },
+
+    // ========== JOUR 15 ==========
+    jour15: {
+        title: "3ds Max & pipeline de rendu",
+        approachPhilosophy: "Vue d'ensemble, pas de formation approfondie. L'objectif : savoir quand utiliser chaque outil. Enscape = quotidien. 3ds Max = exceptionnel (concours, publications). Twinmotion = alternative gratuite. L'apprenant doit pouvoir faire un choix éclairé.",
+        moduleExplanations: {
+            pipeline: {
+                whatToSay: "En architecture, il y a une hiérarchie de rendu. Pour le quotidien (réunions client, études) : Enscape — temps réel, rapide, suffisant dans 90% des cas. Pour les concours ou les publications : 3ds Max avec V-Ray ou Corona — qualité maximale mais temps de production long. Pour les vidéos et le paysage : Twinmotion — beaucoup de végétation et d'ambiance, gratuit avec ta licence ARCHICAD. L'important c'est de savoir QUAND utiliser quoi.",
+                demoSteps: [
+                    "Montrer un comparatif côte à côte : même vue en Enscape, moteur intégré, et rendu 3ds Max",
+                    "Discuter des différences : qualité, temps de production, difficulté",
+                    "Conclusion : 'Enscape pour le quotidien, 3ds Max pour l'exceptionnel'"
+                ]
+            },
+            export3dsMax: {
+                whatToSay: "Pour envoyer ton modèle vers 3ds Max, tu exportes en FBX. C'est le format le plus propre pour garder les géométries, les matériaux de base, et les calques. L'export se fait en 2 clics depuis ARCHICAD. Après, dans 3ds Max, tu réappliques les matériaux V-Ray (qui sont bien plus riches), tu ajoutes l'éclairage pro, et tu lances le rendu. Je te montre le processus en démo, pas en exercice — c'est un logiciel à part entière.",
+                demoSteps: [
+                    "Export FBX depuis ARCHICAD : Fichier > Enregistrer sous > FBX",
+                    "Ouvrir le FBX dans 3ds Max (démo formateur)",
+                    "Montrer l'application rapide de matériaux V-Ray",
+                    "Lancer un rendu V-Ray → qualité exceptionnelle",
+                    "Comparer avec Enscape : 'La différence est là, mais le temps de production aussi'"
+                ]
+            },
+            twinmotion: {
+                whatToSay: "Twinmotion est gratuit avec ta licence ARCHICAD. C'est un excellent outil pour la végétation, les vidéos de promenade, et les présentations avec ambiance (pluie, neige, saisons). L'import depuis ARCHICAD est direct. L'interface est très intuitive — si tu connais Enscape, tu maîtrises Twinmotion en 30 minutes.",
+                demoSteps: [
+                    "Montrer l'export vers Twinmotion (plug-in direct)",
+                    "Ajouter de la végétation : arbres, haies, gazon réaliste",
+                    "Changer les saisons : été → automne → hiver",
+                    "Comparer : 'Plus de décor que Enscape, mais moins bien intégré'"
+                ]
+            }
+        },
+        FAQ: [
+            { question: "Faut-il apprendre 3ds Max ?", answer: "Pas forcément. En agence, c'est souvent un infographiste dédié qui fait les rendus 3ds Max. L'architecte prépare le modèle et exporte le FBX. Si tu veux le faire toi-même, c'est une formation à part (plusieurs semaines). Enscape couvre 90% des besoins." },
+            { question: "Twinmotion ou Enscape ?", answer: "Enscape pour le travail en direct (temps réel bidirectionnel avec ARCHICAD). Twinmotion pour la végétation et les vidéos d'ambiance. Beaucoup d'agences utilisent les deux." },
+            { question: "L'export FBX perd les matériaux ?", answer: "Le FBX conserve les noms des matériaux et les textures de base, mais les paramètres avancés (réflexion, bump...) doivent être recréés dans 3ds Max avec les shaders V-Ray." }
+        ],
+        transitionToNextDay: "Semaine 3 terminée ! Tu maîtrises la mise en page, les matériaux, le rendu intégré, Enscape et tu connais le pipeline complet. Semaine 4 : interopérabilité, productivité avancée, et le PROJET FINAL. En 3 jours, tu construis une maison contemporaine de A à Z — en autonomie totale."
+    },
+
+    // ========== JOUR 16 ==========
+    jour16: {
+        title: "SketchUp & interopérabilité",
+        approachPhilosophy: "Enrichir le projet avec du mobilier 3D et comprendre les échanges de fichiers. Le mobilier transforme un volume vide en espace de vie. L'IFC est incontournable dans le monde BIM professionnel.",
+        moduleExplanations: {
+            importSketchUp: {
+                whatToSay: "3D Warehouse de SketchUp, c'est une bibliothèque infinie de mobilier 3D gratuit. Tu télécharges un canapé, une table, une cuisine — et tu l'importes directement dans ARCHICAD en format .skp. C'est comme ça qu'on meuble un projet rapidement. Un intérieur meublé en Enscape, c'est 10 fois plus impactant qu'un volume vide.",
+                demoSteps: [
+                    "Ouvrir 3D Warehouse dans le navigateur",
+                    "Chercher 'sofa modern' → télécharger en .skp",
+                    "Importer dans ARCHICAD : Fichier > Interopérabilité > Fusionner > fichier .skp",
+                    "Positionner le canapé dans le séjour",
+                    "Vérifier en 3D et dans Enscape"
+                ]
+            },
+            formatIFC: {
+                whatToSay: "L'IFC (Industry Foundation Classes), c'est le format universel du BIM. C'est comme le PDF, mais pour les maquettes 3D. Quand tu travailles avec un ingénieur structure (Revit), un bureau d'études fluides, ou pour un marché public — tu échanges en IFC. ARCHICAD exporte et importe l'IFC nativement. C'est devenu obligatoire dans beaucoup de projets.",
+                demoSteps: [
+                    "Export IFC : Fichier > Enregistrer sous > IFC",
+                    "Montrer les options d'export (version IFC, traducteur)",
+                    "Ouvrir le fichier IFC dans un viewer gratuit (BIM Vision par exemple)",
+                    "Réimporter dans ARCHICAD pour vérifier la fidélité"
+                ]
+            }
+        },
+        FAQ: [
+            { question: "L'objet SketchUp est énorme / minuscule", answer: "Problème d'unités. Certains modèles SketchUp sont en pouces, d'autres en mètres. Après l'import, sélectionne l'objet et utilise l'outil Redimensionner pour l'ajuster." },
+            { question: "L'import SketchUp ralentit ARCHICAD", answer: "Certains modèles 3D Warehouse sont très lourds (millions de polygones). Avant de télécharger, vérifie la taille du fichier. Préfère les modèles 'low poly' quand c'est possible." },
+            { question: "L'export IFC perd des informations", answer: "L'IFC est un format d'échange, pas de production. Certains détails spécifiques à ARCHICAD ne se traduisent pas en IFC. Pour un export fidèle, utilise le bon traducteur IFC et vérifie le résultat dans un viewer." }
+        ],
+        transitionToNextDay: "Le projet est meublé et tu maîtrises les échanges de fichiers. Demain : productivité avancée. Favoris, templates, raccourcis personnalisés — les techniques des pros qui travaillent 2 fois plus vite que les autres."
+    },
+
+    // ========== JOUR 17 ==========
+    jour17: {
+        title: "Favoris, templates & productivité",
+        approachPhilosophy: "Investissement à long terme. Ce qu'on crée aujourd'hui servira pendant des années de pratique. Les favoris et le template sont le secret des agences productives. Chronomètre avec/sans = démonstration convaincante.",
+        moduleExplanations: {
+            favoris: {
+                whatToSay: "Un favori, c'est tous les paramètres d'un élément sauvegardés en un clic. Ton mur de façade composite préféré, ta fenêtre standard, ta porte d'entrée — tu les sauves en favoris. La prochaine fois, un double-clic sur le favori et tu traces directement avec les bons paramètres. Plus jamais besoin de re-régler 15 paramètres à chaque fois. C'est LE secret de productivité d'ARCHICAD.",
+                demoSteps: [
+                    "Sélectionner un mur composite bien paramétré",
+                    "Clic droit > Appliquer aux favoris > 'Mur façade composite'",
+                    "Tester : activer le favori → tracer un mur → paramètres parfaits",
+                    "Créer 10 favoris essentiels : 3 types de murs, 2 dalles, 2 portes, 2 fenêtres, 1 cloison",
+                    "Chrono : tracer un mur SANS favori (30 sec) vs AVEC favori (5 sec)"
+                ]
+            },
+            template: {
+                whatToSay: "Le template, c'est le fichier de départ de tous tes projets. Tu pré-configures : les calques, les favoris, les composites, le cartouche, les combinaisons de calques, les étages standards, les pen sets. Quand tu crées un nouveau projet, tu ouvres le template et tu es directement opérationnel. Plus de temps perdu à tout reconfigurer. Toutes les agences sérieuses travaillent avec un template.",
+                demoSteps: [
+                    "Créer un nouveau fichier vide",
+                    "Configurer les calques standards (A-Mur-Ext, A-Cloison, etc.)",
+                    "Importer les favoris créés",
+                    "Créer un cartouche standard",
+                    "Paramétrer les étages types (RDC, R+1)",
+                    "Enregistrer comme template (.tpl)"
+                ]
+            },
+            raccourcisPerso: {
+                whatToSay: "Les raccourcis clavier par défaut d'ARCHICAD sont bons, mais les pros les personnalisent. Les commandes que TU utilises le plus souvent méritent des raccourcis sur-mesure. Va dans Options > Environnement de travail > Raccourcis clavier. Tu peux tout personnaliser. Conseil : mets les commandes fréquentes sur des touches faciles (gauche du clavier, près de WASD).",
+                demoSteps: [
+                    "Montrer le panneau de personnalisation des raccourcis",
+                    "Créer 5 raccourcis personnalisés pour les commandes fréquentes",
+                    "Tester en situation réelle",
+                    "Sauvegarder le profil d'environnement de travail"
+                ]
+            }
+        },
+        FAQ: [
+            { question: "Comment partager les favoris avec un collègue ?", answer: "Les favoris s'exportent : Fichier > Bibliothèques et objets > Gestionnaire de favoris > Exporter. Ton collègue les importe dans son projet." },
+            { question: "Le template est-il spécifique à une version d'ARCHICAD ?", answer: "Oui, le template (.tpl) est lié à une version. Mais tu peux ouvrir un ancien template dans une version récente — ARCHICAD le convertira (avec quelques avertissements)." },
+            { question: "Est-ce que je peux utiliser les favoris d'un autre projet ?", answer: "Oui. Ouvre le projet source, exporte les favoris, puis importe-les dans ton nouveau projet. Ou mieux : mets-les dans ton template !" }
+        ],
+        transitionToNextDay: "Tu as créé ton environnement de travail pro : favoris, template, raccourcis. À partir de demain, c'est le PROJET FINAL. 3 jours en autonomie totale pour construire une maison contemporaine de A à Z avec tout ce que tu as appris. C'est l'examen final !"
+    },
+
+    // ========== JOUR 18 ==========
+    jour18: {
+        title: "Projet final — Jour 1 : Nouvelle maison",
+        approachPhilosophy: "Autonomie totale. Le formateur n'intervient pas spontanément — il attend qu'on lui demande. Brief ambitieux : double hauteur, toit mixte. L'apprenant doit mobiliser tout ce qu'il a appris. C'est le moment de vérité.",
+        moduleExplanations: {
+            brief: {
+                whatToSay: "Voici ton brief. Maison contemporaine R+1 de 160m² habitables. Programme : RDC → entrée, grand séjour double hauteur, cuisine ouverte, bureau, WC, terrasse couverte. R+1 → 4 chambres dont une suite parentale avec SDB, une SDB partagée, palier ouvert sur le séjour (mezzanine). Toiture mixte : toit plat sur la majorité + un pan incliné (zinc ou bac acier) sur un volume. Caractère contemporain affirmé : volumes francs, grandes ouvertures, matériaux nobles. Tu ouvres ton template, tu utilises tes favoris, et tu construis. Je suis là si tu as besoin d'aide, mais aujourd'hui c'est TOI l'architecte.",
+                demoSteps: [
+                    "Distribuer le brief écrit (pas de plan — l'apprenant conçoit lui-même)",
+                    "Montrer 2-3 exemples de maisons contemporaines similaires (inspiration, pas copie)",
+                    "Laisser l'apprenant réfléchir 15 minutes à son parti architectural",
+                    "L'apprenant démarre — le formateur observe"
+                ]
+            },
+            accompagnement: {
+                whatToSay: "Je ne vais pas te guider pas à pas aujourd'hui. Tu sais tout ce qu'il faut. Si tu bloques, réfléchis d'abord, essaie une solution, et si ça ne marche vraiment pas, demande-moi. Je suis là pour les vrais blocages, pas pour les questions dont tu connais la réponse. Fais-toi confiance.",
+                demoSteps: [
+                    "Passer toutes les 30-40 minutes pour vérifier l'avancement",
+                    "Ne corriger que les erreurs structurelles (altitudes, jonctions)",
+                    "Encourager les choix personnels : 'Bien pensé !' / 'Intéressant, pourquoi ce choix ?'",
+                    "Point 3D à mi-journée pour valider la direction"
+                ]
+            }
+        },
+        FAQ: [
+            { question: "Comment faire la double hauteur ?", answer: "Le séjour doit traverser 2 étages. Au RDC, dessine les murs du séjour normalement. Au R+1, ne mets PAS de murs ni de dalle au-dessus du séjour. Les murs du séjour auront une hauteur de 2 étages (5.60m par ex). Vérifie en coupe." },
+            { question: "Le toit plat, c'est juste une dalle ?", answer: "Oui, mais avec une très légère pente (1-3%) pour l'écoulement des eaux. Tu peux utiliser l'outil Dalle avec une légère inclinaison, ou simplement un toit à pente très faible. Acrotères (rebords) de 30-50cm." },
+            { question: "Comment faire la mezzanine ouverte sur le séjour ?", answer: "Au R+1, crée la dalle du palier/mezzanine mais arrête-la au bord du vide sur le séjour. Ajoute un garde-corps de 1m minimum. En coupe, tu verras le séjour traversant et la mezzanine en balcon intérieur." }
+        ],
+        transitionToNextDay: "Le gros œuvre est posé ! Demain : matériaux, mobilier, documentation et rendus. On habille le projet et on prépare le dossier de présentation. Dernière ligne droite !"
+    },
+
+    // ========== JOUR 19 ==========
+    jour19: {
+        title: "Projet final — Jour 2 : Habillage & docs",
+        approachPhilosophy: "Autonomie 95%. L'apprenant doit démontrer son efficacité sur toute la chaîne : matériaux, mobilier, documentation, rendus. Le temps est compté — c'est une simulation de conditions réelles en agence.",
+        moduleExplanations: {
+            habillageComplet: {
+                whatToSay: "Aujourd'hui tu habilles et tu documentes. Palette contemporaine : béton apparent, bois clair (chêne ou pin), métal noir (menuiseries), verre. À l'intérieur : parquet chêne partout sauf zones humides (béton ciré ou grand carrelage). Meubles depuis 3D Warehouse. Et ensuite : coupes, cotations, nomenclatures, rendus Enscape. C'est une journée marathon — priorise bien.",
+                demoSteps: [
+                    "L'apprenant travaille en autonomie toute la journée",
+                    "Matin : matériaux + mobilier",
+                    "Après-midi : documentation + rendus",
+                    "Point rapide à mi-journée : vérifier l'avancement",
+                    "Conseils de composition pour les rendus Enscape"
+                ]
+            },
+            rendusPortfolio: {
+                whatToSay: "Tes rendus Enscape doivent être de qualité portfolio. Pense comme un photographe d'architecture : règle des tiers, lignes de fuite, horizon droit. La double hauteur avec la lumière qui rentre par les grandes baies — c'est ta image de couverture. Intérieur nuit avec luminaires chauds — c'est ton ambiance. 3 extérieurs + 2 intérieurs minimum.",
+                demoSteps: [
+                    "Conseiller sur les points de vue (ne pas choisir à sa place)",
+                    "Rappeler la règle des tiers en composition",
+                    "Vérifier la qualité des matériaux dans Enscape avant le rendu final"
+                ]
+            }
+        },
+        FAQ: [
+            { question: "Je n'ai pas le temps de tout faire", answer: "Priorise : 1) Matériaux façade (ça change tout), 2) Rendus Enscape (le résultat visible), 3) Documentation (cotations minimum), 4) Mobilier (si le temps le permet). Mieux vaut 3 rendus magnifiques que 6 rendus bâclés." },
+            { question: "Ma double hauteur ne rend pas bien en rendu", answer: "Place la caméra en bas, légèrement décentrée, avec un grand angle. La double hauteur doit être vue depuis le séjour, en contre-plongée légère. L'éclairage naturel zénithal (verrière ?) peut enrichir l'effet." }
+        ],
+        transitionToNextDay: "Demain c'est le dernier jour. Tu finalises le dossier, tu fais la mise en page, l'export PDF, et tu présentes ton projet comme un architecte devant un client. C'est la dernière ligne droite — donne tout !"
+    },
+
+    // ========== JOUR 20 ==========
+    jour20: {
+        title: "Projet final — Livraison & bilan",
+        approachPhilosophy: "Le grand final. Finir avec un dossier dont l'apprenant est FIER. La présentation orale devant le formateur valorise le travail accompli. Le bilan met en perspective : de zéro à dossier professionnel en 20 jours. C'est la preuve que l'apprenant est capable.",
+        moduleExplanations: {
+            finalisationDossier: {
+                whatToSay: "C'est le dernier jour. Ce matin tu finalises tout : dernières corrections dans le modèle, mise à jour des vues (coupes, élévations), derniers rendus Enscape si nécessaire. Cet après-midi : mise en page A3, cartouche, export PDF. Et en fin de journée, tu présentes ton projet. Pas un exposé technique — une présentation d'architecte. Tu expliques tes choix : le parti architectural, la circulation, l'orientation, les matériaux. Le dossier raconte une histoire.",
+                demoSteps: [
+                    "Matin : corrections finales + rendus",
+                    "Début d'après-midi : mise en page + export PDF",
+                    "Fin d'après-midi : préparation de la présentation",
+                    "Présentation devant le formateur (10-15 minutes)"
+                ]
+            },
+            presentation: {
+                whatToSay: "Présente-moi ton projet comme si j'étais ton client. Commence par le contexte (le terrain, l'orientation), puis le parti architectural (pourquoi ces volumes, cette disposition), puis la visite (pièce par pièce), et termine par les ambiances (rendus Enscape). Un architecte ne présente pas une liste de surfaces — il raconte une histoire de vie dans un espace.",
+                demoSteps: [
+                    "L'apprenant présente pendant 10-15 minutes",
+                    "Le formateur pose des questions comme un client",
+                    "Feedback constructif et positif",
+                    "Valoriser les points forts et les choix personnels"
+                ]
+            },
+            bilan: {
+                whatToSay: "Regarde le chemin parcouru. Il y a 20 jours, tu n'avais jamais ouvert ARCHICAD. Aujourd'hui, tu as devant toi un dossier d'architecture complet : plans cotés, coupes, élévations, 3D, nomenclatures, rendus photoréalistes, panorama 360°. Tu sais construire un bâtiment de A à Z dans ARCHICAD. Tu sais produire un dossier professionnel. Tu sais communiquer un projet à un client. C'est exactement ce qu'un architecte fait au quotidien. Maintenant, la clé c'est la pratique. Utilise ARCHICAD 3 fois par semaine minimum pour garder les réflexes. Graphisoft Learn pour approfondir. La certification Graphisoft si tu veux. Et surtout : construis des projets. C'est en construisant qu'on devient architecte.",
+                demoSteps: [
+                    "Récapituler les compétences acquises (liste visuelle)",
+                    "Montrer les ressources pour la suite (Graphisoft Learn, communauté, certification)",
+                    "Remettre les fichiers de formation (projets, template, favoris)",
+                    "Certificat de fin de formation si applicable",
+                    "Note finale : 'De zéro à dossier professionnel en 20 jours — bravo ! 🎉'"
+                ]
+            }
+        },
+        FAQ: [
+            { question: "Comment continuer à progresser ?", answer: "1) Pratique régulière (3×/semaine minimum). 2) Graphisoft Learn (gratuit). 3) Communauté Graphisoft et ARCHICAD Talk. 4) Certification Graphisoft. 5) Explorer le Teamwork pour le travail collaboratif. 6) BIM Management et IFC avancé pour les gros projets." },
+            { question: "Quelles sont les prochaines compétences à développer ?", answer: "En priorité : le Teamwork (travail collaboratif), les profils complexes (moulures, corniches), les formes libres (Morph), les escaliers hélicoïdaux, et l'IFC avancé pour les échanges BIM." },
+            { question: "Faut-il passer la certification Graphisoft ?", answer: "C'est un plus sur un CV. La certification valide tes compétences auprès des employeurs. Elle se passe en ligne sur le site Graphisoft. Avec ce que tu as appris en 20 jours, tu as le niveau pour la préparer." }
+        ],
+        transitionToNextDay: "C'est la fin de la formation ! Tu es prêt. Construis, conçois, crée. ARCHICAD est ton outil, l'architecture est ton métier. 🎉"
     }
 };
 

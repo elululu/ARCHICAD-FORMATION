@@ -1,6 +1,7 @@
 // ==========================================
 // FORMATION DATA — Programme complet 20 jours
 // AtelierLO — Formation ARCHICAD
+// Approche immersive : on construit dès le jour 1
 // ==========================================
 
 const FORMATION_DATA = {
@@ -11,874 +12,667 @@ const FORMATION_DATA = {
     weeks: [
         {
             id: 1,
-            title: "Fondamentaux",
-            subtitle: "Prise en main et outils de base",
+            title: "On construit !",
+            subtitle: "De l'interface à ta première maison en 5 jours",
             days: [
                 {
                     id: 1,
-                    title: "Interface & environnement de travail",
-                    subtitle: "Découvrir l'interface d'ARCHICAD et apprendre à naviguer efficacement",
+                    title: "Premier contact & premier bâtiment",
+                    subtitle: "Prendre en main ARCHICAD en construisant directement un petit volume architectural",
                     duration: "7h",
                     week: 1,
                     objectives: [
-                        "Comprendre l'interface d'ARCHICAD et ses différents panneaux",
-                        "Maîtriser la navigation 2D et 3D (zoom, rotation, déplacement)",
-                        "Configurer son espace de travail et ses préférences",
-                        "Comprendre la logique BIM (différence avec le dessin 2D classique)",
-                        "Ouvrir, créer et sauvegarder un projet"
+                        "Comprendre l'interface d'ARCHICAD en 30 minutes chrono",
+                        "Maîtriser la navigation 2D et 3D instinctivement",
+                        "Placer ses premiers murs et voir apparaître un bâtiment en 3D",
+                        "Comprendre la logique BIM : on construit, on ne dessine pas",
+                        "Terminer la journée avec un petit volume habitable modélisé"
                     ],
                     keyPoints: [
                         {
-                            title: "L'interface ARCHICAD",
-                            content: "ARCHICAD est organisé autour de la fenêtre Plan (vue en plan), la fenêtre 3D, et les palettes d'outils. La Boîte à outils à gauche contient tous les outils de modélisation. La palette Infos en haut permet de paramétrer chaque outil."
+                            title: "L'interface ARCHICAD — En 10 minutes",
+                            content: "3 choses à retenir : la Boîte à outils à gauche (tes outils de construction), la Palette Infos en haut (les réglages de ton outil), le Navigateur (ton GPS dans le projet). C'est tout. On verra le reste en construisant."
                         },
                         {
-                            title: "Navigation 2D/3D",
-                            content: "Molette pour zoomer, clic molette pour déplacer la vue. En 3D : Shift + clic molette pour orbiter. Les raccourcis F2 (plan), F3 (3D), F5 (élévation) permettent de basculer rapidement entre les vues."
+                            title: "Navigation : deviens fluide tout de suite",
+                            content: "Molette = zoom. Clic molette = déplacer la vue. Shift + clic molette = orbite 3D. F2 = plan, F3 = 3D. Tu bascules en permanence entre plan et 3D. C'est ta façon de travailler à partir de maintenant."
                         },
                         {
-                            title: "Logique BIM",
-                            content: "Contrairement à AutoCAD, dans ARCHICAD on ne dessine pas des lignes mais on place des éléments de construction (murs, dalles, toitures). Chaque élément contient des informations (matériaux, dimensions, coûts). C'est la base du BIM."
+                            title: "La philosophie BIM",
+                            content: "Dans ARCHICAD, tu ne traces pas des lignes pour représenter un mur. Tu CONSTRUIS un mur. Ce mur a une épaisseur, une hauteur, des matériaux. Il existe en plan ET en 3D simultanément. C'est comme construire une maquette numérique grandeur nature."
                         }
                     ],
                     exercise: {
-                        title: "Exploration d'un projet exemple",
-                        description: "Ouvrir le projet résidentiel exemple fourni par ARCHICAD et explorer toutes les vues disponibles.",
+                        title: "🏠 Construis ton premier volume : un studio de 30m²",
+                        description: "Dès la première demi-journée, tu poses tes premiers murs et tu vois apparaître un bâtiment en 3D. On apprend en faisant.",
                         steps: [
-                            "Ouvrir le projet exemple depuis Fichier > Ouvrir",
-                            "Explorer le plan du RDC : identifier les murs, portes, fenêtres",
-                            "Passer en vue 3D (F3) et naviguer autour du bâtiment",
-                            "Ouvrir une coupe et une élévation depuis le navigateur",
-                            "Modifier la couleur d'un mur dans les réglages pour observer le changement en 3D",
-                            "Sauvegarder le projet sous un nouveau nom"
+                            "Créer un nouveau projet — on paramètre ensemble les unités (mètres)",
+                            "Activer l'outil Mur (W) — régler épaisseur 20cm, hauteur 2,60m",
+                            "Dessiner 4 murs extérieurs formant un rectangle de 6m × 5m",
+                            "Basculer en 3D (F3) — admirer ton premier volume !",
+                            "Ajouter une cloison intérieure pour créer la salle d'eau (2m × 2,5m)",
+                            "Placer une porte d'entrée (90cm) et une porte intérieure (70cm)",
+                            "Ajouter 2 fenêtres (120cm, allège 90cm) sur les murs extérieurs",
+                            "Créer la dalle de plancher avec la Baguette magique (Espace)",
+                            "Visiter ton studio en 3D — tu viens de construire ton premier bâtiment !"
                         ]
                     },
                     checklist: [
-                        "Je sais identifier les différents panneaux de l'interface",
-                        "Je sais naviguer en 2D (zoom, déplacement)",
-                        "Je sais naviguer en 3D (orbite, zoom, déplacement)",
-                        "Je comprends la différence entre BIM et dessin 2D",
-                        "Je sais ouvrir et sauvegarder un projet"
+                        "Je sais naviguer en 2D et 3D sans réfléchir (molette, F2, F3)",
+                        "Je sais placer des murs avec l'outil Mur",
+                        "J'ai placé des portes et des fenêtres dans mes murs",
+                        "J'ai créé une dalle avec la Baguette magique",
+                        "J'ai un studio complet visible en 3D"
                     ],
                     formateurGuide: {
-                        intro: "Première séance : c'est crucial de mettre à l'aise. Commencer par montrer un projet fini pour donner envie, puis décortiquer l'interface.",
+                        intro: "Jour 1 = impact maximum. On ne fait PAS un cours théorique sur l'interface. On montre un projet fini 2 minutes pour donner envie, puis on construit directement. L'apprenant doit terminer la journée avec un petit bâtiment en 3D. C'est ce qui crée la motivation pour les 19 jours suivants.",
                         timing: [
-                            { time: "0h - 0h30", content: "Accueil, présentation de la formation, tour d'horizon d'ARCHICAD" },
-                            { time: "0h30 - 1h30", content: "Présentation de l'interface : boîte à outils, palette infos, navigateur, mini-navigateur" },
-                            { time: "1h30 - 2h30", content: "Navigation 2D : zoom, pan, raccourcis. Montrer la différence avec AutoCAD" },
-                            { time: "2h30 - 3h00", content: "Pause + questions" },
-                            { time: "3h00 - 4h00", content: "Navigation 3D : orbite, perspectives, axonométries. Vues prédéfinies" },
-                            { time: "4h00 - 5h00", content: "Concept BIM : expliquer avec un mur (on clique dessus, on voit toutes ses propriétés)" },
-                            { time: "5h00 - 6h30", content: "Exercice pratique : exploration du projet exemple" },
-                            { time: "6h30 - 7h00", content: "Récap, questions, préparation du jour 2" }
+                            { time: "0h - 0h15", content: "Accueil — Montrer un projet fini en 3D pour donner envie (visite virtuelle rapide)" },
+                            { time: "0h15 - 0h45", content: "Interface express : boîte à outils, palette infos, navigateur — montrer en construisant, pas en expliquant" },
+                            { time: "0h45 - 1h15", content: "Navigation : zoom, pan, orbite 3D — on pratique directement sur un projet exemple" },
+                            { time: "1h15 - 2h30", content: "On construit ! Outil Mur : premiers murs du studio. Basculer en 3D dès le 2ème mur" },
+                            { time: "2h30 - 3h00", content: "Pause + on admire le résultat en 3D" },
+                            { time: "3h00 - 4h00", content: "Portes et fenêtres dans le studio — voir le bâtiment prendre vie" },
+                            { time: "4h00 - 4h30", content: "Baguette magique + dalle — le plancher apparaît" },
+                            { time: "4h30 - 5h30", content: "Saisie numérique et précision : tracker, Tab, coordonnées — on corrige le studio" },
+                            { time: "5h30 - 6h30", content: "Peaufiner le studio : ajuster les dimensions, vérifier en 3D" },
+                            { time: "6h30 - 7h00", content: "Visite 3D du studio terminé — récap — on a construit un bâtiment le jour 1 !" }
                         ],
                         tips: [
-                            "Faire le parallèle avec AutoCAD que l'apprenante connaît déjà — ça rassure",
-                            "Montrer la vue 3D très tôt pour créer l'effet 'waouh' vs le 2D d'AutoCAD",
-                            "Ne pas surcharger d'informations : se concentrer sur la navigation fluide",
-                            "Laisser l'apprenante manipuler dès que possible, ne pas faire de démo trop longue"
+                            "L'apprenant doit avoir un mur en 3D dans les 30 premières minutes — c'est le déclic",
+                            "Ne JAMAIS faire de cours magistral sur l'interface — on apprend en construisant",
+                            "La saisie numérique se découvre naturellement quand on veut un mur de 6m exactement",
+                            "Terminer par une visite 3D du studio — c'est le moment de fierté du jour 1"
                         ],
                         warnings: [
-                            "Attention au syndrome 'c'est pas comme AutoCAD' — recadrer positivement",
-                            "Ne pas introduire trop d'outils dès le jour 1, rester sur la navigation",
-                            "Vérifier que la version d'ARCHICAD est bien installée et activée avant la séance"
+                            "Ne pas perdre de temps sur la théorie — 80% de pratique dès le jour 1",
+                            "Les points d'accrochage et les calques seront vus naturellement les jours suivants",
+                            "Ne pas chercher la perfection — l'objectif est l'expérience de construction"
                         ],
-                        exerciseSolution: "L'objectif n'est pas de réussir parfaitement mais de manipuler. Guider l'apprenante si elle bloque sur la navigation 3D. Montrer Shift+molette pour l'orbite."
+                        exerciseSolution: "Le studio est simple : 4 murs extérieurs + 1 cloison + 1 porte d'entrée + 1 porte intérieure + 2 fenêtres + 1 dalle. L'important c'est que l'apprenant ait CONSTRUIT quelque chose le jour 1."
                     }
                 },
                 {
                     id: 2,
-                    title: "Outils de dessin 2D",
-                    subtitle: "Maîtriser les outils de dessin et d'édition 2D fondamentaux",
+                    title: "Murs : l'art de construire des parois",
+                    subtitle: "Maîtriser l'outil le plus important d'ARCHICAD pour construire comme un architecte",
                     duration: "7h",
                     week: 1,
                     objectives: [
-                        "Utiliser les outils Ligne, Arc, Cercle, Polyligne, Spline",
-                        "Maîtriser les outils d'édition : déplacer, copier, rotation, miroir",
-                        "Comprendre le système de coordonnées et la saisie numérique",
-                        "Utiliser les guides, grilles et points d'accrochage",
-                        "Travailler avec les calques et les combinaisons de calques"
+                        "Maîtriser les différents types de murs (simples, composites, courbes)",
+                        "Comprendre la ligne de référence — clé des jonctions propres",
+                        "Construire des murs composites réalistes (structure + isolation + finition)",
+                        "Gérer les intersections et jonctions de murs comme un pro",
+                        "Construire l'enveloppe complète d'un appartement T3"
                     ],
                     keyPoints: [
                         {
-                            title: "Saisie des coordonnées",
-                            content: "ARCHICAD utilise un système de coordonnées cartésiennes. On peut saisir des coordonnées absolues (X, Y) ou relatives (dx, dy). Le tracker en bas de l'écran affiche les coordonnées en temps réel. Tab permet de basculer entre les champs."
+                            title: "L'outil Mur — Ton outil principal",
+                            content: "L'outil Mur (W) est le cœur d'ARCHICAD. Un mur est un élément 3D paramétrique : épaisseur, hauteur, matériaux, structure composite. Tu le dessines en plan et il se construit en 3D. Simple et puissant."
                         },
                         {
-                            title: "Points d'accrochage",
-                            content: "Les points d'accrochage (snap) permettent de se positionner précisément sur les éléments existants : extrémité, milieu, intersection, perpendiculaire. Ils sont essentiels pour un dessin précis."
+                            title: "Ligne de référence — La clé de voûte",
+                            content: "Chaque mur a une ligne de référence qui détermine de quel côté s'étend l'épaisseur. Règle d'or : nu extérieur pour les murs de façade, centre pour les cloisons. C'est ce qui garantit des jonctions propres entre les murs."
                         },
                         {
-                            title: "Calques (Layers)",
-                            content: "Les calques dans ARCHICAD fonctionnent différemment d'AutoCAD. Chaque outil a un calque par défaut. Les combinaisons de calques permettent d'afficher/masquer des groupes de calques selon le type de vue."
+                            title: "Murs composites — Comme en vrai",
+                            content: "Un vrai mur de façade, c'est un sandwich : structure (béton ou brique), isolation, parement extérieur, placo intérieur. ARCHICAD gère tout ça avec les murs composites. Les jonctions entre couches se calculent automatiquement."
                         }
                     ],
                     exercise: {
-                        title: "Reproduire un plan simple en 2D",
-                        description: "Reproduire le plan 2D d'un studio (une pièce avec salle de bain) en utilisant uniquement les outils de dessin 2D.",
+                        title: "🏢 Construis un appartement T3",
+                        description: "On passe à la vitesse supérieure : modéliser un vrai logement avec murs porteurs et cloisons, comme en agence d'architecture.",
                         steps: [
-                            "Créer un nouveau projet avec les unités en mètres",
-                            "Dessiner un rectangle de 6m x 4m avec l'outil Ligne",
-                            "Ajouter une cloison intérieure pour créer la salle de bain (2m x 3m)",
-                            "Dessiner un arc pour représenter l'ouverture de porte",
-                            "Ajouter des cotations manuelles avec l'outil Ligne",
-                            "Organiser les éléments sur les calques appropriés"
+                            "Dessiner les murs extérieurs en composite (porteur 20cm + isolant 10cm + placo) — rectangle 12m × 9m",
+                            "Positionner les murs porteurs intérieurs (béton 20cm) — séparation séjour/chambres",
+                            "Créer les cloisons de distribution (placo 7cm) — chambres, SDB, WC, couloir",
+                            "Vérifier les jonctions en plan : tout doit être propre, pas de traits parasites",
+                            "Basculer en 3D (F3) — vérifier que les intersections sont correctes",
+                            "Ajuster les hauteurs sous plafond (2,60m)"
                         ]
                     },
                     checklist: [
-                        "Je sais tracer des lignes, arcs et rectangles",
-                        "Je sais déplacer, copier et faire pivoter des éléments",
-                        "Je comprends le système de coordonnées",
-                        "Je sais utiliser les points d'accrochage",
-                        "Je comprends le principe des calques"
+                        "Je maîtrise l'outil Mur et ses paramètres principaux",
+                        "Je comprends et j'utilise correctement la ligne de référence",
+                        "Je sais créer des murs composites réalistes",
+                        "Les intersections de mes murs sont propres",
+                        "J'ai un T3 complet avec murs porteurs et cloisons"
                     ],
                     formateurGuide: {
-                        intro: "Cette séance fait le lien avec AutoCAD — les outils 2D sont familiers. En profiter pour montrer les différences et les améliorations d'ARCHICAD.",
+                        intro: "C'est LE jour crucial. L'outil Mur c'est 60% du travail en ARCHICAD. L'apprenant doit terminer avec des murs maîtrisés. On construit un vrai logement, pas des exercices abstraits.",
                         timing: [
-                            { time: "0h - 0h30", content: "Récap jour 1 + questions" },
-                            { time: "0h30 - 1h30", content: "Outils de dessin : Ligne, Polyligne, Arc, Cercle, Rectangle" },
-                            { time: "1h30 - 2h30", content: "Saisie numérique : coordonnées absolues, relatives, tracker" },
-                            { time: "2h30 - 3h00", content: "Pause + questions" },
-                            { time: "3h00 - 4h00", content: "Outils d'édition : déplacer, copier, rotation, miroir, multiplier" },
-                            { time: "4h00 - 4h30", content: "Grilles, guides et accrochages" },
-                            { time: "4h30 - 5h00", content: "Introduction aux calques" },
-                            { time: "5h00 - 6h30", content: "Exercice : reproduire le plan du studio" },
-                            { time: "6h30 - 7h00", content: "Récap + préparation jour 3" }
+                            { time: "0h - 0h30", content: "Récap express du jour 1 — revoir le studio en 3D — on monte en gamme aujourd'hui" },
+                            { time: "0h30 - 1h30", content: "Outil Mur approfondi : boîte de dialogue (Ctrl+T), paramètres complets, méthodes de dessin" },
+                            { time: "1h30 - 2h30", content: "Ligne de référence : démo visuelle en plan ET en 3D — montrer le bon et le mauvais" },
+                            { time: "2h30 - 3h00", content: "Pause" },
+                            { time: "3h00 - 4h00", content: "Murs composites : créer un mur réaliste couche par couche — lien avec la construction réelle" },
+                            { time: "4h00 - 5h00", content: "Intersections et jonctions : priorités, nettoyage, cas courants" },
+                            { time: "5h00 - 6h30", content: "Exercice T3 : construction des murs en autonomie" },
+                            { time: "6h30 - 7h00", content: "Vérification 3D du T3 — récap — demain on ajoute la structure" }
                         ],
                         tips: [
-                            "Comparer systématiquement avec AutoCAD : 'Dans AutoCAD tu faisais X, ici c'est Y'",
-                            "Insister sur le tracker et la saisie numérique — c'est un gain de temps énorme",
-                            "Montrer la touche Tab pour naviguer dans le tracker",
-                            "Faire manipuler immédiatement après chaque démonstration"
+                            "Basculer constamment entre plan (F2) et 3D (F3) — c'est le réflexe à ancrer",
+                            "Montrer ce qui se passe quand la ligne de référence est mal positionnée — l'erreur est parlante",
+                            "Faire le lien avec la construction réelle : montrer des photos de murs en chantier pour expliquer les composites",
+                            "Utiliser le Pet Palette pour les modifications — c'est un outil exclusif et puissant d'ARCHICAD"
                         ],
                         warnings: [
-                            "Ne pas passer trop de temps sur le 2D pur — rappeler que l'objectif est le BIM 3D",
-                            "Les calques dans ARCHICAD sont différents d'AutoCAD — bien expliquer la logique"
+                            "Les intersections de murs peuvent frustrer — rester patient et positif",
+                            "Bien expliquer le concept de priorité de jonction avec des exemples visuels",
+                            "Ne pas introduire les murs-rideaux à ce stade"
                         ],
-                        exerciseSolution: "Le plan est simple volontairement. L'important est la précision de la saisie et l'utilisation correcte des accrochages."
+                        exerciseSolution: "T3 : séjour/cuisine ouverte (~35m²), 3 chambres (~12m², ~10m², ~10m²), 1 SDB (~6m²), 1 WC (~2m²), entrée/couloir. Murs extérieurs composites, intérieurs porteurs 20cm, cloisons 7cm."
                     }
                 },
                 {
                     id: 3,
-                    title: "Murs : types, épaisseurs, intersections",
-                    subtitle: "Créer et paramétrer des murs pour la modélisation architecturale",
+                    title: "Structure : dalles, poteaux, poutres",
+                    subtitle: "Donner une ossature solide à ton bâtiment — comme un ingénieur structure",
                     duration: "7h",
                     week: 1,
                     objectives: [
-                        "Créer des murs droits, courbes et trapézoïdaux",
-                        "Paramétrer les murs : épaisseur, hauteur, matériaux, composites",
-                        "Comprendre les intersections et jonctions de murs",
-                        "Utiliser les lignes de référence des murs",
-                        "Modifier des murs existants (étirer, diviser, fusionner)"
+                        "Créer des dalles (planchers et plafonds) avec la Baguette magique",
+                        "Maîtriser les dalles composites (chape + isolant + structure)",
+                        "Placer des poteaux structurels aux points stratégiques",
+                        "Relier la structure avec des poutres",
+                        "Avoir un bâtiment structurellement complet en fin de journée"
                     ],
                     keyPoints: [
                         {
-                            title: "L'outil Mur",
-                            content: "L'outil Mur est l'outil principal en ARCHICAD. Un mur est un élément 3D paramétrique : il a une épaisseur, une hauteur, des matériaux de surface et une structure composite. On le dessine en plan et il se construit automatiquement en 3D."
+                            title: "L'outil Dalle — Tes planchers",
+                            content: "La dalle se dessine en plan par son contour. Astuce de pro : la Baguette magique (Espace) crée la dalle automatiquement en cliquant à l'intérieur des murs ! L'altitude de référence est essentielle : 0.00 pour le RDC, hauteur d'étage pour le plancher haut."
                         },
                         {
-                            title: "Ligne de référence",
-                            content: "Chaque mur a une ligne de référence (centre, extérieur ou intérieur). C'est crucial pour les intersections propres. Toujours vérifier la position de la ligne de référence avant de dessiner."
+                            title: "Poteaux & Poutres — L'ossature",
+                            content: "Les poteaux se placent par point (clic simple). Les poutres relient deux points. En maison individuelle, on les utilise pour les grandes portées (baies vitrées larges, double hauteur). En collectif ou tertiaire, c'est la trame structurelle."
                         },
                         {
-                            title: "Murs composites",
-                            content: "Un mur composite est constitué de plusieurs couches (ex : brique + isolation + placo). ARCHICAD gère automatiquement les jonctions entre murs composites. C'est un des atouts majeurs du BIM."
+                            title: "La Baguette magique — Productivité ×10",
+                            content: "La Baguette magique (Espace) détecte les contours fermés et crée l'élément en un clic. Fonctionne avec les dalles, les zones, et bien d'autres outils. Si elle ne fonctionne pas = ton contour de murs n'est pas fermé. Zoom aux angles pour trouver le trou."
                         }
                     ],
                     exercise: {
-                        title: "Dessiner les murs d'un appartement T3",
-                        description: "Créer la structure murale complète d'un appartement T3 avec murs porteurs et cloisons.",
+                        title: "🏗️ Structure complète du T3",
+                        description: "Ajouter toute la structure au T3 : planchers, poteaux porteurs, poutres. Le bâtiment devient un vrai volume structurel.",
                         steps: [
-                            "Créer les murs extérieurs en mur composite (20cm) formant un rectangle de 12m x 9m",
-                            "Ajouter les murs porteurs intérieurs (20cm) pour séparer les espaces",
-                            "Créer les cloisons de distribution (10cm) pour les chambres et la salle de bain",
-                            "Vérifier les intersections des murs en vue 3D",
-                            "Ajuster les hauteurs des murs (2,60m sous plafond)",
-                            "Vérifier que tous les murs ont les bonnes épaisseurs et matériaux"
+                            "Créer la dalle de plancher bas avec la Baguette magique — un clic et c'est fait !",
+                            "Paramétrer la dalle en composite réaliste (carrelage 1cm + chape 5cm + isolant 5cm + béton 20cm)",
+                            "Placer 4 poteaux porteurs (30×30cm) aux points stratégiques du plan",
+                            "Créer des poutres béton (30×50cm) reliant les poteaux",
+                            "Ajouter la dalle haute (plafond) — même méthode, altitude +2,60m",
+                            "Vérifier la cohérence en coupe : tout doit s'emboîter"
                         ]
                     },
                     checklist: [
-                        "Je sais créer un mur avec l'outil Mur",
-                        "Je sais paramétrer l'épaisseur et la hauteur d'un mur",
-                        "Je comprends la ligne de référence",
-                        "Je sais gérer les intersections de murs",
-                        "Je sais modifier un mur existant"
+                        "Je maîtrise la Baguette magique pour créer des dalles",
+                        "Je sais paramétrer des dalles composites réalistes",
+                        "Je sais placer des poteaux aux bons endroits",
+                        "Je sais créer des poutres entre les éléments porteurs",
+                        "Mon bâtiment a une structure complète visible en coupe"
                     ],
                     formateurGuide: {
-                        intro: "C'est le jour où on entre vraiment dans le BIM ! Premier vrai élément de construction. Montrer la magie : on dessine en plan, ça se construit en 3D.",
+                        intro: "La Baguette magique est le moment 'waouh' de la journée. Un clic = une dalle complète. L'apprenant voit la puissance du logiciel. On construit la structure comme un ingénieur structure penserait le bâtiment.",
                         timing: [
-                            { time: "0h - 0h30", content: "Récap jour 2 + transition vers les éléments 3D" },
-                            { time: "0h30 - 1h30", content: "Outil Mur : création, paramètres, boîte de dialogue" },
-                            { time: "1h30 - 2h30", content: "Ligne de référence : pourquoi c'est important, exercice de positionnement" },
+                            { time: "0h - 0h30", content: "Récap jour 2 — ouvrir le T3 — aujourd'hui on lui donne sa structure" },
+                            { time: "0h30 - 2h00", content: "Outil Dalle : création, composites, altitudes — démo puis pratique immédiate" },
+                            { time: "2h00 - 2h30", content: "Baguette magique : démo spectaculaire puis exercice" },
                             { time: "2h30 - 3h00", content: "Pause" },
-                            { time: "3h00 - 4h00", content: "Types de murs : simples, composites, profils complexes" },
-                            { time: "4h00 - 5h00", content: "Intersections et jonctions : nettoyage, priorités" },
-                            { time: "5h00 - 6h30", content: "Exercice : T3 complet" },
-                            { time: "6h30 - 7h00", content: "Vérification en 3D + récap" }
+                            { time: "3h00 - 4h00", content: "Poteaux : types, sections — placer dans le projet, vérifier en 3D" },
+                            { time: "4h00 - 5h00", content: "Poutres : création, profils — relier les éléments porteurs" },
+                            { time: "5h00 - 6h30", content: "Exercice : structurer le T3 complet" },
+                            { time: "6h30 - 7h00", content: "Vérification en 3D + coupe — le bâtiment a une ossature !" }
                         ],
                         tips: [
-                            "Faire basculer constamment entre plan et 3D pour montrer le résultat",
-                            "Montrer ce qui se passe quand la ligne de référence est mal positionnée",
-                            "Utiliser la Baguette magique pour sélectionner des murs liés",
-                            "Montrer le Pet Palette pour les options de modification"
+                            "La Baguette magique est un moment de productivité impressionnant — en profiter",
+                            "Montrer la coupe instantanée pour vérifier les épaisseurs et les altitudes",
+                            "Faire le parallèle avec un chantier réel : on coule d'abord les fondations, puis les planchers",
+                            "Altitude = le piège classique du débutant — insister dessus avec des vérifications en coupe"
                         ],
                         warnings: [
-                            "Les intersections de murs peuvent être source de frustration — rester patient",
-                            "Bien expliquer le concept de priorité de jonction",
-                            "Ne pas introduire les murs-rideaux à ce stade"
+                            "Les altitudes de dalles sont le piège n°1 — toujours vérifier en coupe",
+                            "Les poutres peuvent sembler complexes — rester simple avec des profils rectangulaires",
+                            "Si la Baguette magique ne marche pas → contour non fermé, zoomer aux angles"
                         ],
-                        exerciseSolution: "L'appartement T3 doit comprendre : séjour/cuisine, 3 chambres, 1 SDB, 1 WC, 1 entrée/couloir. Commencer par les murs extérieurs puis ajouter les cloisons."
+                        exerciseSolution: "Dalle basse à 0.00, dalle haute à +2.60. Poteaux de 0.00 à 2.60. Poutres à 2.10 (sous la dalle haute, hauteur poutre 50cm)."
                     }
                 },
                 {
                     id: 4,
-                    title: "Dalles, poteaux, poutres",
-                    subtitle: "Créer la structure complète d'un bâtiment",
+                    title: "Portes, fenêtres & menuiseries",
+                    subtitle: "Percer les ouvertures et donner vie au bâtiment — le moment où tout prend forme",
                     duration: "7h",
                     week: 1,
                     objectives: [
-                        "Créer des dalles (planchers et plafonds)",
-                        "Paramétrer les dalles : épaisseur, matériaux, composites",
-                        "Placer des poteaux structurels et architecturaux",
-                        "Utiliser l'outil Poutre pour la structure",
-                        "Comprendre les liens entre éléments structurels"
+                        "Placer des portes dans les murs (battantes, coulissantes, entrée)",
+                        "Placer des fenêtres avec les bonnes allèges selon les pièces",
+                        "Maîtriser les dimensions standards de l'architecture résidentielle",
+                        "Utiliser la bibliothèque d'objets ARCHICAD efficacement",
+                        "Avoir un T3 complet avec toutes ses menuiseries — prêt pour la visite 3D"
                     ],
                     keyPoints: [
                         {
-                            title: "L'outil Dalle",
-                            content: "La dalle se dessine en plan par son contour (rectangle, polygone ou baguette magique sur les murs). Elle peut être simple ou composite. L'altitude de référence est essentielle pour placer la dalle au bon niveau."
+                            title: "Portes & fenêtres = Objets intelligents dans les murs",
+                            content: "Tu cliques dans un mur, la porte ou fenêtre s'y insère et crée automatiquement l'ouverture. Pas besoin de dessiner le trou ! Chaque menuiserie est paramétrique : largeur, hauteur, type d'ouverture, matériau du cadre."
                         },
                         {
-                            title: "Poteaux & Poutres",
-                            content: "Les poteaux se placent par point. Ils peuvent être structurels (porteurs) ou architecturaux (décoratifs). Les poutres relient deux points et peuvent avoir des profils variés (rectangulaire, IPN, etc.)."
+                            title: "Les dimensions standards en résidentiel",
+                            content: "Portes : WC/SDB = 60-70cm, chambres = 80cm, entrée/PMR = 90cm, hauteur standard = 204cm. Fenêtres : standard chambre = 120×135cm, séjour = 140×135cm, baie vitrée = 180-240×215cm. Allèges : standard = 90cm, SDB = 130cm, baie vitrée = 0cm."
                         },
                         {
-                            title: "La Baguette magique",
-                            content: "La Baguette magique (barre espace) permet de créer une dalle en cliquant à l'intérieur d'un contour fermé de murs. C'est un outil de productivité majeur dans ARCHICAD."
+                            title: "L'allège — Le paramètre qu'on oublie",
+                            content: "L'allège = distance sol → bas de la fenêtre. Standard 90cm pour les pièces de vie (protection + appui de fenêtre). 130cm pour la SDB (intimité). 0cm pour une baie vitrée toute hauteur. Toujours y penser AVANT de placer la fenêtre."
                         }
                     ],
                     exercise: {
-                        title: "Structurer le T3 : dalle et éléments porteurs",
-                        description: "Ajouter la structure complète au T3 du jour précédent : dalles, poteaux et poutres.",
+                        title: "🪟 Le T3 prend vie : toutes les menuiseries",
+                        description: "Placer toutes les portes et fenêtres du T3. En fin de journée, on fait la visite virtuelle complète !",
                         steps: [
-                            "Créer la dalle de plancher bas du T3 avec la Baguette magique",
-                            "Paramétrer la dalle en composite (chape + isolant + structure)",
-                            "Ajouter 4 poteaux porteurs aux angles principaux",
-                            "Créer des poutres reliant les poteaux",
-                            "Ajouter la dalle haute (plafond/plancher étage)",
-                            "Vérifier la cohérence en 3D et en coupe"
+                            "Porte d'entrée 90cm blindée avec imposte vitrée — elle donne le ton du projet",
+                            "Portes des chambres 80cm — vérifier le sens d'ouverture (espace optimisé)",
+                            "Porte SDB 70cm — porte coulissante pour gagner de la place",
+                            "Porte WC 60cm — sens d'ouverture vers l'intérieur (convention)",
+                            "Baie vitrée séjour 240cm — allège 0cm — le séjour s'ouvre sur l'extérieur",
+                            "Fenêtres chambres 120×135cm — allège 90cm — lumière naturelle optimale",
+                            "Fenêtre cuisine 140×135cm — allège 90cm — vue sur le jardin",
+                            "Fenêtre SDB 60×45cm — allège 130cm — intimité garantie",
+                            "Visite 3D complète du T3 : on entre par la porte, on parcourt chaque pièce !"
                         ]
                     },
                     checklist: [
-                        "Je sais créer une dalle à partir d'un contour",
-                        "Je sais utiliser la Baguette magique",
-                        "Je sais placer des poteaux",
-                        "Je sais créer des poutres",
-                        "Je comprends les altitudes de référence"
+                        "Je sais placer des portes avec le bon sens d'ouverture",
+                        "Je sais placer des fenêtres avec la bonne allège",
+                        "Je connais les dimensions standards en résidentiel",
+                        "Je sais naviguer dans la bibliothèque d'objets",
+                        "Mon T3 est complet : murs + structure + menuiseries !"
                     ],
                     formateurGuide: {
-                        intro: "On complète la structure du bâtiment. La Baguette magique sera un moment fort — montrer comme c'est rapide de créer une dalle.",
+                        intro: "Séance gratifiante ! Le bâtiment prend vie avec les ouvertures. Terminer par une visite 3D du T3 complet — c'est le moment de fierté de fin de semaine 1 (presque). L'apprenant réalise qu'il sait construire un logement.",
                         timing: [
-                            { time: "0h - 0h30", content: "Récap jour 3 + ouverture du projet T3" },
-                            { time: "0h30 - 2h00", content: "Outil Dalle : création, paramètres, composites, altitudes" },
-                            { time: "2h00 - 2h30", content: "Baguette magique : démonstration et pratique" },
+                            { time: "0h - 0h30", content: "Récap jour 3 — vue 3D du T3 actuel — aujourd'hui on perce les ouvertures" },
+                            { time: "0h30 - 2h00", content: "Outil Porte : placement, sens d'ouverture, dimensions standards — pratique immédiate" },
+                            { time: "2h00 - 2h30", content: "Bibliothèque : chercher le bon type de porte/fenêtre rapidement" },
                             { time: "2h30 - 3h00", content: "Pause" },
-                            { time: "3h00 - 4h00", content: "Poteaux : types, sections, paramètres" },
-                            { time: "4h00 - 5h00", content: "Poutres : création, profils, connexions" },
-                            { time: "5h00 - 6h30", content: "Exercice : structurer le T3" },
-                            { time: "6h30 - 7h00", content: "Vérification 3D + récap" }
+                            { time: "3h00 - 4h30", content: "Outil Fenêtre : allèges, types, baies vitrées — relier aux usages architecturaux" },
+                            { time: "4h30 - 5h00", content: "Points d'accrochage et saisie numérique (rattrapé du jour 1 si besoin)" },
+                            { time: "5h00 - 6h30", content: "Exercice : compléter le T3 avec toutes les menuiseries" },
+                            { time: "6h30 - 7h00", content: "Visite virtuelle 3D du T3 complet — bilan — on a un vrai logement !" }
                         ],
                         tips: [
-                            "La Baguette magique est un moment 'waouh' — en profiter pour montrer la puissance d'AC",
-                            "Montrer la coupe instantanée (Ctrl+clic) pour vérifier les épaisseurs",
-                            "Bien expliquer le concept d'altitude de référence — source de beaucoup d'erreurs",
-                            "Comparer avec SketchUp : montrer que les infos sont intégrées aux éléments"
+                            "Montrer le résultat 3D après chaque porte/fenêtre — c'est motivant !",
+                            "Expliquer le sens d'ouverture avec la logique architecturale : 'la porte s'ouvre contre le mur pour ne pas gêner'",
+                            "Terminer par une visite en perspective du T3 — tourner autour, entrer dedans",
+                            "Faire le lien avec les codes architecturaux : pourquoi ces dimensions, ces allèges"
                         ],
                         warnings: [
-                            "Les altitudes de dalles sont le piège classique des débutants",
-                            "Ne pas oublier de vérifier en coupe que tout est bien aligné",
-                            "Les poutres peuvent sembler complexes — rester simple avec des profils rectangulaires"
+                            "Le sens de placement (intérieur/extérieur) peut dérouter — expliquer avec un schéma",
+                            "Ne pas perdre de temps dans la bibliothèque — rester sur les objets standards",
+                            "Attention aux allèges : l'erreur classique c'est d'oublier de la régler"
                         ],
-                        exerciseSolution: "Dalle basse à 0.00, dalle haute à +2.60. Poteaux de 0.00 à 2.60. Les poutres relient les poteaux à 2.40 (sous la dalle haute)."
+                        exerciseSolution: "Le T3 doit avoir 6-8 fenêtres et 6-7 portes. Vérifier en 3D que toutes les ouvertures sont cohérentes, les sens d'ouverture logiques, et les allèges correctes."
                     }
                 },
                 {
                     id: 5,
-                    title: "Portes & fenêtres",
-                    subtitle: "Placer et paramétrer les menuiseries dans le projet",
+                    title: "Escaliers, toiture & bilan semaine 1",
+                    subtitle: "Coiffer le bâtiment, relier les étages — ton T3 est un vrai projet d'archi",
                     duration: "7h",
                     week: 1,
                     objectives: [
-                        "Placer des portes dans les murs (simples, doubles, coulissantes)",
-                        "Placer des fenêtres (fixes, ouvrantes, baies vitrées)",
-                        "Paramétrer les dimensions, seuils et tableaux",
-                        "Utiliser la bibliothèque d'objets ARCHICAD",
-                        "Personnaliser l'affichage en plan des menuiseries"
+                        "Créer un escalier paramétrique en respectant la réglementation",
+                        "Maîtriser la formule de Blondel et les dimensions confortables",
+                        "Créer une toiture à 2 ou 4 pans avec les bons paramètres",
+                        "Rogner les murs sous la toiture — effet spectaculaire",
+                        "Avoir un bâtiment complet de la fondation au faîtage"
                     ],
                     keyPoints: [
                         {
-                            title: "Portes et Fenêtres = Objets dans les murs",
-                            content: "Les portes et fenêtres sont des objets paramétriques qui se placent dans les murs. Ils créent automatiquement l'ouverture dans le mur. Leurs paramètres (largeur, hauteur, allège, type d'ouverture) se règlent dans la boîte de dialogue."
+                            title: "L'outil Escalier — Relier les niveaux",
+                            content: "L'outil Escalier d'ARCHICAD est un des meilleurs du marché. Tu choisis la forme (droit, quart tournant, demi-tournant), tu places les points, il calcule tout : nombre de marches, hauteur, giron, trémie dans la dalle. Formule de Blondel : 2h + g = 60-65cm."
                         },
                         {
-                            title: "La bibliothèque ARCHICAD",
-                            content: "ARCHICAD dispose d'une bibliothèque riche de portes et fenêtres. Chaque objet a de nombreux paramètres : dimensions, matériaux, type de vitrage, ferrures, etc. On peut aussi importer des objets depuis BIMcomponents.com."
+                            title: "L'outil Toit — Couvrir le bâtiment",
+                            content: "La toiture se construit pan par pan. Tu dessines la ligne de gouttière, tu donnes la pente, le pan se construit. Pentes standards : 30-35° pour tuiles, 15-25° pour ardoise, 3-5° pour toit-terrasse. Débord standard : 40-80cm."
                         },
                         {
-                            title: "Allège et hauteur d'ouverture",
-                            content: "L'allège est la distance entre le sol et le bas de la fenêtre. Elle se paramètre dans les réglages de la fenêtre. Pour les portes, la hauteur de passage et le seuil sont les paramètres clés."
+                            title: "Rogner les murs — Moment spectaculaire",
+                            content: "Après avoir posé le toit, les murs dépassent au-dessus. La commande 'Ajuster à la toiture' coupe les murs automatiquement pour qu'ils épousent la pente. L'effet est spectaculaire en 3D !"
                         }
                     ],
                     exercise: {
-                        title: "Compléter le T3 avec les menuiseries",
-                        description: "Ajouter toutes les portes et fenêtres du T3 pour obtenir un plan complet.",
+                        title: "🏡 Le T3 complet : de la dalle au faîtage",
+                        description: "Ajouter l'escalier et la toiture. En fin de journée, le T3 est un vrai projet architectural complet.",
                         steps: [
-                            "Placer la porte d'entrée (90cm, avec imposte vitrée)",
-                            "Ajouter les portes intérieures : chambres (80cm), SDB (70cm), WC (60cm)",
-                            "Placer les fenêtres du séjour : une baie vitrée (240cm) et une fenêtre (120cm)",
-                            "Ajouter les fenêtres des chambres (120cm, allège 90cm)",
-                            "Placer la fenêtre de salle de bain (60cm, allège 130cm)",
-                            "Vérifier le résultat en 3D et ajuster les paramètres si nécessaire"
+                            "Calculer l'escalier : hauteur 2,80m → 16 marches de 17,5cm, giron 29cm (Blondel OK)",
+                            "Créer un escalier quart tournant avec palier — placer dans le plan du T3",
+                            "Ajouter un garde-corps (90cm de haut) le long de l'escalier",
+                            "Créer une toiture 2 pans (pente 30°) sur le volume du T3",
+                            "Régler les débords de toit (60cm)",
+                            "Rogner les murs sous la toiture — admirer le résultat !",
+                            "Visite 3D finale : le T3 est complet du sol au toit"
                         ]
                     },
                     checklist: [
-                        "Je sais placer une porte dans un mur",
-                        "Je sais placer une fenêtre et régler l'allège",
-                        "Je sais naviguer dans la bibliothèque d'objets",
-                        "Je sais modifier les dimensions des menuiseries",
-                        "Je sais changer le sens d'ouverture d'une porte"
+                        "Je sais créer un escalier avec les bonnes proportions (Blondel)",
+                        "Je sais créer une toiture à pans avec la bonne pente",
+                        "Je sais rogner les murs sous la toiture",
+                        "Mon T3 est complet : murs + structure + menuiseries + escalier + toit",
+                        "Je suis capable de construire un volume habitable complet dans ARCHICAD"
                     ],
                     formateurGuide: {
-                        intro: "Séance gratifiante — le projet commence à ressembler à quelque chose ! Les menuiseries rendent le projet vivant en 3D.",
+                        intro: "Fin de semaine 1 ! On termine avec un bâtiment complet du sol au faîtage. L'escalier est technique mais le résultat est gratifiant. Le rognage des murs sous le toit est un moment 'waouh'. L'apprenant doit terminer fier de ce qu'il a construit.",
                         timing: [
-                            { time: "0h - 0h30", content: "Récap jour 4 + vue d'ensemble du T3 en 3D" },
-                            { time: "0h30 - 2h00", content: "Outil Porte : placement, paramètres, types, sens d'ouverture" },
-                            { time: "2h00 - 2h30", content: "Bibliothèque : navigation, recherche, favoris" },
+                            { time: "0h - 0h30", content: "Récap — on a un T3 avec murs, structure, menuiseries — aujourd'hui on finit !" },
+                            { time: "0h30 - 1h00", content: "Formule de Blondel et calcul d'escalier — court et efficace" },
+                            { time: "1h00 - 2h30", content: "Outil Escalier : création d'un escalier quart tournant + garde-corps" },
                             { time: "2h30 - 3h00", content: "Pause" },
-                            { time: "3h00 - 4h30", content: "Outil Fenêtre : placement, allège, types, baies vitrées" },
-                            { time: "4h30 - 5h00", content: "Représentation en plan : affichage, options" },
-                            { time: "5h00 - 6h30", content: "Exercice : compléter le T3" },
-                            { time: "6h30 - 7h00", content: "Visite 3D du T3 terminé + bilan semaine 1" }
+                            { time: "3h00 - 4h30", content: "Outil Toit : création de la toiture 2 pans + débords" },
+                            { time: "4h30 - 5h30", content: "Rogner les murs + vérification en 3D et en coupe" },
+                            { time: "5h30 - 6h30", content: "Peaufinage : corrections, ajustements, visite 3D" },
+                            { time: "6h30 - 7h00", content: "BILAN SEMAINE 1 : visite du T3 complet — en 5 jours, tu construis un logement !" }
                         ],
                         tips: [
-                            "Montrer le résultat 3D après chaque porte/fenêtre — c'est motivant",
-                            "Expliquer le côté de placement (intérieur/extérieur) avec un schéma simple",
-                            "Montrer BIMcomponents.com pour les objets supplémentaires",
-                            "Terminer par une 'visite virtuelle' du T3 en perspective — moment fort de fin de semaine"
+                            "Commencer par un escalier droit simple pour comprendre, puis passer au quart tournant",
+                            "Le rognage des murs est un moment spectaculaire — le garder pour créer un effet 'waouh'",
+                            "Faire une visite 3D complète en fin de journée — c'est valorisant",
+                            "Insister : 'En 5 jours, tu as construit un logement complet. Imagine dans 15 jours...'"
                         ],
                         warnings: [
-                            "Le sens de la porte (intérieur/extérieur) peut être déroutant au début",
-                            "Ne pas perdre de temps sur la bibliothèque — rester sur les objets standards",
-                            "Attention aux allèges : erreur fréquente de mettre 0 au lieu de 90cm"
+                            "L'outil Escalier a beaucoup de paramètres — ne montrer que l'essentiel",
+                            "Les intersections de pans de toiture peuvent être capricieuses — sauvegarder avant",
+                            "La trémie automatique peut parfois bugger — connaître la méthode manuelle"
                         ],
-                        exerciseSolution: "Le T3 doit avoir environ 6-8 fenêtres et 6-7 portes. Vérifier en 3D que toutes les ouvertures sont correctes et que les sens d'ouverture sont logiques."
+                        exerciseSolution: "16 marches (2800/175=16), giron 29cm. Toiture 2 pans, pente 30°, débord 60cm. Murs rognés sous le toit."
                     }
                 }
             ]
         },
         {
             id: 2,
-            title: "Modélisation complète",
-            subtitle: "Éléments avancés et projet complet",
+            title: "La vraie maison",
+            subtitle: "Projet fil rouge : une maison individuelle complète R+1",
             days: [
                 {
-                    id: 6,
-                    title: "Escaliers & garde-corps",
-                    subtitle: "Créer des escaliers et garde-corps paramétriques",
-                    duration: "7h",
-                    week: 2,
-                    objectives: [
-                        "Créer des escaliers droits, tournants et hélicoïdaux",
-                        "Paramétrer les marches, contremarches et girons",
-                        "Ajouter des garde-corps aux escaliers et aux balcons",
-                        "Comprendre les réglementations (hauteur de marche, giron)",
-                        "Modifier un escalier existant"
-                    ],
+                    id: 6, title: "Maison individuelle — Gros œuvre RDC", subtitle: "Démarrer le vrai projet : une maison R+1 de 140m²", duration: "7h", week: 2,
+                    objectives: ["Structurer un projet professionnel (calques, étages, unités)", "Modéliser les murs du RDC avec des composites réalistes", "Appliquer une méthodologie de projet efficace", "Travailler en autonomie", "Avoir le RDC complet en fin de journée"],
                     keyPoints: [
-                        { title: "L'outil Escalier", content: "L'outil Escalier d'ARCHICAD est très puissant. Il gère automatiquement la trémie dans la dalle, le nombre de marches en fonction de la hauteur d'étage, et propose de nombreuses formes prédéfinies." },
-                        { title: "Règles de conception", content: "Formule de Blondel : 2h + g = 60-65cm (h = hauteur de marche, g = giron). Hauteur de marche idéale : 17-18cm. Giron idéal : 27-28cm. Garde-corps minimum : 90cm de hauteur." },
-                        { title: "Garde-corps", content: "L'outil Garde-corps est indépendant de l'escalier. On peut l'appliquer à un escalier, un balcon, ou le long d'un vide. Il est très paramétrique : barreaux, main courante, remplissage." }
+                        { title: "Méthodologie de projet", content: "Ordre pro : 1) Paramétrage projet 2) Murs extérieurs 3) Murs porteurs intérieurs 4) Cloisons 5) Menuiseries 6) Dalles. Vérifier en 3D après chaque étape." },
+                        { title: "Programme de la maison", content: "RDC : entrée, séjour/salon (~35m²), cuisine ouverte (~15m²), WC, buanderie, garage. R+1 : 3 chambres, 1 SDB, palier. ~140m²." },
+                        { title: "Calques et organisation", content: "Les calques s'organisent par type : murs porteurs, cloisons, menuiseries, dalles, toiture. Les combinaisons de calques passent instantanément d'un plan archi à un plan structure." }
                     ],
-                    exercise: {
-                        title: "Ajouter un escalier au projet",
-                        description: "Créer un escalier droit un quart tournant reliant le RDC au R+1.",
-                        steps: [
-                            "Calculer le nombre de marches pour une hauteur de 2,80m",
-                            "Créer un escalier quart tournant avec palier intermédiaire",
-                            "Paramétrer : giron 28cm, hauteur de marche 17,5cm",
-                            "Vérifier la trémie dans la dalle",
-                            "Ajouter un garde-corps le long de l'escalier",
-                            "Vérifier le résultat en 3D et en coupe"
-                        ]
-                    },
-                    checklist: [
-                        "Je sais créer un escalier avec l'outil Escalier",
-                        "Je connais la formule de Blondel",
-                        "Je sais paramétrer les marches et girons",
-                        "Je sais ajouter un garde-corps",
-                        "Je sais vérifier un escalier en coupe"
-                    ],
+                    exercise: { title: "🏠 Maison — Phase 1 : RDC complet", description: "Construction du RDC en autonomie quasi-totale.", steps: ["Paramétrer le projet : unités, étages (RDC 0.00, R+1 +2.80m)", "Murs extérieurs composites (emprise ~14×10m + garage)", "Murs porteurs intérieurs", "Cloisons de distribution", "Toutes les menuiseries", "Dalles RDC + plancher R+1"] },
+                    checklist: ["Projet bien paramétré", "Murs extérieurs composites", "Distribution RDC complète", "Menuiseries placées", "Dalles aux bonnes altitudes"],
                     formateurGuide: {
-                        intro: "Sujet technique mais avec un résultat visuel impressionnant en 3D. L'outil Escalier d'AC est vraiment performant.",
-                        timing: [
-                            { time: "0h - 0h30", content: "Récap semaine 1 + introduction aux escaliers" },
-                            { time: "0h30 - 2h00", content: "Outil Escalier : interface, types, paramètres de base" },
-                            { time: "2h00 - 2h30", content: "Réglementation : Blondel, normes, accessibilité" },
-                            { time: "2h30 - 3h00", content: "Pause" },
-                            { time: "3h00 - 4h30", content: "Garde-corps : création, paramètres, application" },
-                            { time: "4h30 - 5h00", content: "Trémie et liaison entre étages" },
-                            { time: "5h00 - 6h30", content: "Exercice : escalier dans le projet" },
-                            { time: "6h30 - 7h00", content: "Récap + questions" }
-                        ],
-                        tips: [
-                            "Commencer par un escalier droit simple avant le quart tournant",
-                            "Montrer le calculateur intégré d'ARCHICAD",
-                            "Faire le lien avec SketchUp : montrer la supériorité du paramétrique"
-                        ],
-                        warnings: [
-                            "L'outil Escalier a beaucoup de paramètres — ne pas tout montrer d'un coup",
-                            "La trémie automatique peut parfois ne pas fonctionner — montrer la méthode manuelle"
-                        ],
-                        exerciseSolution: "16 marches (2800/175=16), giron 28cm. Escalier quart tournant avec palier à mi-hauteur."
+                        intro: "Premier jour du vrai projet ! Autonomie maximum. Fournir un plan de référence. Observer, guider, ne pas faire.",
+                        timing: [{ time: "0h - 0h30", content: "Présentation du projet et du plan de référence" }, { time: "0h30 - 1h00", content: "Paramétrage ensemble" }, { time: "1h00 - 3h00", content: "Travail autonome : murs" }, { time: "3h00 - 3h30", content: "Pause + point 3D" }, { time: "3h30 - 5h30", content: "Travail autonome : menuiseries + dalles" }, { time: "5h30 - 6h30", content: "Finitions" }, { time: "6h30 - 7h00", content: "Review 3D" }],
+                        tips: ["Fournir un plan lisible", "Laisser chercher 15 min avant d'aider", "Encourager régulièrement"],
+                        warnings: ["Ne pas corriger trop vite", "Le RDC DOIT être fini en fin de journée"],
+                        exerciseSolution: "Emprise ~14×10m avec garage. RDC complet avec menuiseries et dalles."
                     }
                 },
                 {
-                    id: 7,
-                    title: "Toitures",
-                    subtitle: "Créer des toitures simples et complexes",
-                    duration: "7h",
-                    week: 2,
-                    objectives: [
-                        "Créer des toitures à un ou plusieurs pans",
-                        "Paramétrer les pentes, débords et épaisseurs",
-                        "Utiliser l'outil Forme pour des toitures complexes",
-                        "Gérer les intersections de pans de toiture",
-                        "Créer des lucarnes et des ouvertures de toit"
-                    ],
+                    id: 7, title: "Maison — R+1 et toiture", subtitle: "Monter l'étage et couvrir la maison", duration: "7h", week: 2,
+                    objectives: ["Copier les éléments répétitifs entre étages", "Modéliser le R+1 (chambres, SDB)", "Créer la toiture avec débords et rognage", "Avoir une maison complète du sol au faîtage"],
                     keyPoints: [
-                        { title: "Outil Toit", content: "L'outil Toit permet de créer des toitures par pans. On dessine la ligne de base (gouttière) et on définit la pente. L'outil calcule automatiquement les intersections entre les pans." },
-                        { title: "Outil Forme (Shell)", content: "Pour les toitures complexes (courbes, voûtes, formes libres), l'outil Forme est plus adapté. Il fonctionne par extrusion, révolution ou règle." },
-                        { title: "Jonctions mur-toiture", content: "ARCHICAD peut ajuster automatiquement les murs sous la toiture avec l'outil 'Rogner les éléments à la toiture'. Les murs épousent alors la pente du toit." }
+                        { title: "Copie inter-étages", content: "Copier les murs porteurs du RDC vers le R+1 : Sélectionner > Copier > Coller sur étage. Replacement automatique à la bonne altitude." },
+                        { title: "Escalier et trémie", content: "Placer l'escalier RDC → R+1. Vérifier la trémie dans la dalle du R+1." },
+                        { title: "Toiture complète", content: "Toiture 2 ou 4 pans. Pente adaptée au matériau. Rogner tous les murs sous la toiture." }
                     ],
-                    exercise: {
-                        title: "Créer différents types de toitures",
-                        description: "Réaliser trois types de toitures sur des volumes simples.",
-                        steps: [
-                            "Créer une toiture à 2 pans (30°) sur un volume rectangulaire",
-                            "Créer une toiture à 4 pans (croupe) sur un volume carré",
-                            "Créer une toiture mono-pente (toit terrasse incliné)",
-                            "Ajuster les débords de toit (60cm)",
-                            "Rogner les murs sous les toitures",
-                            "Vérifier en 3D et en coupe"
-                        ]
-                    },
-                    checklist: [
-                        "Je sais créer une toiture à pans",
-                        "Je sais régler les pentes et débords",
-                        "Je sais rogner les murs sous la toiture",
-                        "Je connais l'outil Forme pour les toitures complexes",
-                        "Je sais vérifier la toiture en coupe"
-                    ],
+                    exercise: { title: "🏡 Maison — Phase 2 : R+1 + toiture", description: "Le bâtiment prend sa forme définitive.", steps: ["Copier les murs porteurs vers le R+1", "Distribution R+1 : 3 chambres + SDB + palier", "Menuiseries du R+1", "Escalier quart tournant", "Vérifier la trémie", "Toiture 2 pans, pente 35°, débord 60cm", "Rogner les murs", "Visite 3D complète"] },
+                    checklist: ["R+1 complet", "Escalier fonctionnel", "Toiture avec bons paramètres", "Murs rognés", "Cohérence 3D et coupes"],
                     formateurGuide: {
-                        intro: "Les toitures sont un sujet complexe mais essentiel. Commencer par les formes simples, puis montrer les possibilités avancées.",
-                        timing: [
-                            { time: "0h - 0h30", content: "Récap jour 6" },
-                            { time: "0h30 - 2h00", content: "Outil Toit : création de pans, pentes, paramètres" },
-                            { time: "2h00 - 3h00", content: "Multi-pans : intersections automatiques" },
-                            { time: "3h00 - 3h30", content: "Pause" },
-                            { time: "3h30 - 4h30", content: "Rogner les murs + débords" },
-                            { time: "4h30 - 5h00", content: "Outil Forme (aperçu)" },
-                            { time: "5h00 - 6h30", content: "Exercice : 3 types de toitures" },
-                            { time: "6h30 - 7h00", content: "Récap" }
-                        ],
-                        tips: [
-                            "Commencer par un toit 2 pans — le plus simple et le plus courant",
-                            "Montrer la vue 3D en permanence pendant la construction du toit",
-                            "Le rognage des murs est un effet spectaculaire — bon pour la motivation"
-                        ],
-                        warnings: [
-                            "Les intersections de pans complexes peuvent planter — sauvegarder avant",
-                            "L'outil Forme peut attendre le jour 11 si c'est trop lourd"
-                        ],
-                        exerciseSolution: "3 petits volumes simples (6x4m chacun) avec une toiture différente. Pente standard 30° pour le 2 pans et la croupe."
+                        intro: "La maison prend sa forme finale ! Copie inter-étages + rognage = moments spectaculaires.",
+                        timing: [{ time: "0h - 0h30", content: "Récap" }, { time: "0h30 - 1h30", content: "Copie inter-étages + distribution R+1" }, { time: "1h30 - 2h30", content: "Menuiseries + escalier" }, { time: "2h30 - 3h00", content: "Pause" }, { time: "3h00 - 4h30", content: "Toiture" }, { time: "4h30 - 5h30", content: "Rognage + vérifications" }, { time: "5h30 - 7h00", content: "Finitions + visite 3D" }],
+                        tips: ["La copie inter-étages impressionne", "Terminer par une visite 3D tournante"],
+                        warnings: ["Vérifier l'alignement des murs en coupe", "Sauvegarder avant le rognage"],
+                        exerciseSolution: "Maison complète R+1 avec escalier et toiture 2 pans 35°."
                     }
                 },
                 {
-                    id: 8,
-                    title: "Gestion des étages",
-                    subtitle: "Travailler avec plusieurs niveaux dans un projet",
-                    duration: "7h",
-                    week: 2,
-                    objectives: [
-                        "Créer et gérer les étages (niveaux) d'un projet",
-                        "Copier des éléments d'un étage à l'autre",
-                        "Comprendre les altitudes de référence par étage",
-                        "Utiliser la coupe pour vérifier la cohérence verticale",
-                        "Maîtriser la navigation entre étages"
-                    ],
+                    id: 8, title: "Terrain, aménagements & zones", subtitle: "Poser la maison dans son contexte et calculer les surfaces", duration: "7h", week: 2,
+                    objectives: ["Créer un terrain 3D avec l'outil Maillage", "Ajouter les aménagements extérieurs", "Créer les zones et calculer les surfaces", "Comprendre les surfaces réglementaires"],
                     keyPoints: [
-                        { title: "Gestion des étages", content: "Dans ARCHICAD, les étages se gèrent depuis la palette Étages (Design > Étages). Chaque étage a une altitude et une hauteur. Les éléments sont liés à un étage de référence." },
-                        { title: "Copie inter-étages", content: "On peut copier des éléments d'un étage à l'autre avec Édition > Copier/Coller sur étage. C'est très efficace pour les éléments répétitifs (murs porteurs, structure)." },
-                        { title: "Éléments multi-étages", content: "Certains éléments comme les murs et les poteaux peuvent s'étendre sur plusieurs étages. C'est pratique pour les murs de cage d'escalier par exemple." }
+                        { title: "L'outil Maillage", content: "Crée un terrain 3D avec des points à différentes altitudes." },
+                        { title: "L'outil Zone", content: "Identifie chaque pièce : nom, catégorie, surface automatique. Baguette magique pour la détection." },
+                        { title: "Surface de plancher", content: "Référence pour le permis de construire. ARCHICAD la calcule automatiquement." }
                     ],
-                    exercise: {
-                        title: "Créer un R+1 complet",
-                        description: "Ajouter un étage au T3 et créer les espaces du R+1.",
-                        steps: [
-                            "Créer l'étage R+1 avec une hauteur de 2,80m",
-                            "Copier les murs porteurs du RDC vers le R+1",
-                            "Modifier les cloisons du R+1 (distribution différente)",
-                            "Ajouter les menuiseries du R+1",
-                            "Vérifier l'alignement des murs en coupe",
-                            "Ajouter la toiture sur le R+1"
-                        ]
-                    },
-                    checklist: [
-                        "Je sais créer un nouvel étage",
-                        "Je sais copier des éléments entre étages",
-                        "Je comprends les altitudes par étage",
-                        "Je sais naviguer entre les étages",
-                        "Je sais vérifier la cohérence en coupe"
-                    ],
+                    exercise: { title: "🌳 Maison dans son jardin + surfaces", description: "Contexte paysager et données réglementaires.", steps: ["Maillage terrain 25×35m", "Positionner la maison", "Terrasse + végétation", "Zones RDC", "Zones R+1", "Catégories", "Vérifier les surfaces"] },
+                    checklist: ["Terrain modélisé", "Aménagements présents", "Toutes les zones créées", "Surfaces calculées", "Projet complet dans son contexte"],
                     formateurGuide: {
-                        intro: "Étape clé : le projet passe de plan à bâtiment complet. La copie inter-étages est un gain de temps énorme.",
-                        timing: [
-                            { time: "0h - 0h30", content: "Récap jour 7" },
-                            { time: "0h30 - 1h30", content: "Palette Étages : création, hauteurs, altitudes" },
-                            { time: "1h30 - 2h30", content: "Copie entre étages : méthodes et bonnes pratiques" },
-                            { time: "2h30 - 3h00", content: "Pause" },
-                            { time: "3h00 - 4h00", content: "Éléments multi-étages : murs, poteaux" },
-                            { time: "4h00 - 5h00", content: "Vérification en coupe et navigation" },
-                            { time: "5h00 - 6h30", content: "Exercice : créer le R+1" },
-                            { time: "6h30 - 7h00", content: "Vue 3D du bâtiment complet + récap" }
-                        ],
-                        tips: [
-                            "C'est le moment où le projet prend forme — exploiter le côté motivant",
-                            "Montrer la coupe en temps réel pendant qu'on ajoute des éléments",
-                            "Faire une mini 'visite virtuelle' du bâtiment complet à la fin"
-                        ],
-                        warnings: [
-                            "Les altitudes entre étages sont une source d'erreurs courante",
-                            "Bien vérifier que les murs copiés sont correctement ancrés au nouvel étage"
-                        ],
-                        exerciseSolution: "Le R+1 peut avoir une distribution différente : 2 grandes chambres + 1 SDB + mezzanine ouverte sur le séjour."
+                        intro: "On sort du bâtiment pour le contexte global. Terrain + zones = indispensable pour un dossier PC.",
+                        timing: [{ time: "0h - 0h30", content: "Récap" }, { time: "0h30 - 2h00", content: "Maillage terrain" }, { time: "2h00 - 2h30", content: "Aménagements extérieurs" }, { time: "2h30 - 3h00", content: "Pause" }, { time: "3h00 - 4h30", content: "Outil Zone" }, { time: "4h30 - 5h30", content: "Surfaces réglementaires" }, { time: "5h30 - 6h30", content: "Exercice" }, { time: "6h30 - 7h00", content: "Vue 3D d'ensemble" }],
+                        tips: ["Rendre concret : 'c'est ce que tu déclares au PC'", "La détection auto de zone est magique"],
+                        warnings: ["Zone non détectée = mur pas fermé", "Maillage peut ralentir les machines"],
+                        exerciseSolution: "Terrain avec pente douce. ~12-15 zones. Tableau des surfaces."
                     }
                 },
                 {
-                    id: 9,
-                    title: "Zones, surfaces & calculs",
-                    subtitle: "Créer des zones et calculer les surfaces réglementaires",
-                    duration: "7h",
-                    week: 2,
-                    objectives: [
-                        "Créer des zones (pièces) avec l'outil Zone",
-                        "Paramétrer les catégories de zones (habitable, annexe, etc.)",
-                        "Calculer les surfaces : SHAB, SHON, surface de plancher",
-                        "Afficher les étiquettes de zone en plan",
-                        "Créer un tableau récapitulatif des surfaces"
-                    ],
+                    id: 9, title: "Coupes, élévations & vues documentaires", subtitle: "La puissance du BIM : vues générées automatiquement", duration: "7h", week: 2,
+                    objectives: ["Créer des coupes stratégiques", "Générer les 4 élévations", "Paramétrer l'affichage professionnel", "Comprendre le lien dynamique maquette → vues"],
                     keyPoints: [
-                        { title: "L'outil Zone", content: "L'outil Zone permet de définir les pièces et espaces du projet. Une zone se crée en cliquant à l'intérieur d'un espace fermé (murs). Elle détecte automatiquement les contours." },
-                        { title: "Catégories de zones", content: "Les zones peuvent être classées par catégorie : habitable, circulation, technique, annexe. Ces catégories servent aux calculs réglementaires de surfaces." },
-                        { title: "Surface de plancher", content: "La surface de plancher (SDP) remplace la SHON depuis 2012. Elle se calcule automatiquement dans ARCHICAD à partir des zones, en déduisant les murs et les éléments non comptabilisés." }
+                        { title: "Coupes BIM = toujours à jour", content: "Ligne de coupe en plan → coupe auto avec hachures et matériaux. Modèle modifié → coupe mise à jour." },
+                        { title: "4 façades en 4 clics", content: "4 marqueurs d'élévation → 4 façades auto avec menuiseries et ombres." },
+                        { title: "Profondeur de vue", content: "Contrôle ce qui est visible derrière le plan de coupe." }
                     ],
-                    exercise: {
-                        title: "Calculer les surfaces du projet",
-                        description: "Créer toutes les zones du projet et générer un tableau de surfaces.",
-                        steps: [
-                            "Créer les zones de chaque pièce du RDC",
-                            "Créer les zones du R+1",
-                            "Attribuer les catégories : habitable, circulation, annexe",
-                            "Personnaliser l'affichage des étiquettes (nom + surface)",
-                            "Créer un tableau récapitulatif des surfaces",
-                            "Calculer la surface de plancher totale"
-                        ]
-                    },
-                    checklist: [
-                        "Je sais créer une zone avec l'outil Zone",
-                        "Je sais attribuer des catégories de zones",
-                        "Je sais afficher les surfaces en plan",
-                        "Je comprends la notion de surface de plancher",
-                        "Je sais créer un tableau de surfaces"
-                    ],
+                    exercise: { title: "✂️ Toutes les vues de la maison", description: "Générer les vues documentaires.", steps: ["Coupe longitudinale (séjour + escalier)", "Coupe transversale (chambres)", "4 marqueurs d'élévation", "Paramétrer les traits", "Ajuster les profondeurs", "Tester la mise à jour auto"] },
+                    checklist: ["2 coupes stratégiques", "4 élévations", "Traits cohérents", "Vues bien cadrées", "Lien dynamique compris"],
                     formateurGuide: {
-                        intro: "Sujet un peu théorique mais indispensable en pratique. Montrer l'utilité concrète : les calculs de surfaces pour les permis de construire.",
-                        timing: [
-                            { time: "0h - 0h30", content: "Récap jour 8" },
-                            { time: "0h30 - 2h00", content: "Outil Zone : création, détection automatique, paramètres" },
-                            { time: "2h00 - 2h30", content: "Catégories et réglementation des surfaces" },
-                            { time: "2h30 - 3h00", content: "Pause" },
-                            { time: "3h00 - 4h00", content: "Étiquettes et affichage en plan" },
-                            { time: "4h00 - 5h00", content: "Tableaux et listes de surfaces" },
-                            { time: "5h00 - 6h30", content: "Exercice : zones complètes du projet" },
-                            { time: "6h30 - 7h00", content: "Récap + introduction au projet fil rouge" }
-                        ],
-                        tips: [
-                            "Rendre le sujet concret : 'c'est ce que tu mets dans le formulaire de PC'",
-                            "Montrer le code couleur par catégorie — c'est visuel et parlant",
-                            "La détection automatique de zone est un moment 'magie'"
-                        ],
-                        warnings: [
-                            "Les zones non détectées = souvent un mur pas fermé — montrer comment débugger",
-                            "Ne pas trop entrer dans les détails réglementaires, rester pratique"
-                        ],
-                        exerciseSolution: "Environ 10-15 zones pour le projet complet (RDC + R+1). Le tableau doit montrer nom, catégorie, surface, étage."
+                        intro: "LA démonstration du BIM. Vues automatiques = des jours économisés sur un vrai projet.",
+                        timing: [{ time: "0h - 0h30", content: "Récap" }, { time: "0h30 - 2h30", content: "Coupes" }, { time: "2h30 - 3h00", content: "Pause" }, { time: "3h00 - 5h00", content: "Élévations" }, { time: "5h00 - 6h30", content: "Exercice" }, { time: "6h30 - 7h00", content: "Démo : modifier un mur → MAJ partout" }],
+                        tips: ["La démo modification → MAJ est le moment fort", "Expliquer le gain de temps en agence"],
+                        warnings: ["Attention aux épaisseurs de traits"],
+                        exerciseSolution: "2 coupes + 4 élévations. Coupes aux endroits intéressants."
                     }
                 },
                 {
-                    id: 10,
-                    title: "Projet fil rouge — Maison individuelle (1/2)",
-                    subtitle: "Commencer la modélisation complète d'une maison",
-                    duration: "7h",
-                    week: 2,
-                    objectives: [
-                        "Appliquer toutes les compétences acquises sur un projet complet",
-                        "Modéliser une maison individuelle de A à Z",
-                        "Structurer un projet de manière professionnelle",
-                        "Travailler en autonomie avec l'aide du formateur",
-                        "Gérer son temps sur un projet de modélisation"
-                    ],
+                    id: 10, title: "Cotations, annotations & nomenclatures", subtitle: "Transformer la maquette en dossier pro", duration: "7h", week: 2,
+                    objectives: ["Maîtriser la cotation architecturale", "Étiquettes automatiques", "Nomenclatures bidirectionnelles", "Plans prêts à mettre en page"],
                     keyPoints: [
-                        { title: "Méthodologie de projet", content: "Commencer par les murs extérieurs du RDC, puis les cloisons intérieures, puis les menuiseries. Ensuite la structure (dalles, poteaux), puis l'étage, et enfin la toiture. Toujours vérifier en 3D et en coupe régulièrement." },
-                        { title: "Programme de la maison", content: "RDC : entrée, séjour/salon, cuisine ouverte, WC, buanderie, garage. R+1 : 3 chambres, 1 SDB, 1 bureau/mezzanine. Surface totale : environ 140m²." },
-                        { title: "Bonnes pratiques", content: "Sauvegarder régulièrement. Nommer les calques de manière cohérente. Vérifier les intersections de murs au fur et à mesure. Utiliser les favoris pour les éléments récurrents." }
+                        { title: "Cotation architecturale", content: "3 niveaux de chaînes de cotes extérieures. Cotation auto des ouvertures. Cotes intérieures." },
+                        { title: "Étiquettes intelligentes", content: "Liées aux éléments, MAJ automatique. Fenêtre modifiée → étiquette mise à jour." },
+                        { title: "Nomenclatures BIM", content: "Bidirectionnelles. Cliquer une ligne → sélectionne l'élément. Modifier dans le tableau → modifie l'élément. Export Excel." }
                     ],
-                    exercise: {
-                        title: "Maison individuelle — Phase 1",
-                        description: "Modéliser le RDC complet de la maison individuelle.",
-                        steps: [
-                            "Créer un nouveau projet avec les paramètres adaptés",
-                            "Dessiner les murs extérieurs du RDC (emprise au sol selon le plan fourni)",
-                            "Ajouter les cloisons intérieures du RDC",
-                            "Placer toutes les portes et fenêtres du RDC",
-                            "Créer la dalle de plancher du RDC",
-                            "Vérifier la cohérence en 3D et corriger si nécessaire"
-                        ]
-                    },
-                    checklist: [
-                        "Le RDC est entièrement modélisé (murs, cloisons)",
-                        "Toutes les menuiseries sont placées",
-                        "La dalle de plancher est créée",
-                        "Les dimensions correspondent au programme",
-                        "Le résultat est cohérent en 3D"
-                    ],
+                    exercise: { title: "📏 Plans cotés + nomenclatures", description: "Documentation complète.", steps: ["Chaînes de cotes extérieures", "Cotes auto des ouvertures", "Cotes intérieures", "Étiquettes menuiseries", "Étiquettes zones", "Nomenclature fenêtres", "Nomenclature portes", "Tableau surfaces", "Export tableur"] },
+                    checklist: ["Plans cotés pro", "Menuiseries étiquetées", "Zones avec nom + surface", "Nomenclatures à jour", "Plans professionnels"],
                     formateurGuide: {
-                        intro: "Premier jour du projet fil rouge ! L'apprenante travaille en autonomie maximum. Tu es là pour débloquer, conseiller et corriger. C'est le test de la première semaine et demie.",
-                        timing: [
-                            { time: "0h - 0h30", content: "Présentation du projet, du programme et des plans de référence" },
-                            { time: "0h30 - 1h00", content: "Aide au démarrage : paramétrage du projet, grille, calques" },
-                            { time: "1h00 - 3h00", content: "Travail autonome : murs extérieurs et intérieurs (accompagner sans faire)" },
-                            { time: "3h00 - 3h30", content: "Pause + point d'avancement" },
-                            { time: "3h30 - 5h00", content: "Travail autonome : menuiseries et dalles" },
-                            { time: "5h00 - 6h00", content: "Travail autonome : finitions et corrections" },
-                            { time: "6h00 - 7h00", content: "Review du travail : corrections, conseils, récap" }
-                        ],
-                        tips: [
-                            "Fournir un plan de référence (image ou PDF) à reproduire",
-                            "Laisser l'apprenante chercher avant de donner la solution",
-                            "Encourager régulièrement — c'est un exercice de synthèse important",
-                            "Prendre des notes sur les difficultés pour adapter la suite"
-                        ],
-                        warnings: [
-                            "Ne pas corriger trop vite — les erreurs font partie de l'apprentissage",
-                            "Si l'apprenante bloque sur un point, revenir aux bases",
-                            "Gérer le temps : le RDC doit être fini en fin de journée"
-                        ],
-                        exerciseSolution: "Plan type : emprise de 14x10m, avec garage accolé. Le RDC doit être complet avec menuiseries et dalles. Vérifier en 3D."
+                        intro: "Plans bien cotés = plans pro. Nomenclatures = vraie valeur du BIM.",
+                        timing: [{ time: "0h - 0h30", content: "Récap" }, { time: "0h30 - 2h30", content: "Cotations" }, { time: "2h30 - 3h00", content: "Pause" }, { time: "3h00 - 4h30", content: "Étiquettes" }, { time: "4h30 - 6h00", content: "Nomenclatures" }, { time: "6h00 - 6h30", content: "Exercice" }, { time: "6h30 - 7h00", content: "Bilan semaine 2" }],
+                        tips: ["Montrer un plan pro comme référence", "La bidirectionnalité bluffe"],
+                        warnings: ["Ne pas surcoter", "Rester sur les nomenclatures standards"],
+                        exerciseSolution: "Plan RDC complet coté + 3-4 nomenclatures."
                     }
                 }
             ]
         },
         {
             id: 3,
-            title: "Documentation & Plans",
-            subtitle: "De la maquette 3D aux documents professionnels",
+            title: "Livrable pro",
+            subtitle: "Mise en page, matériaux, rendus — le dossier qui impressionne",
             days: [
                 {
-                    id: 11, title: "Projet fil rouge (2/2) + terrains", subtitle: "Finaliser la maison et modéliser le terrain", duration: "7h", week: 3,
-                    objectives: ["Finaliser le R+1 et la toiture de la maison", "Créer un terrain 3D avec l'outil Maillage", "Placer la maison sur le terrain", "Ajouter des éléments extérieurs (terrasse, clôture)", "Avoir un projet complet prêt à documenter"],
+                    id: 11, title: "Mise en page & dossier PDF", subtitle: "Planches professionnelles et export", duration: "7h", week: 3,
+                    objectives: ["Maîtriser le Carnet de mise en page", "Cartouche personnalisé", "Vues aux bonnes échelles", "Export PDF pro multi-pages"],
                     keyPoints: [
-                        { title: "Outil Maillage", content: "L'outil Maillage permet de créer un terrain 3D. On définit des points avec leurs altitudes pour modéliser la topographie. Le maillage peut être modifié en ajoutant/déplaçant des points." },
-                        { title: "Aménagements extérieurs", content: "Les terrasses se modélisent avec des dalles. Les clôtures avec l'outil Garde-corps. Les aménagements paysagers avec des objets de la bibliothèque (arbres, végétation)." },
-                        { title: "Finalisation du projet", content: "Avant de passer à la documentation, vérifier que le modèle est complet : pas de trous dans les murs, dalles bien positionnées, toiture fermée, escalier fonctionnel." }
+                        { title: "Carnet de mise en page", content: "Feuilles A3/A1, vues liées au modèle, MAJ automatique." },
+                        { title: "Gabarits et cartouches", content: "Cartouche = ta signature pro : nom projet, architecte, date, échelle, phase." },
+                        { title: "Publication PDF", content: "Export multi-pages en un clic. Jeux de publication automatisés." }
                     ],
-                    exercise: { title: "Finaliser la maison + terrain", description: "Terminer le R+1, ajouter la toiture et créer le terrain.", steps: ["Créer le R+1 (copie des murs porteurs + nouvelles cloisons)", "Ajouter les menuiseries du R+1", "Créer la toiture (2 pans, pente 35°)", "Rogner les murs sous la toiture", "Créer un maillage de terrain (parcelle 20x30m)", "Ajouter une terrasse et des éléments extérieurs"] },
-                    checklist: ["La maison est complète (RDC + R+1 + toiture)", "Le terrain est modélisé", "La maison est positionnée sur le terrain", "Les aménagements extérieurs sont présents", "Le modèle est cohérent en 3D"],
+                    exercise: { title: "📄 Dossier pro complet", description: "5-6 planches A3 + export PDF.", steps: ["Gabarit A3 + cartouche", "Plan RDC coté 1/100", "Plan R+1 1/100", "Coupes", "Élévations", "Nomenclatures + surfaces", "Export PDF"] },
+                    checklist: ["Cartouche pro", "Bonnes échelles", "Dossier cohérent", "PDF propre", "Présentable à un client"],
                     formateurGuide: {
-                        intro: "Deuxième jour du projet fil rouge. L'autonomie doit être encore plus grande. L'objectif est d'avoir un projet complet en fin de journée.",
-                        timing: [{ time: "0h - 3h00", content: "Finalisation R+1 + toiture" }, { time: "3h00 - 3h30", content: "Pause" }, { time: "3h30 - 5h30", content: "Terrain et aménagements extérieurs" }, { time: "5h30 - 7h00", content: "Vérifications + corrections + vue 3D finale" }],
-                        tips: ["Laisser beaucoup d'autonomie, n'intervenir que si blocage", "L'outil Maillage peut être déstabilisant — faire une démo rapide", "Finir par une visite 3D complète du projet — moment gratifiant"],
-                        warnings: ["Si le R+1 n'est pas fini, prioriser la toiture et le terrain", "Le maillage peut ralentir les machines moins puissantes"],
-                        exerciseSolution: "Le projet complet doit permettre de faire toutes les vues documentaires de la semaine."
+                        intro: "Le livrable final ! Ce que le client voit. Montrer des exemples de vrais dossiers d'agence.",
+                        timing: [{ time: "0h - 2h00", content: "Carnet + gabarits + cartouche" }, { time: "2h00 - 2h30", content: "Pause" }, { time: "2h30 - 4h00", content: "Composition des planches" }, { time: "4h00 - 5h00", content: "Publication PDF" }, { time: "5h00 - 6h30", content: "Exercice" }, { time: "6h30 - 7h00", content: "Review qualité" }],
+                        tips: ["Exemples de dossiers pro", "Le cartouche donne l'aspect pro immédiatement"],
+                        warnings: ["Attention aux échelles", "Soigner la composition"],
+                        exerciseSolution: "5-6 feuilles A3. PDF exporté propre."
                     }
                 },
                 {
-                    id: 12, title: "Coupes & élévations", subtitle: "Créer et paramétrer les vues de coupes et d'élévations", duration: "7h", week: 3,
-                    objectives: ["Créer des coupes longitudinales et transversales", "Créer les 4 élévations (façades)", "Paramétrer l'affichage des coupes et élévations", "Annoter et enrichir les vues", "Comprendre le lien entre maquette et vues"],
+                    id: 12, title: "Matériaux & habillage", subtitle: "Du gris au photoréaliste — donner vie au projet", duration: "7h", week: 3,
+                    objectives: ["Matériaux de façade cohérents", "Intérieurs réalistes", "Matériaux personnalisés", "Projet entièrement habillé"],
                     keyPoints: [
-                        { title: "Coupes", content: "Les coupes dans ARCHICAD sont des vues générées automatiquement à partir de la maquette 3D. On place une ligne de coupe en plan, et la vue se génère. Tout changement dans la maquette se répercute dans la coupe." },
-                        { title: "Élévations", content: "Les élévations (façades) fonctionnent comme les coupes : on place un marqueur d'élévation et la vue se génère. On peut avoir des élévations intérieures pour les aménagements." },
-                        { title: "Profondeur de vue", content: "La profondeur de vue détermine ce qui est visible derrière le plan de coupe. C'est un paramètre important pour obtenir des coupes lisibles." }
+                        { title: "Matériaux = 3 facettes", content: "Plan (hachures) + 3D (texture) + données physiques." },
+                        { title: "Palette architecturale", content: "Max 3-4 matériaux en façade. Cohérence = identité architecturale." },
+                        { title: "BIMcomponents", content: "Matériaux et textures supplémentaires téléchargeables." }
                     ],
-                    exercise: { title: "Coupes et élévations de la maison", description: "Créer toutes les vues de coupe et d'élévation nécessaires.", steps: ["Créer une coupe longitudinale passant par le séjour et l'escalier", "Créer une coupe transversale passant par les chambres", "Créer les 4 élévations extérieures", "Paramétrer les épaisseurs de traits (coupé/vu)", "Ajuster les profondeurs de vue", "Vérifier la cohérence de toutes les vues"] },
-                    checklist: ["Je sais placer une ligne de coupe", "Je sais créer les 4 élévations", "Je sais paramétrer l'affichage", "Je comprends la profondeur de vue", "Mes coupes sont lisibles et cohérentes"],
+                    exercise: { title: "🎨 Relooking complet", description: "Palette contemporaine cohérente.", steps: ["Palette : enduit + bois + alu anthracite", "Enduit façades", "Bardage bois accent", "Menuiseries alu anthracite", "Parquet + carrelage intérieurs", "Terrasse bois", "Terrain gazon + gravier", "Vérifier en 3D ombré"] },
+                    checklist: ["Palette cohérente", "Intérieurs habillés", "Terrain avec matériaux", "Rendu 3D esthétique", "Identité architecturale"],
                     formateurGuide: {
-                        intro: "On entre dans la documentation — le métier d'architecte. Montrer que les vues sont automatiques à partir de la maquette 3D. C'est la puissance du BIM.",
-                        timing: [{ time: "0h - 2h30", content: "Coupes : création, paramètres, affichage" }, { time: "2h30 - 3h00", content: "Pause" }, { time: "3h00 - 5h00", content: "Élévations : création, paramètres" }, { time: "5h00 - 6h30", content: "Exercice" }, { time: "6h30 - 7h00", content: "Récap" }],
-                        tips: ["Insister sur l'automatisme : 'tu modifies un mur en plan, la coupe se met à jour'", "Montrer les vues 3D coupées aussi — très parlant"],
-                        warnings: ["Les coupes peuvent être lourdes sur les gros projets", "Attention aux épaisseurs de traits — souvent négligées par les débutants"],
-                        exerciseSolution: "2 coupes + 4 élévations minimum. Les coupes doivent passer par les endroits intéressants (escalier, double hauteur si applicable)."
+                        intro: "Séance créative ! Le avant/après est spectaculaire. Parler de palette architecturale comme un archi.",
+                        timing: [{ time: "0h - 0h30", content: "Exemples de palettes archi" }, { time: "0h30 - 2h30", content: "Matériaux : principes + application" }, { time: "2h30 - 3h00", content: "Pause" }, { time: "3h00 - 5h00", content: "Habillage complet" }, { time: "5h00 - 6h30", content: "Matériaux perso + terrain" }, { time: "6h30 - 7h00", content: "Avant/après" }],
+                        tips: ["Pinterest/ArchDaily pour l'inspiration", "Moins c'est plus en archi"],
+                        warnings: ["Textures trop grandes = lenteur", "Pas trop de matériaux"],
+                        exerciseSolution: "Palette enduit + bois + alu. Intérieurs parquet + carrelage."
                     }
                 },
                 {
-                    id: 13, title: "Cotations, annotations, étiquettes", subtitle: "Coter et annoter les plans de manière professionnelle", duration: "7h", week: 3,
-                    objectives: ["Maîtriser l'outil Cotation (linéaire, angulaire, radiale)", "Créer des cotations automatiques", "Placer des étiquettes et des textes", "Utiliser les lignes de repère", "Respecter les normes de cotation architecturale"],
+                    id: 13, title: "Rendus photoréalistes", subtitle: "Images de synthèse — éclairage et ambiances", duration: "7h", week: 3,
+                    objectives: ["Éclairage solaire réaliste", "Luminaires intérieurs", "Rendus avec le moteur intégré", "Rendus extérieurs et intérieurs", "Ambiances jour et nuit"],
                     keyPoints: [
-                        { title: "Cotation automatique", content: "ARCHICAD peut coter automatiquement les ouvertures de murs. C'est un gain de temps considérable. On peut aussi coter manuellement pour plus de contrôle." },
-                        { title: "Étiquettes", content: "Les étiquettes sont liées aux éléments (murs, portes, fenêtres). Elles affichent automatiquement les informations de l'élément (dimensions, matériaux, référence). Si l'élément change, l'étiquette se met à jour." },
-                        { title: "Normes de cotation", content: "En architecture, les cotations suivent des conventions : chaînes de cotes extérieures (axes, nu de murs, ouvertures), cotations intérieures (pièces, cloisons). Les cotes sont en mètres ou centimètres." }
+                        { title: "Éclairage solaire", content: "Position exacte du soleil selon géolocalisation et date/heure." },
+                        { title: "Moteur de rendu intégré", content: "CineRender/Redshift. Basse qualité d'abord pour vérifier, puis haute qualité." },
+                        { title: "Conseil pro", content: "Soleil rasant matin/soir = ombres dramatiques. Éviter le midi (plat)." }
                     ],
-                    exercise: { title: "Coter entièrement un plan", description: "Coter le plan du RDC de la maison avec toutes les cotations nécessaires.", steps: ["Créer les chaînes de cotes extérieures (4 côtés)", "Coter les ouvertures dans les murs", "Ajouter les cotations intérieures des pièces", "Placer les étiquettes de portes et fenêtres", "Ajouter les étiquettes de zones (nom + surface)", "Vérifier la lisibilité globale du plan"] },
-                    checklist: ["Je sais créer des cotations linéaires", "Je sais utiliser la cotation automatique", "Je sais placer des étiquettes", "Mes cotations respectent les normes", "Mon plan est lisible et complet"],
+                    exercise: { title: "📸 Images de synthèse", description: "Rendus jour et nuit.", steps: ["Géolocalisation", "Soleil été 9h", "Rendu extérieur jardin", "Rendu intérieur séjour", "Luminaires intérieurs", "Rendu de nuit", "Haute qualité"] },
+                    checklist: ["Soleil réaliste", "1 rendu extérieur", "1 rendu intérieur", "1 rendu nuit", "Qualité présentable"],
                     formateurGuide: {
-                        intro: "Séance technique mais fondamentale. Des plans bien cotés = des plans professionnels. C'est ce qui distingue un bon dossier.",
-                        timing: [{ time: "0h - 2h30", content: "Cotations : linéaire, chaîne, automatique" }, { time: "2h30 - 3h00", content: "Pause" }, { time: "3h00 - 4h30", content: "Étiquettes et textes" }, { time: "4h30 - 5h00", content: "Normes et bonnes pratiques" }, { time: "5h00 - 6h30", content: "Exercice" }, { time: "6h30 - 7h00", content: "Récap" }],
-                        tips: ["Montrer un plan bien coté comme référence visuelle", "La cotation automatique est un moment de productivité fort", "Faire le parallèle avec les usages AutoCAD de l'apprenante"],
-                        warnings: ["Ne pas surcoter — un plan surchargé est illisible", "Bien expliquer la différence entre cotes associatives et manuelles"],
-                        exerciseSolution: "Plan RDC complet avec chaînes de cotes extérieures, cotes d'ouvertures, cotes intérieures et étiquettes. Tout doit être lisible à l'échelle 1/100."
+                        intro: "Séance préférée des apprenants ! Parler de lumière comme un photographe d'archi.",
+                        timing: [{ time: "0h - 2h00", content: "Éclairage" }, { time: "2h00 - 2h30", content: "Pause" }, { time: "2h30 - 4h30", content: "Rendus" }, { time: "4h30 - 6h00", content: "Exercice" }, { time: "6h00 - 7h00", content: "Ajustements" }],
+                        tips: ["Basse qualité d'abord", "Rendus de nuit spectaculaires", "Composition photo : règle des tiers"],
+                        warnings: ["Rendus HQ = temps long", "Vérifier la RAM"],
+                        exerciseSolution: "3 rendus : ext jour, int jour, nuit. 2000px min."
                     }
                 },
                 {
-                    id: 14, title: "Nomenclatures, listes, métrés", subtitle: "Extraire les données du modèle BIM", duration: "7h", week: 3,
-                    objectives: ["Créer des nomenclatures de portes et fenêtres", "Générer des listes de surfaces et de zones", "Extraire des quantités (métrés)", "Personnaliser les tableaux", "Comprendre l'intérêt BIM de ces données"],
+                    id: 14, title: "Enscape — Rendu temps réel", subtitle: "Naviguer comme dans un jeu vidéo — communication client", duration: "7h", week: 3,
+                    objectives: ["Connecter Enscape à ARCHICAD", "Navigation temps réel photoréaliste", "Matériaux et éclairage Enscape", "Panoramas 360° et images HD", "Communication client"],
                     keyPoints: [
-                        { title: "Nomenclatures interactives", content: "Les nomenclatures ARCHICAD sont bidirectionnelles : cliquer sur une ligne du tableau sélectionne l'élément dans le plan. Modifier un paramètre dans le tableau modifie l'élément. C'est du vrai BIM." },
-                        { title: "Types de listes", content: "ARCHICAD propose des listes d'éléments (inventaire), des listes de composants (matériaux), et des listes de zones (surfaces). On peut créer des listes personnalisées." },
-                        { title: "Export des données", content: "Les listes peuvent être exportées en Excel pour un traitement complémentaire (chiffrage, DPGF). C'est un workflow courant dans les agences." }
+                        { title: "Enscape = jeu vidéo architectural", content: "Fenêtre rendu temps réel. WASD + souris. Qualité quasi-photoréaliste instantanée. Standard en agence." },
+                        { title: "Communication client", content: "Montrer en direct, changer le point de vue, modifier l'heure. Panoramas 360° partageables." },
+                        { title: "Matériaux Enscape", content: "Réflexions, émission lumineuse, bump maps avancés." }
                     ],
-                    exercise: { title: "Générer les nomenclatures du projet", description: "Créer toutes les nomenclatures nécessaires pour un dossier complet.", steps: ["Créer une nomenclature de portes (référence, dimensions, type)", "Créer une nomenclature de fenêtres (référence, dimensions, vitrage)", "Générer un tableau des surfaces par zone", "Créer une liste de matériaux avec quantités", "Personnaliser la mise en forme des tableaux", "Exporter une nomenclature en format tableur"] },
-                    checklist: ["Je sais créer une nomenclature de menuiseries", "Je sais générer un tableau de surfaces", "Je comprends les listes interactives", "Je sais personnaliser un tableau", "Je sais exporter les données"],
+                    exercise: { title: "🎮 Visite virtuelle Enscape", description: "Exploration temps réel + captures.", steps: ["Lancer Enscape", "Naviguer autour de la maison", "Entrer et parcourir les pièces", "Ajuster l'heure (matin → nuit)", "Affiner les matériaux", "Capturer 3-4 images HD", "Panorama 360° du séjour"] },
+                    checklist: ["Enscape connecté", "Navigation fluide", "Images capturées", "Panorama 360°", "Utilisation client comprise"],
                     formateurGuide: {
-                        intro: "C'est ici que le BIM montre sa vraie valeur ajoutée par rapport au 2D pur. Toutes ces données sortent automatiquement du modèle !",
-                        timing: [{ time: "0h - 2h00", content: "Nomenclatures : création, paramètres, personnalisation" }, { time: "2h00 - 2h30", content: "Pause" }, { time: "2h30 - 4h00", content: "Listes de zones et de matériaux" }, { time: "4h00 - 5h00", content: "Export et workflow Excel" }, { time: "5h00 - 6h30", content: "Exercice" }, { time: "6h30 - 7h00", content: "Récap" }],
-                        tips: ["Insister sur le gain de temps vs faire les tableaux manuellement", "La bidirectionnalité est un moment 'waouh'", "Montrer un vrai exemple d'export Excel utilisé en agence"],
-                        warnings: ["Les nomenclatures peuvent être complexes à configurer", "Rester sur les nomenclatures standards, ne pas chercher à tout personnaliser"],
-                        exerciseSolution: "3-4 nomenclatures différentes, toutes basées sur le projet fil rouge."
+                        intro: "Séance impressionnante ! Laisser naviguer librement. Cas d'utilisation en agence.",
+                        timing: [{ time: "0h - 1h00", content: "Installation + lancement" }, { time: "1h00 - 2h30", content: "Navigation + paramètres" }, { time: "2h30 - 3h00", content: "Pause" }, { time: "3h00 - 4h30", content: "Matériaux + éclairage" }, { time: "4h30 - 6h00", content: "Images + panorama" }, { time: "6h00 - 7h00", content: "Comparatif moteurs" }],
+                        tips: ["Laisser naviguer librement", "Avant/après rendu intégré vs Enscape", "Panoramas = argument client"],
+                        warnings: ["Bonne carte graphique requise", "Plugin à jour"],
+                        exerciseSolution: "3-4 images + 1 panorama 360°. Comparatif avec rendu intégré."
                     }
                 },
                 {
-                    id: 15, title: "Mise en page & impression", subtitle: "Créer un dossier de plans professionnel", duration: "7h", week: 3,
-                    objectives: ["Comprendre le Carnet de mise en page", "Placer des vues sur les feuilles", "Créer des cartouches personnalisés", "Gérer les échelles de représentation", "Exporter en PDF un dossier complet"],
+                    id: 15, title: "3ds Max & pipeline de rendu", subtitle: "Vue d'ensemble de la production visuelle en architecture", duration: "7h", week: 3,
+                    objectives: ["Workflow ARCHICAD → 3ds Max (FBX)", "Découvrir 3ds Max et V-Ray", "Comparer les moteurs", "Savoir quand utiliser quoi", "Vision complète du pipeline"],
                     keyPoints: [
-                        { title: "Le Carnet de mise en page", content: "Le Carnet de mise en page (Layout Book) est l'espace où l'on compose les planches de présentation. On y place des vues (plans, coupes, 3D) sur des feuilles au format souhaité (A4, A3, A1...)." },
-                        { title: "Gabarits et cartouches", content: "Un gabarit de page définit le cadre, le cartouche et les informations automatiques (nom du projet, date, échelle). ARCHICAD en fournit des modèles qu'on peut personnaliser." },
-                        { title: "Publication", content: "La publication permet d'exporter tout le carnet (ou une sélection) en PDF, DWG, ou image. On peut configurer des jeux de publication pour automatiser l'export." }
+                        { title: "3ds Max = haut de gamme", content: "V-Ray/Corona pour concours, promoteurs, publications. Export FBX depuis ARCHICAD." },
+                        { title: "Quand utiliser quoi", content: "Intégré = visuels simples. Enscape = quotidien. 3ds Max = exceptionnel. 90% du temps, Enscape suffit." },
+                        { title: "Twinmotion", content: "Alternative gratuite avec licence ARCHICAD. Plus de décor, moins bien intégré." }
                     ],
-                    exercise: { title: "Créer un dossier de plans complet", description: "Composer un dossier de plans professionnel prêt à imprimer.", steps: ["Créer un gabarit A3 avec cartouche (nom du projet, date, échelle)", "Placer le plan RDC coté sur une feuille A3 au 1/100", "Placer le plan R+1 sur une deuxième feuille", "Créer une feuille avec les coupes et élévations", "Ajouter une feuille avec la vue 3D et les nomenclatures", "Exporter le dossier complet en PDF"] },
-                    checklist: ["Je sais utiliser le Carnet de mise en page", "Je sais placer des vues sur les feuilles", "Je sais créer un cartouche", "Je sais gérer les échelles", "Je sais exporter en PDF"],
+                    exercise: { title: "🖼️ Pipeline rendu complet", description: "Explorer chaque outil.", steps: ["Export FBX", "Démo 3ds Max", "Observer un rendu V-Ray", "Tester Twinmotion", "Comparatif côte à côte", "Définir son workflow idéal"] },
+                    checklist: ["Export FBX maîtrisé", "Différences comprises", "Choix éclairé", "Vision du pipeline", "Workflow personnel défini"],
                     formateurGuide: {
-                        intro: "Dernière étape de la documentation : la mise en page. C'est le livrable final du projet. Le résultat doit être professionnel.",
-                        timing: [{ time: "0h - 2h00", content: "Carnet de mise en page : principes, gabarits, cartouches" }, { time: "2h00 - 2h30", content: "Pause" }, { time: "2h30 - 4h00", content: "Composition des planches, échelles" }, { time: "4h00 - 5h00", content: "Publication et export PDF" }, { time: "5h00 - 6h30", content: "Exercice : dossier complet" }, { time: "6h30 - 7h00", content: "Bilan semaine 3 + intro semaine 4" }],
-                        tips: ["Montrer des exemples de dossiers professionnels pour donner le niveau attendu", "Le cartouche personnalisé peut être fait avec les outils 2D — montrer", "L'export PDF multi-pages est très pratique"],
-                        warnings: ["La mise en page demande un sens graphique — guider sur les choix", "Attention aux échelles : erreur classique de mettre le mauvais échelle"],
-                        exerciseSolution: "4-5 feuilles A3 minimum : plan RDC, plan R+1, coupes/élévations, 3D + nomenclatures. PDF exporté propre."
+                        intro: "Vue d'ensemble. Rester en démo pour 3ds Max. L'objectif = connaître les options.",
+                        timing: [{ time: "0h - 1h00", content: "Tour d'horizon des moteurs" }, { time: "1h00 - 2h30", content: "Export FBX + démo 3ds Max" }, { time: "2h30 - 3h00", content: "Pause" }, { time: "3h00 - 4h30", content: "Twinmotion" }, { time: "4h30 - 6h00", content: "Comparatif" }, { time: "6h00 - 7h00", content: "Bilan semaine 3" }],
+                        tips: ["3ds Max en survol seulement", "Montrer des exemples de rendus pro", "L'essentiel = savoir QUAND utiliser quoi"],
+                        warnings: ["3ds Max = ne pas frustrer", "Tester les exports avant la séance"],
+                        exerciseSolution: "Comparatif visuel. L'apprenant sait exporter et connaît les options."
                     }
                 }
             ]
         },
         {
             id: 4,
-            title: "Rendu 3D & Productivité",
-            subtitle: "Techniques avancées de visualisation avec Enscape & 3ds Max",
+            title: "Maîtrise & projet final",
+            subtitle: "Interopérabilité, productivité et livrable d'exception",
             days: [
                 {
-                    id: 16, title: "Matériaux, textures & surfaces", subtitle: "Habiller le projet avec des matériaux réalistes", duration: "7h", week: 4,
-                    objectives: ["Appliquer des matériaux aux éléments du projet", "Personnaliser les textures et les couleurs", "Créer des matériaux personnalisés", "Comprendre les surfaces de remplacement", "Préparer le projet pour le rendu"],
+                    id: 16, title: "SketchUp & interopérabilité", subtitle: "Importer, exporter, communiquer en BIM", duration: "7h", week: 4,
+                    objectives: ["Importer des modèles SketchUp (3D Warehouse)", "Exporter en IFC", "Enrichir le projet avec du mobilier", "Maîtriser les formats d'échange"],
                     keyPoints: [
-                        { title: "Matériaux de construction", content: "Dans ARCHICAD, les matériaux ont trois composantes : apparence en plan (hachures), apparence en 3D (texture), et propriétés physiques. On peut les appliquer surface par surface." },
-                        { title: "Bibliothèque de matériaux", content: "ARCHICAD dispose d'une large bibliothèque de matériaux réalistes : bois, pierres, métaux, béton, etc. On peut importer des textures personnalisées et créer ses propres matériaux." },
-                        { title: "Surfaces", content: "Les surfaces contrôlent l'apparence 3D : couleur, réflexion, transparence, bump map. Un même matériau peut avoir différentes surfaces selon le rendu souhaité." }
+                        { title: "Import SketchUp", content: "ARCHICAD importe les .skp directement. Idéal pour le mobilier 3D Warehouse." },
+                        { title: "Format IFC", content: "Format universel BIM. Obligatoire pour les marchés publics." },
+                        { title: "3D Warehouse", content: "Bibliothèque infinie de mobilier 3D gratuit." }
                     ],
-                    exercise: { title: "Habiller le projet", description: "Appliquer des matériaux réalistes à toute la maison.", steps: ["Appliquer des matériaux de façade (enduit, pierre, bardage bois)", "Modifier les matériaux intérieurs (peinture, carrelage, parquet)", "Personnaliser les menuiseries (bois, aluminium)", "Créer un matériau personnalisé pour la terrasse", "Appliquer des textures au terrain (gazon, gravier)", "Vérifier le rendu global en 3D"] },
-                    checklist: ["Je sais appliquer un matériau à un élément", "Je sais modifier une texture", "Je sais créer un matériau personnalisé", "Je comprends la différence entre matériau et surface", "Mon projet est entièrement habillé"],
+                    exercise: { title: "🔄 Meubler et échanger", description: "Mobilier + formats d'échange.", steps: ["Télécharger du mobilier 3D Warehouse", "Importer les .skp", "Meubler séjour + cuisine", "Export IFC", "Réimport IFC", "Rendu Enscape meublé"] },
+                    checklist: ["Import SketchUp maîtrisé", "Projet meublé", "Export IFC fonctionnel", "Interopérabilité comprise", "Rendu avec mobilier"],
                     formateurGuide: {
-                        intro: "On embellit le projet ! C'est une séance créative et motivante. Le projet va passer du gris au réaliste.",
-                        timing: [{ time: "0h - 2h30", content: "Matériaux : principes, bibliothèque, application" }, { time: "2h30 - 3h00", content: "Pause" }, { time: "3h00 - 5h00", content: "Textures, surfaces, personnalisation" }, { time: "5h00 - 6h30", content: "Exercice" }, { time: "6h30 - 7h00", content: "Récap" }],
-                        tips: ["Montrer le avant/après : gris vs habillé — très motivant", "Ne pas trop entrer dans les paramètres techniques des surfaces", "Montrer Pinterest ou des références pour choisir les ambiances"],
-                        warnings: ["Les textures trop grandes ralentissent la 3D", "Rester sobre : pas trop de matériaux différents"],
-                        exerciseSolution: "Le projet doit avoir un look cohérent et réaliste. Palette de matériaux harmonieuse."
+                        intro: "Enrichir le projet et apprendre les échanges. Le mobilier transforme les espaces.",
+                        timing: [{ time: "0h - 2h00", content: "Import SketchUp" }, { time: "2h00 - 2h30", content: "Pause" }, { time: "2h30 - 4h00", content: "Meubler le projet" }, { time: "4h00 - 5h00", content: "Export IFC" }, { time: "5h00 - 6h30", content: "Rendu Enscape meublé" }, { time: "6h30 - 7h00", content: "Récap" }],
+                        tips: ["3D Warehouse en direct = fun", "Le meublé + Enscape = résultat top"],
+                        warnings: ["Objets SketchUp parfois lourds", "Conversion pas toujours parfaite"],
+                        exerciseSolution: "Projet meublé. Export IFC OK. Rendu meublé."
                     }
                 },
                 {
-                    id: 17, title: "Éclairage & rendu", subtitle: "Produire des images de synthèse du projet", duration: "7h", week: 4,
-                    objectives: ["Paramétrer l'éclairage naturel (soleil, environnement)", "Placer des sources lumineuses intérieures", "Réaliser des rendus avec le moteur intégré", "Explorer les options de rendu (qualité, résolution)", "Créer des ambiances jour et nuit"],
+                    id: 17, title: "Favoris, templates & productivité", subtitle: "Les techniques de pro pour travailler 2× plus vite", duration: "7h", week: 4,
+                    objectives: ["Créer des favoris pour les éléments récurrents", "Personnaliser les raccourcis", "Créer un template réutilisable", "Workflow professionnel optimisé"],
                     keyPoints: [
-                        { title: "Éclairage solaire", content: "ARCHICAD simule la position du soleil selon la géolocalisation et la date/heure. On peut créer des études d'ensoleillement pour analyser l'impact des ombres sur le projet." },
-                        { title: "Moteur de rendu", content: "ARCHICAD intègre un moteur de rendu (CineRender basé sur Cinema 4D ou Redshift selon la version). Il produit des images photoréalistes avec gestion des matériaux, éclairage et environnement." },
-                        { title: "Twinmotion", content: "Pour des rendus encore plus rapides et interactifs, Twinmotion (gratuit avec licence ARCHICAD) offre un rendu en temps réel et des animations. La connexion est directe via un plugin." }
+                        { title: "Favoris", content: "Paramètres complets d'un élément en un clic. Gain de temps énorme." },
+                        { title: "Template", content: "Fichier modèle avec tout pré-configuré. Secret des agences productives." },
+                        { title: "Raccourcis perso", content: "Adaptés à TA pratique. Les pros ont leurs raccourcis sur-mesure." }
                     ],
-                    exercise: { title: "Rendus de la maison", description: "Produire des rendus jour et nuit de la maison.", steps: ["Paramétrer la géolocalisation du projet (Chemillé-en-Anjou)", "Régler la position du soleil (été, 10h)", "Placer des luminaires intérieurs (salon, chambres)", "Faire un rendu extérieur (perspective jardin)", "Faire un rendu intérieur (séjour)", "Créer un rendu de nuit avec éclairage artificiel"] },
-                    checklist: ["Je sais paramétrer l'éclairage solaire", "Je sais placer des luminaires", "Je sais lancer un rendu", "Je sais ajuster la qualité de rendu", "J'ai produit au moins 3 rendus du projet"],
+                    exercise: { title: "⚡ Environnement de travail pro", description: "Favoris + template + raccourcis.", steps: ["10 favoris essentiels", "5-10 raccourcis personnalisés", "Template de projet complet", "Tester le template", "Configurer l'espace de travail", "Sauvegarder l'environnement"] },
+                    checklist: ["Favoris créés", "Raccourcis personnalisés", "Template fonctionnel", "Espace de travail optimisé", "Productivité augmentée"],
                     formateurGuide: {
-                        intro: "Séance très gratifiante : le projet devient photo-réaliste. C'est souvent le moment préféré des apprenants.",
-                        timing: [{ time: "0h - 2h00", content: "Éclairage : soleil, environnement, luminaires" }, { time: "2h00 - 2h30", content: "Pause" }, { time: "2h30 - 4h00", content: "Rendus : paramètres, lancement, optimisation" }, { time: "4h00 - 5h00", content: "Twinmotion (démo)" }, { time: "5h00 - 6h30", content: "Exercice" }, { time: "6h30 - 7h00", content: "Récap" }],
-                        tips: ["Commencer avec un rendu basse qualité rapide, puis augmenter", "Montrer Twinmotion pour l'effet temps réel — très impressionnant", "Les rendus de nuit sont visuellement forts — garder pour la fin"],
-                        warnings: ["Les rendus haute qualité peuvent être très longs", "S'assurer que la machine a assez de RAM"],
-                        exerciseSolution: "3 rendus minimum : 1 extérieur jour, 1 intérieur, 1 nuit. Résolution minimum 2000px de large."
+                        intro: "Investissement à long terme. Ce qu'on crée aujourd'hui servira pendant des années.",
+                        timing: [{ time: "0h - 2h00", content: "Favoris" }, { time: "2h00 - 2h30", content: "Pause" }, { time: "2h30 - 4h00", content: "Template" }, { time: "4h00 - 5h00", content: "Raccourcis + espace de travail" }, { time: "5h00 - 6h30", content: "Test du template" }, { time: "6h30 - 7h00", content: "Récap" }],
+                        tips: ["Chronomètre avec vs sans favoris", "Template = secret des agences"],
+                        warnings: ["Pas trop de favoris inutiles", "Tester le template avant usage réel"],
+                        exerciseSolution: "10 favoris + template + raccourcis + espace de travail."
                     }
                 },
                 {
-                    id: 18, title: "Rendu 3D — Enscape & 3ds Max", subtitle: "Produire des rendus photoréalistes avec des moteurs externes", duration: "7h", week: 4,
-                    objectives: ["Découvrir Enscape et sa connexion avec ARCHICAD", "Paramétrer un rendu en temps réel avec Enscape", "Comprendre le workflow ARCHICAD → 3ds Max", "Explorer les matériaux et l'éclairage dans Enscape", "Comparer les moteurs de rendu : intégré vs Enscape vs 3ds Max"],
+                    id: 18, title: "Projet final — Jour 1 : Nouvelle maison", subtitle: "Autonomie totale — tout mettre en pratique", duration: "7h", week: 4,
+                    objectives: ["Démarrer un projet en autonomie totale", "Utiliser template et favoris", "Gros œuvre complet en une journée", "Démontrer sa maîtrise"],
                     keyPoints: [
-                        { title: "Enscape", content: "Enscape est un moteur de rendu en temps réel connecté directement à ARCHICAD via un plugin. Il permet de visualiser le projet en qualité photoréaliste instantanément, de naviguer dans le modèle et de générer des images et panoramas 360°." },
-                        { title: "3ds Max", content: "3ds Max est le logiciel de référence pour les rendus haut de gamme en architecture. Le workflow ARCHICAD → 3ds Max passe par l’export FBX ou 3DS. On y retrouve des moteurs comme V-Ray ou Corona pour des rendus d'exception." },
-                        { title: "Choix du moteur", content: "Enscape est idéal pour des rendus rapides en phase conception. 3ds Max convient aux rendus de présentation finale. Le moteur intégré ARCHICAD reste utile pour des visuels simples sans logiciel supplémentaire." }
+                        { title: "Le brief", content: "Maison contemporaine R+1 160m² : double hauteur séjour, cuisine ouverte, 4 chambres, 2 SDB, bureau, terrasse couverte. Toit plat + pan incliné." },
+                        { title: "Autonomie totale", content: "Le formateur n'intervient pas spontanément. L'apprenant mène le projet." },
+                        { title: "Efficacité", content: "Favoris + template = démarrage rapide. Penser architecture, pas dessin." }
                     ],
-                    exercise: { title: "Rendus avec Enscape", description: "Utiliser Enscape pour produire des rendus photoréalistes du projet.", steps: ["Installer et connecter le plugin Enscape à ARCHICAD", "Lancer la fenêtre de rendu en temps réel", "Paramétrer l'ambiance : soleil, ciel, environnement", "Ajuster les matériaux spécifiques Enscape (réflexion, émission)", "Générer un panorama 360° de l'intérieur", "Comparer le résultat avec le rendu intégré ARCHICAD"] },
-                    checklist: ["Je sais connecter Enscape à ARCHICAD", "Je sais naviguer dans la fenêtre Enscape", "Je sais paramétrer l'éclairage et l'ambiance", "Je comprends la différence entre les moteurs de rendu", "J'ai produit des rendus avec Enscape"],
+                    exercise: { title: "🏡 Projet final — Gros œuvre", description: "Maison contemporaine en autonomie.", steps: ["Ouvrir le template", "Emprise au sol", "Murs + cloisons (favoris)", "Grandes baies vitrées séjour", "Dalles + terrasse", "Escalier architectural dans le séjour", "Toiture mixte toit plat + pan incliné", "Vérification 3D"] },
+                    checklist: ["Template utilisé", "RDC complet", "R+1 complet", "Escalier + toiture", "Caractère architectural"],
                     formateurGuide: {
-                        intro: "Séance impressionnante : le rendu en temps réel bluff les apprenants. Montrer l'instantanéité d'Enscape vs le rendu classique.",
-                        timing: [{ time: "0h - 1h00", content: "Introduction aux moteurs de rendu externes : Enscape, 3ds Max, V-Ray" }, { time: "1h00 - 2h30", content: "Enscape : installation, interface, navigation temps réel" }, { time: "2h30 - 3h00", content: "Pause" }, { time: "3h00 - 4h30", content: "Matériaux Enscape, éclairage, paramètres de rendu" }, { time: "4h30 - 5h30", content: "Démo workflow 3ds Max (export FBX, import, rendu V-Ray)" }, { time: "5h30 - 6h30", content: "Exercice : rendus Enscape du projet" }, { time: "6h30 - 7h00", content: "Comparatif des moteurs + récap" }],
-                        tips: ["Montrer le avant/après rendu intégré vs Enscape — l'effet est saisissant", "Laisser naviguer librement dans Enscape — c'est ludique", "3ds Max : rester en démo, ne pas entrer dans les détails du logiciel", "Montrer des exemples de rendus d'agences réalisés avec Enscape"],
-                        warnings: ["Enscape nécessite une carte graphique correcte", "Vérifier que le plugin est installé et fonctionnel avant la séance", "3ds Max est complexe — rester en survol"],
-                        exerciseSolution: "Au moins 4-5 rendus Enscape : 2 extérieurs, 2 intérieurs, 1 panorama 360°. Comparatif avec rendu intégré."
+                        intro: "Jour d'examen ! L'apprenant travaille seul. Brief plus ambitieux (double hauteur, toit mixte).",
+                        timing: [{ time: "0h - 0h30", content: "Brief architectural" }, { time: "0h30 - 3h00", content: "Gros œuvre RDC (autonome)" }, { time: "3h00 - 3h30", content: "Pause" }, { time: "3h30 - 5h30", content: "R+1 + escalier + toiture (autonome)" }, { time: "5h30 - 6h30", content: "Finitions" }, { time: "6h30 - 7h00", content: "Review 3D" }],
+                        tips: ["Ne pas intervenir sauf demande", "Encourager les choix perso"],
+                        warnings: ["Double hauteur peut poser problème — guider si besoin", "Toit mixte = défi"],
+                        exerciseSolution: "Maison contemporaine 160m² avec gros œuvre complet."
                     }
                 },
                 {
-                    id: 19, title: "Passerelle SketchUp ↔ ARCHICAD", subtitle: "Importer et exporter entre SketchUp et ARCHICAD", duration: "7h", week: 4,
-                    objectives: ["Importer un modèle SketchUp dans ARCHICAD", "Exporter un modèle ARCHICAD vers SketchUp", "Comprendre la conversion des éléments", "Gérer les fichiers IFC pour l'interopérabilité", "Définir le bon workflow selon le projet"],
+                    id: 19, title: "Projet final — Jour 2 : Habillage & docs", subtitle: "Matériaux, rendus, plans cotés", duration: "7h", week: 4,
+                    objectives: ["Palette contemporaine", "Meubler avec SketchUp", "Documentation complète", "Rendus Enscape portfolio"],
                     keyPoints: [
-                        { title: "Import SketchUp", content: "ARCHICAD peut importer les fichiers .skp directement. Les éléments SketchUp arrivent comme des objets ou des morph. On peut ensuite les convertir en éléments ARCHICAD natifs (murs, dalles, etc.)." },
-                        { title: "Export vers SketchUp", content: "L'export vers SketchUp (.skp) permet de récupérer la maquette dans SketchUp pour des modifications spécifiques ou l'utilisation de plugins SketchUp (rendu, modélisation organique)." },
-                        { title: "Format IFC", content: "L'IFC (Industry Foundation Classes) est le format standard d'échange BIM. Il permet de communiquer avec tous les logiciels BIM (Revit, SketchUp, etc.). C'est le format à privilégier pour l'interopérabilité." }
+                        { title: "Palette contemporaine", content: "Béton apparent, bois clair, métal noir, verre. Volumes et lumière font le design." },
+                        { title: "Documentation express", content: "Avec l'expérience acquise : coupes 30min, cotations 1h, nomenclatures 30min." },
+                        { title: "Rendus portfolio", content: "Qualité qui donne envie de montrer. Angles soignés, lumière travaillée." }
                     ],
-                    exercise: { title: "Workflow SketchUp ↔ ARCHICAD", description: "Pratiquer l'import et l'export entre les deux logiciels.", steps: ["Importer un modèle SketchUp (mobilier ou décoration) dans le projet", "Positionner et ajuster les objets importés", "Exporter la maison ARCHICAD vers SketchUp", "Ouvrir le fichier dans SketchUp et vérifier le résultat", "Exporter la maison en IFC", "Comparer les 3 formats d'échange (skp, ifc, 3ds)"] },
-                    checklist: ["Je sais importer un fichier SketchUp", "Je sais exporter vers SketchUp", "Je comprends le format IFC", "Je sais choisir le bon format d'échange", "Je connais les limites de chaque méthode"],
+                    exercise: { title: "🎨📸 Habillage + docs + rendus", description: "Le projet devient beau ET documenté.", steps: ["Palette béton + bois + métal noir", "Mobilier 3D Warehouse", "Coupes et élévations", "Cotations et étiquettes", "Nomenclatures", "Rendus Enscape : 3 ext + 2 int", "Panorama 360° double hauteur"] },
+                    checklist: ["Matériaux contemporains", "Projet meublé", "Plans cotés", "Nomenclatures", "Rendus portfolio"],
                     formateurGuide: {
-                        intro: "L'apprenante connaît SketchUp — cette séance crée le pont entre ses compétences existantes et ARCHICAD. Important pour son workflow futur.",
-                        timing: [{ time: "0h - 2h00", content: "Import SketchUp : méthodes, paramètres, conversion" }, { time: "2h00 - 2h30", content: "Pause" }, { time: "2h30 - 4h00", content: "Export vers SketchUp : paramètres, vérification" }, { time: "4h00 - 5h00", content: "Format IFC et interopérabilité" }, { time: "5h00 - 6h30", content: "Exercice pratique" }, { time: "6h30 - 7h00", content: "Récap + préparation du projet final" }],
-                        tips: ["S'appuyer sur l'expérience SketchUp de l'apprenante", "Montrer des cas concrets : importer du mobilier 3D Warehouse dans AC", "L'IFC peut sembler abstrait — montrer un import concret"],
-                        warnings: ["Les textures peuvent ne pas se transférer correctement", "La conversion SketchUp vers éléments natifs AC n'est pas toujours parfaite", "Préparer un fichier SketchUp de test avant la séance"],
-                        exerciseSolution: "L'apprenante doit avoir importé du mobilier SketchUp dans le projet AC et exporté le projet complet."
+                        intro: "Avant-dernier jour ! Efficacité maximale. Le résultat doit donner envie d'être montré.",
+                        timing: [{ time: "0h - 2h00", content: "Matériaux + mobilier" }, { time: "2h00 - 2h30", content: "Pause" }, { time: "2h30 - 4h00", content: "Documentation" }, { time: "4h00 - 5h00", content: "Nomenclatures" }, { time: "5h00 - 6h30", content: "Rendus Enscape" }, { time: "6h30 - 7h00", content: "Point d'avancement" }],
+                        tips: ["Autonomie 95%", "Double hauteur = rendus impressionnants"],
+                        warnings: ["Gérer le temps", "Prioriser les rendus si retard"],
+                        exerciseSolution: "Projet habillé, documenté, avec rendus. Prêt pour mise en page."
                     }
                 },
                 {
-                    id: 20, title: "Projet final & bilan", subtitle: "Livrer un dossier professionnel complet", duration: "7h", week: 4,
-                    objectives: ["Finaliser le projet avec tous les éléments", "Créer un dossier de présentation complet", "Générer les visuels finaux (rendus classiques + Enscape)", "Faire le bilan des compétences acquises", "Définir les axes de progression post-formation"],
+                    id: 20, title: "Projet final — Livraison & bilan", subtitle: "Dossier d'exception — tu es architecte sur ARCHICAD 🎓", duration: "7h", week: 4,
+                    objectives: ["Dossier de présentation d'exception", "Mise en page soignée", "Export PDF final", "Présentation comme un architecte", "Bilan et perspectives"],
                     keyPoints: [
-                        { title: "Dossier professionnel", content: "Un dossier de projet complet comprend : plans cotés (RDC, étages), coupes et élévations, vue 3D/perspectives, nomenclatures, tableau de surfaces, rendus photoréalistes, et visuels Enscape. Le tout mis en page dans un carnet professionnel." },
-                        { title: "Check-list qualité", content: "Avant de livrer : vérifier les intersections de murs, les jonctions de dalles, la cohérence des cotes, la lisibilité des plans, la qualité des rendus, la complétude des nomenclatures." },
-                        { title: "Progression continue", content: "Après la formation, continuer à pratiquer est essentiel. Les ressources en ligne (Graphisoft Learn, YouTube, forums) permettent de progresser. Pratiquer sur des projets réels est le meilleur apprentissage." }
+                        { title: "Dossier d'exception", content: "Plans cotés, coupes, élévations, 3D, nomenclatures, rendus Enscape, panorama 360°. Mise en page soignée, cartouche pro." },
+                        { title: "Présentation", content: "Expliquer les choix : parti architectural, circulation, matériaux, orientation. Le dossier raconte une histoire." },
+                        { title: "Et après ?", content: "Pratiquer 3×/semaine minimum. Graphisoft Learn, communauté ARCHICAD. Certification Graphisoft. Teamwork, BIM Management, IFC avancé." }
                     ],
-                    exercise: { title: "Livraison du projet final", description: "Assembler et présenter le dossier complet de la maison.", steps: ["Faire une revue complète du modèle 3D (corrections finales)", "Mettre à jour toutes les vues (plans, coupes, élévations)", "Vérifier et compléter les nomenclatures", "Générer les rendus finaux (3 minimum)", "Créer des visuels Enscape (2 minimum)", "Assembler le carnet de mise en page complet et exporter en PDF"] },
-                    checklist: ["Mon modèle 3D est complet et sans erreur", "Tous les plans sont cotés et annotés", "Les nomenclatures sont à jour", "J'ai produit des rendus de qualité", "Le dossier PDF est exporté et prêt"],
+                    exercise: { title: "🎓 Le dossier final", description: "Assembler et présenter — ton portfolio ARCHICAD.", steps: ["Revue finale du modèle", "Mise à jour vues + nomenclatures", "Mise en page A3 + cartouche", "Plans, coupes, élévations, rendus, nomenclatures", "Export PDF", "Présentation orale devant le formateur"] },
+                    checklist: ["Modèle propre", "PDF complet (8-12 planches)", "Rendus qualité portfolio", "Présentation réussie", "Maîtrise professionnelle d'ARCHICAD"],
                     formateurGuide: {
-                        intro: "Dernier jour ! L'objectif est de finir avec un dossier professionnel dont l'apprenante peut être fière. C'est aussi le moment du bilan et des perspectives.",
-                        timing: [{ time: "0h - 1h00", content: "Revue du modèle : corrections, ajustements" }, { time: "1h00 - 2h30", content: "Finalisation des vues et nomenclatures" }, { time: "2h30 - 3h00", content: "Pause" }, { time: "3h00 - 4h30", content: "Rendus finaux et visuels Enscape" }, { time: "4h30 - 5h30", content: "Mise en page et export PDF" }, { time: "5h30 - 6h30", content: "Présentation du dossier + échanges" }, { time: "6h30 - 7h00", content: "Bilan de la formation + ressources pour la suite" }],
-                        tips: ["Laisser l'apprenante présenter son travail — c'est valorisant", "Préparer un certificat ou une attestation de formation", "Donner une liste de ressources pour continuer à apprendre", "Terminer sur une note positive et encourageante"],
-                        warnings: ["Ne pas être trop perfectionniste — le résultat doit être encourageant", "Garder du temps pour le bilan — c'est important pour la suite"],
-                        exerciseSolution: "Le PDF final doit contenir 8-10 planches : plans cotés, coupes, élévations, 3D, rendus, visuels Enscape, nomenclatures. C'est le livrable de la formation."
+                        intro: "Le grand final ! Finir avec un dossier dont l'apprenant est FIER. La présentation orale valorise le travail.",
+                        timing: [{ time: "0h - 1h00", content: "Corrections finales" }, { time: "1h00 - 2h30", content: "Mise en page + PDF" }, { time: "2h30 - 3h00", content: "Pause" }, { time: "3h00 - 4h30", content: "Derniers rendus Enscape" }, { time: "4h30 - 5h30", content: "Préparation présentation" }, { time: "5h30 - 6h30", content: "Présentation + feedback" }, { time: "6h30 - 7h00", content: "BILAN : compétences, ressources, certifications 🎉" }],
+                        tips: ["Laisser l'apprenant présenter — valorisant", "Certificat de fin de formation", "Note positive : 'de zéro à dossier pro en 20 jours'"],
+                        warnings: ["Pas trop perfectionniste — résultat encourageant", "Garder du temps pour le bilan"],
+                        exerciseSolution: "PDF 8-12 planches A3 : plans cotés, coupes, élévations, 3D, rendus Enscape, panorama 360°, nomenclatures."
                     }
                 }
             ]
@@ -1008,15 +802,197 @@ const RESOURCES_DATA = [
         ]
     },
     {
-        category: "Passerelle SketchUp",
+        category: "Ressources architecturales",
         items: [
-            { title: "3D Warehouse", description: "Bibliothèque de modèles 3D SketchUp", url: "https://3dwarehouse.sketchup.com/" },
-            { title: "Guide import/export SKP", description: "Documentation sur l'échange SketchUp ↔ ARCHICAD", url: "https://help.graphisoft.com/" }
+            { title: "ArchDaily", description: "Inspiration architecturale mondiale — projets, matériaux, détails", url: "https://www.archdaily.com/" },
+            { title: "3D Warehouse", description: "Bibliothèque de modèles 3D SketchUp (mobilier, objets)", url: "https://3dwarehouse.sketchup.com/" },
+            { title: "Pinterest Architecture", description: "Inspiration visuelle pour palettes de matériaux et ambiances", url: "https://pinterest.com/" }
         ]
     }
 ];
 
+// ==========================================
+// QUIZ DATA — Quiz interactifs par jour
+// ==========================================
+const QUIZ_DATA = {
+    1: {
+        title: "Quiz — Jour 1 : Premier contact",
+        questions: [
+            { q: "Quel raccourci permet de basculer en vue 3D ?", options: ["F2", "F3", "F5", "F7"], answer: 1 },
+            { q: "Que fait la Baguette magique (Espace) avec l'outil Dalle ?", options: ["Elle supprime la dalle", "Elle crée une dalle en suivant le contour fermé des murs", "Elle duplique la dalle", "Elle change le matériau"], answer: 1 },
+            { q: "Dans ARCHICAD, quand tu traces un mur, que crées-tu réellement ?", options: ["Deux lignes parallèles", "Un élément 3D paramétrique avec épaisseur et hauteur", "Un dessin 2D uniquement", "Un bloc de texte"], answer: 1 },
+            { q: "Quel raccourci active l'outil Mur ?", options: ["M", "W", "D", "L"], answer: 1 },
+            { q: "Comment déplacer la vue en plan (pan) ?", options: ["Clic droit", "Shift + molette", "Clic molette maintenu", "Double-clic"], answer: 2 }
+        ]
+    },
+    2: {
+        title: "Quiz — Jour 2 : Les murs",
+        questions: [
+            { q: "Où doit se trouver la ligne de référence pour un mur de façade ?", options: ["Au centre", "Côté intérieur", "Côté extérieur", "Peu importe"], answer: 2 },
+            { q: "Un mur composite dans ARCHICAD représente :", options: ["Un mur en 2D uniquement", "Un sandwich de couches (structure, isolant, finition)", "Un mur temporaire", "Un mur sans épaisseur"], answer: 1 },
+            { q: "Quel raccourci ouvre la boîte de dialogue complète d'un outil ?", options: ["Ctrl+O", "Ctrl+T", "Ctrl+D", "Ctrl+W"], answer: 1 },
+            { q: "Qu'est-ce qui détermine quelle couche traverse l'autre aux jonctions ?", options: ["L'épaisseur", "La couleur", "La priorité de jonction", "L'ordre de création"], answer: 2 },
+            { q: "Pour une cloison intérieure, la ligne de référence est placée :", options: ["Côté extérieur", "Au centre", "En bas", "Côté gauche"], answer: 1 }
+        ]
+    },
+    3: {
+        title: "Quiz — Jour 3 : Structure",
+        questions: [
+            { q: "Quel est le piège n°1 du débutant avec les dalles ?", options: ["La couleur", "L'épaisseur", "L'altitude de référence", "Le nom du calque"], answer: 2 },
+            { q: "Si la Baguette magique ne détecte pas le contour, c'est que :", options: ["Le fichier est corrompu", "Le contour des murs n'est pas fermé", "L'outil est désactivé", "Il manque un calque"], answer: 1 },
+            { q: "Un poteau se place par :", options: ["Un rectangle", "Un simple clic (par point)", "Un tracé de polyligne", "Un copier-coller"], answer: 1 },
+            { q: "Quel outil utilise le raccourci L ?", options: ["Ligne", "Dalle (slab)", "Luminaire", "Légende"], answer: 1 }
+        ]
+    },
+    4: {
+        title: "Quiz — Jour 4 : Menuiseries",
+        questions: [
+            { q: "Quelle est l'allège standard pour une fenêtre de chambre ?", options: ["0 cm", "60 cm", "90 cm", "130 cm"], answer: 2 },
+            { q: "Quelle largeur pour une porte d'entrée standard ?", options: ["60 cm", "70 cm", "80 cm", "90 cm"], answer: 3 },
+            { q: "L'allège d'une fenêtre de SDB est généralement de :", options: ["0 cm", "90 cm", "130 cm", "200 cm"], answer: 2 },
+            { q: "Quel raccourci active l'outil Fenêtre ?", options: ["F", "W", "D", "Shift+D"], answer: 3 },
+            { q: "Une baie vitrée a typiquement une allège de :", options: ["0 cm", "45 cm", "90 cm", "130 cm"], answer: 0 }
+        ]
+    },
+    5: {
+        title: "Quiz — Jour 5 : Escaliers & toiture",
+        questions: [
+            { q: "La formule de Blondel est :", options: ["h + g = 60-65 cm", "2h + g = 60-65 cm", "h × g = 60-65", "2h × g = 65"], answer: 1 },
+            { q: "Pour des tuiles, la pente standard est de :", options: ["3-5°", "15-25°", "30-35°", "45-50°"], answer: 2 },
+            { q: "La commande pour couper les murs sous le toit s'appelle :", options: ["Couper les murs", "Ajuster à la toiture", "Rogner les éléments", "Fusionner"], answer: 1 },
+            { q: "Combien de marches pour une hauteur de 2,80m (hauteur ~17,5cm) ?", options: ["12", "14", "16", "18"], answer: 2 }
+        ]
+    },
+    6: {
+        title: "Quiz — Jour 6 : Projet maison RDC",
+        questions: [
+            { q: "L'ordre professionnel de modélisation est :", options: ["Menuiseries → Murs → Dalles", "Murs ext → Murs porteurs → Cloisons → Menuiseries → Dalles", "Dalles → Murs → Menuiseries", "Toiture → Murs → Dalles"], answer: 1 },
+            { q: "À quoi servent les combinaisons de calques ?", options: ["À changer les couleurs", "À passer d'un affichage à un autre en un clic", "À supprimer des éléments", "À exporter en PDF"], answer: 1 },
+            { q: "Pour les calques, quel préfixe pour l'architecture ?", options: ["S-", "A-", "M-", "X-"], answer: 1 }
+        ]
+    },
+    7: {
+        title: "Quiz — Jour 7 : R+1 & Toiture",
+        questions: [
+            { q: "Pour copier des murs d'un étage à l'autre, on utilise :", options: ["Copier / Coller simple", "Copier / Coller sur étage courant", "Glisser-déposer", "Dupliquer le fichier"], answer: 1 },
+            { q: "Avant de rogner les murs, il est recommandé de :", options: ["Fermer le fichier", "Sauvegarder", "Supprimer les dalles", "Changer de vue"], answer: 1 }
+        ]
+    },
+    8: {
+        title: "Quiz — Jour 8 : Terrain & zones",
+        questions: [
+            { q: "L'outil pour modéliser le terrain est :", options: ["L'outil Dalle", "L'outil Maillage", "L'outil Zone", "L'outil Mur"], answer: 1 },
+            { q: "L'outil Zone calcule automatiquement :", options: ["Le volume", "La surface de la pièce", "Le nombre de murs", "L'altitude"], answer: 1 },
+            { q: "Si la zone ne se crée pas avec la Baguette magique :", options: ["Il manque un calque", "Le contour de murs n'est pas fermé", "Le projet est trop grand", "L'outil est cassé"], answer: 1 }
+        ]
+    },
+    9: {
+        title: "Quiz — Jour 9 : Coupes & élévations",
+        questions: [
+            { q: "Dans ARCHICAD, les coupes sont :", options: ["Dessinées manuellement", "Générées automatiquement depuis la maquette", "Importées depuis un autre logiciel", "Créées en 3D uniquement"], answer: 1 },
+            { q: "Combien de marqueurs d'élévation pour les 4 façades ?", options: ["1", "2", "4", "8"], answer: 2 },
+            { q: "Quand on modifie un mur, les coupes :", options: ["Restent inchangées", "Se mettent à jour automatiquement", "Sont supprimées", "Deviennent floues"], answer: 1 }
+        ]
+    },
+    10: {
+        title: "Quiz — Jour 10 : Cotations & nomenclatures",
+        questions: [
+            { q: "Combien de chaînes de cotes extérieures minimum sur un plan pro ?", options: ["1", "2", "3", "5"], answer: 2 },
+            { q: "Les nomenclatures ARCHICAD sont bidirectionnelles, cela signifie :", options: ["Elles s'affichent horizontalement et verticalement", "Modifier le tableau modifie le modèle et vice versa", "Elles fonctionnent en 2D et 3D", "On peut les lire de gauche à droite et inversement"], answer: 1 },
+            { q: "Quel raccourci pour l'outil Cotation ?", options: ["C", "M", "K", "D"], answer: 1 }
+        ]
+    },
+    11: {
+        title: "Quiz — Jour 11 : Mise en page",
+        questions: [
+            { q: "Le cartouche doit être créé dans :", options: ["Chaque feuille individuellement", "Le gabarit de mise en page", "Le plan d'étage", "Les paramètres du projet"], answer: 1 },
+            { q: "Les vues dans la mise en page sont liées au modèle. Si on modifie la maquette :", options: ["Rien ne change", "Les vues se mettent à jour", "Il faut refaire la mise en page", "Le PDF se régénère"], answer: 1 }
+        ]
+    },
+    12: {
+        title: "Quiz — Jour 12 : Matériaux",
+        questions: [
+            { q: "Règle d'or pour la palette de façade :", options: ["Minimum 6 matériaux", "Maximum 3-4 matériaux", "Un seul matériau", "Aucune règle"], answer: 1 },
+            { q: "Un matériau dans ARCHICAD a combien de facettes ?", options: ["1 (texture)", "2 (plan + 3D)", "3 (plan, 3D, physique)", "4"], answer: 2 }
+        ]
+    },
+    13: {
+        title: "Quiz — Jour 13 : Rendus",
+        questions: [
+            { q: "Pour un rendu extérieur, la meilleure heure du soleil est :", options: ["12h (midi)", "9h ou 18h (golden hour)", "Minuit", "15h"], answer: 1 },
+            { q: "Avant un rendu haute qualité, il faut toujours :", options: ["Exporter en PDF", "Faire un rendu basse qualité pour vérifier", "Supprimer les murs", "Changer de vue"], answer: 1 },
+            { q: "La qualité d'un rendu dépend à 80% de :", options: ["Le nombre de polygones", "La lumière", "La résolution", "Le format d'export"], answer: 1 }
+        ]
+    },
+    14: {
+        title: "Quiz — Jour 14 : Enscape",
+        questions: [
+            { q: "Enscape permet de naviguer :", options: ["Uniquement en plan", "En temps réel comme un jeu vidéo (WASD)", "Uniquement en orbite", "Avec des boutons seulement"], answer: 1 },
+            { q: "Les panoramas 360° Enscape sont utiles pour :", options: ["L'export DWG", "La communication client (visite immersive)", "Le calcul de structure", "L'impression"], answer: 1 }
+        ]
+    },
+    15: {
+        title: "Quiz — Jour 15 : Pipeline rendu",
+        questions: [
+            { q: "Pour le travail quotidien en agence, quel outil de rendu suffit dans 90% des cas ?", options: ["3ds Max", "Blender", "Enscape", "Cinema 4D"], answer: 2 },
+            { q: "Le format d'export vers 3ds Max est :", options: ["DWG", "IFC", "FBX", "PDF"], answer: 2 }
+        ]
+    },
+    16: {
+        title: "Quiz — Jour 16 : Interopérabilité",
+        questions: [
+            { q: "Le format universel BIM est :", options: ["DWG", "SKP", "IFC", "FBX"], answer: 2 },
+            { q: "3D Warehouse contient du mobilier au format :", options: [".dwg", ".skp", ".ifc", ".fbx"], answer: 1 }
+        ]
+    },
+    17: {
+        title: "Quiz — Jour 17 : Productivité",
+        questions: [
+            { q: "Un favori dans ARCHICAD sauvegarde :", options: ["Uniquement la couleur", "Tous les paramètres complets d'un élément", "Le nom du calque", "La position"], answer: 1 },
+            { q: "Le template (.tpl) est :", options: ["Un rendu", "Un fichier modèle avec tout pré-configuré", "Un format d'export", "Un plugin"], answer: 1 }
+        ]
+    },
+    18: {
+        title: "Quiz — Jour 18 : Projet final J1",
+        questions: [
+            { q: "Pour une double hauteur de séjour, les murs doivent :", options: ["Avoir la hauteur d'un étage", "Traverser les 2 étages (ex: 5,60m)", "Être supprimés au R+1", "Être en cloison"], answer: 1 },
+            { q: "Un toit plat nécessite une pente minimale de :", options: ["0% (plat strict)", "1-3% (écoulement des eaux)", "15%", "30%"], answer: 1 }
+        ]
+    },
+    19: {
+        title: "Quiz — Jour 19 : Projet final J2",
+        questions: [
+            { q: "La palette contemporaine classique comprend :", options: ["Brique + enduit rouge", "Béton + bois clair + métal noir", "Pierre + tuile", "Tout en blanc"], answer: 1 }
+        ]
+    },
+    20: {
+        title: "Quiz — Jour 20 : Bilan final",
+        questions: [
+            { q: "Pour continuer à progresser après la formation, il faut :", options: ["Ne plus toucher ARCHICAD", "Pratiquer 3×/semaine minimum", "Attendre la prochaine formation", "Acheter 3ds Max"], answer: 1 },
+            { q: "La certification Graphisoft se passe :", options: ["En présentiel uniquement", "En ligne sur le site Graphisoft", "Par courrier", "À l'université"], answer: 1 }
+        ]
+    }
+};
+
+// ==========================================
+// BADGES DATA — Gamification
+// ==========================================
+const BADGES_DATA = [
+    { id: "first_building", icon: "🏠", title: "Premier bâtiment", description: "Terminer le Jour 1", condition: function(progress) { return progress[1]; } },
+    { id: "wall_master", icon: "🧱", title: "Maître des murs", description: "Terminer le Jour 2", condition: function(progress) { return progress[2]; } },
+    { id: "week1", icon: "⭐", title: "Semaine 1 complète", description: "Terminer les 5 premiers jours", condition: function(progress) { return [1,2,3,4,5].every(function(d){return progress[d];}); } },
+    { id: "real_house", icon: "🏡", title: "La vraie maison", description: "Terminer la semaine 2", condition: function(progress) { return [6,7,8,9,10].every(function(d){return progress[d];}); } },
+    { id: "render_pro", icon: "📸", title: "Rendu pro", description: "Terminer le jour des rendus (J13)", condition: function(progress) { return progress[13]; } },
+    { id: "enscape_master", icon: "🎮", title: "Maître Enscape", description: "Terminer le jour Enscape (J14)", condition: function(progress) { return progress[14]; } },
+    { id: "week3", icon: "🎨", title: "Livrable pro", description: "Terminer la semaine 3", condition: function(progress) { return [11,12,13,14,15].every(function(d){return progress[d];}); } },
+    { id: "quiz_perfect", icon: "🧠", title: "Quiz parfait", description: "Obtenir 100% sur un quiz", condition: function(progress, quizScores) { return Object.values(quizScores || {}).some(function(s) { return s === 100; }); } },
+    { id: "quiz_5", icon: "📝", title: "Quizzeur assidu", description: "Compléter 5 quiz", condition: function(progress, quizScores) { return Object.keys(quizScores || {}).length >= 5; } },
+    { id: "halfway", icon: "🎯", title: "Mi-parcours", description: "Terminer 10 jours", condition: function(progress) { return Object.keys(progress).filter(function(k){return progress[k];}).length >= 10; } },
+    { id: "final_project", icon: "🏗️", title: "Projet final", description: "Terminer les 3 jours du projet final", condition: function(progress) { return [18,19,20].every(function(d){return progress[d];}); } },
+    { id: "graduate", icon: "🎓", title: "Diplômé ARCHICAD", description: "Terminer les 20 jours", condition: function(progress) { return Object.keys(progress).filter(function(k){return progress[k];}).length >= 20; } }
+];
+
 // Export pour utilisation dans app.js
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { FORMATION_DATA, SHORTCUTS_DATA, RESOURCES_DATA };
+    module.exports = { FORMATION_DATA, SHORTCUTS_DATA, RESOURCES_DATA, QUIZ_DATA, BADGES_DATA };
 }

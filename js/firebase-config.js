@@ -7,30 +7,20 @@
 // 1. Allez sur https://console.firebase.google.com
 // 2. Créez un projet (ex: "atelierlo-formation")
 // 3. Activez Authentication > Email/Password
-// 4. Créez 2 utilisateurs :
-//    - Formateur : votre email (rôle sera défini dans Firestore)
-//    - Apprenant : email de la stagiaire
+// 4. Créez le compte formateur : formateur@atelierlo.fr / formation2026
 // 5. Activez Firestore Database (mode test pour commencer)
 // 6. Copiez votre config Firebase ci-dessous
-// 7. Dans Firestore, créez une collection "users" avec 2 documents :
-//    - Document ID = UID du formateur : { role: "formateur", name: "Lucien", email: "..." }
-//    - Document ID = UID de l'apprenant : { role: "apprenant", name: "Prénom", email: "..." }
+// 
+// SYSTÈME MULTI-UTILISATEURS :
+// - Le formateur peut CRÉER des comptes apprenants directement depuis la plateforme
+// - Chaque nouvel apprenant reçoit un email et mot de passe générés automatiquement
+// - Le formateur peut voir/copier les identifiants, réinitialiser un mot de passe, supprimer un compte
+// - Chaque apprenant a ses propres données isolées (progression, quiz, notes...)
+// - Le formateur peut voir la progression de TOUS ses apprenants via "Gestion élèves"
+// - En mode local, les comptes sont stockés dans localStorage
+// - En mode Firebase, les comptes sont stockés dans Firestore
 //
-// RÈGLES FIRESTORE (à coller dans les règles de sécurité) :
-// rules_version = '2';
-// service cloud.firestore {
-//   match /databases/{database}/documents {
-//     match /users/{userId} {
-//       allow read, write: if request.auth != null && request.auth.uid == userId;
-//     }
-//     match /progress/{userId} {
-//       allow read, write: if request.auth != null;
-//     }
-//     match /notes/{noteId} {
-//       allow read, write: if request.auth != null;
-//     }
-//   }
-// }
+// RÈGLES FIRESTORE : voir firestore.rules
 
 const FIREBASE_CONFIG = {
     // ⚠️ REMPLACEZ CES VALEURS par votre configuration Firebase
@@ -56,14 +46,135 @@ const DEMO_ACCOUNTS = {
         role: "formateur",
         name: "Lucien",
         uid: "formateur-001"
-    },
-    "apprenant@atelierlo.fr": {
-        password: "archicad2026",
-        role: "apprenant",
-        name: "Apprenant(e)",
-        uid: "apprenant-001"
     }
 };
+
+// Charger les comptes créés dynamiquement depuis localStorage
+function loadDynamicAccounts() {
+    var saved = localStorage.getItem('atelierlo_dynamic_accounts');
+    if (saved) {
+        var accounts = JSON.parse(saved);
+        Object.keys(accounts).forEach(function(email) {
+            DEMO_ACCOUNTS[email] = accounts[email];
+        });
+    }
+}
+
+// Sauvegarder les comptes dynamiques
+function saveDynamicAccounts() {
+    var dynamic = {};
+    Object.keys(DEMO_ACCOUNTS).forEach(function(email) {
+        if (DEMO_ACCOUNTS[email].role === 'apprenant') {
+            dynamic[email] = DEMO_ACCOUNTS[email];
+        }
+    });
+    localStorage.setItem('atelierlo_dynamic_accounts', JSON.stringify(dynamic));
+}
+
+// Générer un identifiant unique
+function generateUid() {
+    return 'apprenant-' + Date.now().toString(36) + '-' + Math.random().toString(36).substr(2, 5);
+}
+
+// Générer un mot de passe aléatoire (8 caractères, lisible)
+function generatePassword() {
+    var chars = 'abcdefghjkmnpqrstuvwxyz23456789';
+    var pwd = '';
+    for (var i = 0; i < 8; i++) {
+        pwd += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return pwd;
+}
+
+// Générer un email à partir du nom
+function generateEmail(firstName, lastName) {
+    var clean = function(str) {
+        return str.toLowerCase()
+            .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+            .replace(/[^a-z]/g, '');
+    };
+    var base = clean(firstName) + '.' + clean(lastName) + '@atelierlo.fr';
+    // Vérifier unicité
+    if (DEMO_ACCOUNTS[base]) {
+        var counter = 2;
+        while (DEMO_ACCOUNTS[clean(firstName) + '.' + clean(lastName) + counter + '@atelierlo.fr']) {
+            counter++;
+        }
+        base = clean(firstName) + '.' + clean(lastName) + counter + '@atelierlo.fr';
+    }
+    return base;
+}
+
+// Créer un nouvel apprenant
+async function createApprenant(firstName, lastName) {
+    var email = generateEmail(firstName, lastName);
+    var password = generatePassword();
+    var uid = generateUid();
+    var name = firstName + ' ' + lastName;
+
+    if (USE_FIREBASE && firebaseDb && firebaseAuth) {
+        // En mode Firebase : créer l'utilisateur via Admin SDK ou Cloud Function
+        // Pour l'instant, on ajoute dans Firestore (l'admin créera le compte Auth manuellement)
+        await firebaseDb.collection('users').doc(uid).set({
+            name: name,
+            email: email,
+            role: 'apprenant',
+            password: password, // Stocké pour que le formateur puisse le communiquer
+            createdAt: new Date().toISOString(),
+            createdBy: 'formateur'
+        });
+    }
+
+    // Mode local : ajouter au DEMO_ACCOUNTS
+    DEMO_ACCOUNTS[email] = {
+        password: password,
+        role: 'apprenant',
+        name: name,
+        uid: uid,
+        createdAt: new Date().toISOString()
+    };
+    saveDynamicAccounts();
+
+    return { email: email, password: password, name: name, uid: uid };
+}
+
+// Supprimer un apprenant
+async function deleteApprenant(email) {
+    if (USE_FIREBASE && firebaseDb) {
+        var account = DEMO_ACCOUNTS[email];
+        if (account) {
+            // Supprimer les données Firestore
+            try {
+                await firebaseDb.collection('users').doc(account.uid).delete();
+                await firebaseDb.collection('userData').doc(account.uid).delete();
+            } catch(e) { console.warn('Erreur suppression Firestore:', e); }
+        }
+    }
+
+    // Supprimer en local
+    if (DEMO_ACCOUNTS[email]) {
+        var uid = DEMO_ACCOUNTS[email].uid;
+        delete DEMO_ACCOUNTS[email];
+        localStorage.removeItem('atelierlo_' + uid);
+        saveDynamicAccounts();
+        return true;
+    }
+    return false;
+}
+
+// Réinitialiser le mot de passe d'un apprenant
+function resetApprenantPassword(email) {
+    if (DEMO_ACCOUNTS[email] && DEMO_ACCOUNTS[email].role === 'apprenant') {
+        var newPwd = generatePassword();
+        DEMO_ACCOUNTS[email].password = newPwd;
+        saveDynamicAccounts();
+        return newPwd;
+    }
+    return null;
+}
+
+// Charger les comptes dynamiques au démarrage
+loadDynamicAccounts();
 
 // Firebase init (si configuré)
 let firebaseApp = null;
@@ -141,6 +252,68 @@ async function loadUserData(userId, key) {
         const stored = JSON.parse(localStorage.getItem(`atelierlo_${userId}`) || '{}');
         return stored[key] || null;
     }
+}
+
+// ==========================================
+// MULTI-USER: list all apprenants
+// ==========================================
+
+// Get list of all apprenant accounts
+async function getAllApprenants() {
+    if (USE_FIREBASE && firebaseDb) {
+        // In Firebase mode: query users collection for role=apprenant
+        const snapshot = await firebaseDb.collection('users')
+            .where('role', '==', 'apprenant').get();
+        var apprenants = [];
+        snapshot.forEach(function(doc) {
+            apprenants.push({
+                uid: doc.id,
+                name: doc.data().name || 'Sans nom',
+                email: doc.data().email || '',
+                role: 'apprenant'
+            });
+        });
+        return apprenants;
+    } else {
+        // Local mode: list from DEMO_ACCOUNTS
+        var apprenants = [];
+        Object.keys(DEMO_ACCOUNTS).forEach(function(email) {
+            var account = DEMO_ACCOUNTS[email];
+            if (account.role === 'apprenant') {
+                apprenants.push({
+                    uid: account.uid,
+                    name: account.name,
+                    email: email,
+                    role: 'apprenant'
+                });
+            }
+        });
+        return apprenants;
+    }
+}
+
+// Load all data for one apprenant (used by formateur dashboard)
+async function loadAllApprenantData(userId) {
+    var data = {};
+    var keys = ['progress', 'checklist', 'quizScores', 'timeSpent', 'notes', 'evaluation'];
+    for (var i = 0; i < keys.length; i++) {
+        data[keys[i]] = await loadUserData(userId, keys[i]) || {};
+    }
+    return data;
+}
+
+// Load summary data for all apprenants (for formateur overview)
+async function loadAllApprenantsData() {
+    var apprenants = await getAllApprenants();
+    var result = [];
+    for (var i = 0; i < apprenants.length; i++) {
+        var data = await loadAllApprenantData(apprenants[i].uid);
+        result.push({
+            info: apprenants[i],
+            data: data
+        });
+    }
+    return result;
 }
 
 // Initialize
